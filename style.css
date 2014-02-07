@@ -1,0 +1,314 @@
+/*
+Theme Name: DIAS_
+Theme URI: tbc
+Description: A custom WordPress theme for the DIAS creative homepage.
+Author: Joe Hobson
+Author URI: tbc
+Version: 1.0
+Tags: clean, light, responsive, custom-post-types, custom-fields, portfolio
+
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+body {
+  background: rgb(240, 240, 240);
+}
+
+/*Nav*/
+
+.navbar-default {
+  background-color: #FFFFFF;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.logo img{
+  float: left;
+  width: 125px;
+
+}
+
+.navbar-nav {
+  float: right;
+  font-size: 16px;
+  font-weight: 700;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+  padding: 5px 40px 0;
+  line-height: 75px;
+  transition-property: background, color;
+  transition-duration: 0.25s;
+  transitiontiming-function: ease-out;
+  color: #000;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  transition-property: background, color;
+  transition-duration: 0.25s;
+  transitiontiming-function: ease-out;
+  background: #000;
+  color: #FFFFFF;
+}
+
+
+/*Carousel*/
+
+
+.carousel-caption {
+ margin-bottom: 20px;
+ text-align: left;
+}
+
+.carousel-caption h1 {
+  font-weight: 700;
+  margin-bottom: 8px;
+
+}
+
+.carousel-caption p {
+  font-size: 18px;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  padding: 8px 15px;
+}
+
+.btn-primary {
+  background-color: #39C290;
+}
+
+
+
+/*About*/
+
+
+
+.about {
+  padding: 80px 0;
+  text-align: center;
+
+ }
+
+.about img {
+  padding-bottom: 5px;
+  width: 30%;
+}
+
+
+.about h3 {
+  padding-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #95a5a6;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #95a5a6;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+.about p {
+  text-align: center;
+  padding-top: 9px;
+  font-size: 16px;
+}
+
+/*Recent*/
+
+h2 {
+
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.recent img {
+  border: 0.5em solid white;
+  box-shadow: 3px 3px 3px #ccc;
+  margin-bottom: 50px;
+}
+
+
+
+
+
+/*widgets*/
+
+.widgets h3 {
+  font-weight: 600;
+  font-size: 17px;
+  padding-bottom: 10px;
+}
+
+.insta img {
+  width: 50%;
+  border: 0.25em solid white;
+  box-shadow: 3px 3px 3px #ccc;
+}
+
+.posts img {
+  width: 33.3333%;
+  clear: both;
+
+}
+
+.posts a {
+  float: left;
+}
+
+/*Footer*/
+
+.navbar-fixed-bottom {
+  background: #000;
+  position: relative;
+  box-shadow: none;
+  height: auto;
+}
+
+.navbar-fixed-bottom a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.navbar-text {
+  font-weight: bold;
+
+}
+
+.largeIcon {
+
+  padding: 0 30px;
+/*  margin-right: -30px;*/
+  font-size: 24px;
+}
+
+/*Media Queries*/
+
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    font-size: 24px;
+  }
+.carousel-caption p {
+  font-size: 16px;
+}
+.btn {
+  display: none;
+}
+h2 {
+  font-size: 20px;
+}
+.about img {
+  width: 12%;
+  padding: 5px 0;
+}
+.about h3 {
+  font-size: 17px;
+}
+.about p {
+  font-size: 14px;
+}
+hr {
+  width: 20%;
+}
+.recent img{
+  width: 30%;
+  float: right;
+  margin-right: 100px;
+}
+.widgets {
+  display: none;
+}
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .navbar-fixed-top {
+    position: relative;
+    margin-bottom: 0px;
+  }
+  .logo img {
+    margin-left: 15px;
+    margin-bottom: 12px;
+  }
+  .navbar-toggle {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+ .carousel-caption p {
+  font-size: 14px;
+  }
+ .btn {
+  display: none;
+  }
+  h2 {
+  font-size: 18px;
+  }
+  .about img {
+  width: 10%;
+  padding: 5px 0;
+  }
+  .about h3 {
+    font-size: 16px;
+  }
+  .about p {
+  font-size: 13px;
+}
+  hr {
+  width: 20%;
+  }
+  .recent img{
+  width: 30%;
+  float: right;
+  margin-right: 80px;
+  margin-top: 10px;
+}
+  .widgets {
+  display: none;
+}
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  .carousel-caption p {
+   display: none;
+  }
+  h1 {
+   text-align: center;
+  }
+   .recent img {
+   width: 30%;
+   margin-right: 55px;
+   margin-top: 10px;
+}
+
+  .largeIcon {
+    padding: 0 15px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
