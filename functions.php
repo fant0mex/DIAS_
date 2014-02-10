@@ -1,31 +1,39 @@
 <?php
 
-//Load the Theme Css
+if (!current_user_can(‘edit_posts’)) {
+show_admin_bar(false);
+}
 
-function theme_styles() {
+function wpbootstrap_scripts_with_jquery()
+{
+  // Register the script like this for a theme:
+  wp_register_script( 'custom-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array( 'jquery' ) );
+  // For either a plugin or a theme, you can then enqueue the script:
+  wp_enqueue_script( 'custom-script' );
+}
+add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 
-  wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
-  wp_enqueue_style( 'main', get_template_directory_uri() . '/style.css');
 
+add_theme_support( 'menus');
+
+
+function create_widget( $name, $id, $description ) {
+
+  $args = array(
+      'name'          => __( $name ),
+      'id'            => $id,
+      'description'   => $description,
+      'before_widget' => '',
+      'after_widget'  => '',
+      'before_title'  => '<h3>',
+      'after_title'   => '</h3>',
+  );
+
+  register_sidebar( $args   );
 
 }
 
-// function theme_js() {
-
-//   wp_register_scripts( 'carousel', get_template_directory_uri() . 'js/bootstrap.js', array('jquery'), '', true);
-
-//   if( is_page( 'home' )) {
-//     wp_enqueue_script( 'carousel' );
-//   }
-//   wp_enqueue_script( 'theme_js', get_template_directory_uri() . 'js/theme.js', array('jquery'), '', true);
-// }
-
-// add_action( 'wp_enqueue_scripts', 'theme_js' );
-
-add_action( 'wp_enqueue_scripts', 'theme_styles' );
-
-// Enable cutom menus
-add_theme_support( 'menus' );
-
+  create_widget( 'Left Footer', "footer_left", "Displays in the bottom left footer");
+  create_widget( 'Middle Footer', "footer_middle", "Displays in the bottom middle footer");
+  create_widget( 'Right Footer', "footer_right", "Displays in the bottom right footer");
 ?>
-

@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+<div class="row">
+  <div class="span8">
+
   <p>This is the page.php</p>
 
 <?php
@@ -17,8 +20,15 @@ if ( have_posts() ) :
   endwhile;
 else:
 ?>
-  <p>There are no posts or pages here.</p>
+  <p>Sorry, this page does not exist.</p>
 
 <?php endif; ?>
+
+</div>
+
+  <div class="span4">
+
+  </div>
+</div>
 
 <?php get_footer(); ?>

@@ -12,11 +12,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
+@import url('bootstrap/css/bootstrap.css');
+
 body {
   background: rgb(240, 240, 240);
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
 }
 
-/*Nav*/
+
 
 .navbar-default {
   background-color: #FFFFFF;
@@ -145,26 +149,28 @@ h2 {
 
 /*widgets*/
 
-.widgets h3 {
-  font-weight: 600;
-  font-size: 17px;
-  padding-bottom: 10px;
+.widgets {
+  margin-left: 120px;
 }
 
-.insta img {
+.footer_left {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1em;
+}
+
+.footer_left label{
+  display: none;
+}
+
+.footer_middle ul {
+  padding: 10px;
+}
+
+.footer_right ul {
+  list-style: none;
   width: 50%;
-  border: 0.25em solid white;
-  box-shadow: 3px 3px 3px #ccc;
-}
-
-.posts img {
-  width: 33.3333%;
-  clear: both;
-
-}
-
-.posts a {
-  float: left;
 }
 
 /*Footer*/
