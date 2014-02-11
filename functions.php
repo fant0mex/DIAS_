@@ -36,4 +36,19 @@ function create_widget( $name, $id, $description ) {
   create_widget( 'Left Footer', "footer_left", "Displays in the bottom left footer");
   create_widget( 'Middle Footer', "footer_middle", "Displays in the bottom middle footer");
   create_widget( 'Right Footer', "footer_right", "Displays in the bottom right footer");
+
+  add_filter( 'pre_get_posts', 'my_get_posts' );
+
+    function my_get_posts( $query ) {
+
+    if ( is_home() && $query->is_main_query() )
+    $query->set( 'post_type', array( 'homepage-slider' ) );
+
+    return $query;
+}
+
 ?>
+
+
+
+

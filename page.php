@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
+
 <div class="row">
-  <div class="span8">
+  <div class="col-md-12">
 
   <p>This is the page.php</p>
 
@@ -24,11 +25,6 @@ else:
 
 <?php endif; ?>
 
-</div>
 
-  <div class="span4">
-
-  </div>
-</div>
 
 <?php get_footer(); ?>

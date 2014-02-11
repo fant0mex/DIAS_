@@ -10,38 +10,47 @@
         </ol>
 
         <div class="carousel-inner">
+
+            <?php
+               $the_query = new WP_Query(array(
+                'category_name' => 'Homepage Slider',
+                'posts_per_page' => 1
+                ));
+               while ( $the_query->have_posts() ) :
+               $the_query->the_post();
+            ?>
           <div class="item active">
-            <img src="<?php bloginfo('template_directory'); ?>/images/slide_placeholder_01c.jpg" class="img-responsive" alt="Responsive image">
-            <div class="container">
-              <div class="carousel-caption pull-left">
-                <h1>Project Title</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Cras euismod mi felis, quis suscipit velit sodales nec.</p>
-                <p><a class="btn btn-large btn-primary" href="#">View More</a></p>
+           <?php the_post_thumbnail('full-size');?>
+              <div class="carousel-caption">
+               <h4><?php the_title();?></h4>
+               <p><?php the_excerpt();?></p>
               </div>
-            </div>
-          </div>
+             </div>
+            <?php
+             endwhile;
+             wp_reset_postdata();
+            ?>
 
-          <div class="item">
-            <img src="<?php bloginfo('template_directory'); ?>/images/slide_placeholder_02c.jpg" class="img-responsive" alt="Responsive image">
-            <div class="container">
-              <div class="carousel-caption pull-left">
-                <h1>Project Title</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Cras euismod mi felis, quis suscipit velit sodales nec.</p>
-                <p><a class="btn btn-large btn-primary" href="#">View More</a></p>
+            <?php
+               $the_query = new WP_Query(array(
+                'category_name' => 'Homepage Slider',
+                'posts_per_page' => 3,
+                'offset' => 1
+                ));
+               while ( $the_query->have_posts() ) :
+               $the_query->the_post();
+              ?>
+              <div class="item">
+               <?php the_post_thumbnail('full-size');?>
+               <div class="carousel-caption">
+                <h4><?php the_title();?></h4>
+                <p><?php the_excerpt();?></p>
+               </div>
               </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="<?php bloginfo('template_directory'); ?>/images/slide_placeholder_03c.jpg" class="img-responsive" alt="Responsive image">
-            <div class="container">
-              <div class="carousel-caption pull-left">
-                <h1>Project Title</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Cras euismod mi felis, quis suscipit velit sodales nec.</p>
-                <p><a class="btn btn-large btn-primary" href="#">View More</a></p>
-              </div>
-            </div>
-          </div>
+              <?php
+               endwhile;
+               wp_reset_postdata();
+            ?>
 
         </div>
           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -113,7 +122,7 @@
             <?php else: ;?>
 
 
-            <h3>Twitter</h3>
+            <h4>Twitter</h4><hr>
             <p>Install Twiget Plugin  and place widget here.</p>
 
             <?php endif; ?>
@@ -125,7 +134,7 @@
              <?php else: ;?>
 
 
-             <h3>Recent Posts</h3>
+             <h4>Recent Posts</h4><hr>
              <p>Install Recent Posts Widget and place here.</p>
 
            <?php endif; ?>
@@ -137,7 +146,7 @@
             <?php else: ;?>
 
 
-            <h3>Instagram</h3>
+            <h4>Instagram</h4><hr>
             <p>Install WPInstagram Images Widget and place here.</p>
 
             <?php endif; ?>
