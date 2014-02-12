@@ -104,17 +104,12 @@
         <div class="row recent">
           <div class="col-md-3">
 
-
             <?php
 
             $args = array(
-
-              'post_type' => 'work'
-              'post-per-page' => 4,
-              'orderby' => 'date',
-
+              'post_type' => 'work',
+              'posts_per_page' => 2
               );
-
             $the_query = new WP_Query( $args );
 
             ?>
@@ -123,24 +118,15 @@
               if ( have_posts() ) :
                 while ($the_query->have_posts() ):
                   $the_query->the_post();
-            ?>
+              ?>
 
-            <?php
-              endwhile; endif; ?>
+                <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
 
-              <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
-          </div>
+            </div>
 
-          <div class="col-md-3">
-              <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/two_screen.jpg" class="img-responsive" alt="Responsive image"></a>
-          </div>
 
-            <div class="col-md-3">
-              <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/ipad.jpg" class="img-responsive" alt="Responsive image"></a>
-          </div>
 
-           <div class="col-md-3">
-              <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/headphones.jpg" class="img-responsive" alt="Responsive image"></a>
+            <?php endwhile; endif; ?>
           </div>
         </div>
 
