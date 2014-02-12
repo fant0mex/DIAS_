@@ -20,7 +20,13 @@ body {
 
 }
 
+a {
+  color: #000;
+}
 
+a:hover {
+  text-decoration: none;
+}
 
 .navbar-default {
   background-color: #FFFFFF;
@@ -65,6 +71,7 @@ body {
 .carousel-caption {
  margin-bottom: 20px;
  text-align: left;
+ mar
 }
 
 .carousel-caption h1 {
@@ -238,6 +245,28 @@ hr {
   display: none;
 }
 }
+
+/*Wordpress Specific*/
+
+
+.page {
+  margin-top: 125px;
+}
+
+.page h3 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.page p {
+  padding: 10px 0;
+}
+
+.work {
+  margin-top: 125px;
+}
+
+
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {

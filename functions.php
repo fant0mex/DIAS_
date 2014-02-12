@@ -16,6 +16,8 @@ add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 
 add_theme_support( 'menus');
 
+add_theme_support( 'post-thumbnails' );
+
 
 function create_widget( $name, $id, $description ) {
 
@@ -39,13 +41,13 @@ function create_widget( $name, $id, $description ) {
 
   add_filter( 'pre_get_posts', 'my_get_posts' );
 
-    function my_get_posts( $query ) {
+//     function my_get_posts( $query ) {
 
-    if ( is_home() && $query->is_main_query() )
-    $query->set( 'post_type', array( 'homepage-slider' ) );
+//     if ( is_home() && $query->is_main_query() )
+//     $query->set( 'post_type', array( 'homepage-slider' ) );
 
-    return $query;
-}
+//     return $query;
+// }
 
 ?>
 

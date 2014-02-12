@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-  <p>This is the single-work.php</p>
+
 
 <?php
 if ( have_posts() ) :
@@ -9,7 +9,11 @@ if ( have_posts() ) :
 ?>
     <h3><?php the_title(); ?></h3>
 
+    <img src="<?php the_field( 'project_image' ); ?>">
+
     <p><?php the_field( 'description' ); ?></p>
+
+
 
     <hr>
 

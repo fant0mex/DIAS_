@@ -23,13 +23,13 @@ if ( have_posts() ) :
   while ($the_query->have_posts() ):
     $the_query->the_post();
 ?>
-    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
-    <img src="<?php the_field( 'homepage_slider_image' ); ?>">
+<div class= "container">
+  <div class="row work">
 
-    <p><?php the_field( 'description' ); ?></p>
 
-    <hr>
+    <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
+
 
 <?php
   endwhile;
@@ -38,5 +38,8 @@ else:
   <p>There are no posts or pages here.</p>
 
 <?php endif; ?>
+
+  </div>
+</div>
 
 <?php get_footer(); ?>

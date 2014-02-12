@@ -13,17 +13,18 @@
 
             <?php
                $the_query = new WP_Query(array(
-                'category_name' => 'Homepage Slider',
+                'post_type' => 'slider',
                 'posts_per_page' => 1
                 ));
                while ( $the_query->have_posts() ) :
                $the_query->the_post();
             ?>
           <div class="item active">
-           <?php the_post_thumbnail('full-size');?>
+           <img src="<?php the_field("slide");?>">
               <div class="carousel-caption">
-               <h4><?php the_title();?></h4>
-               <p><?php the_excerpt();?></p>
+               <h1><?php the_title();?></h1>
+               <p><?php the_field("excerpt");?></p>
+               <p><a class="btn btn-large btn-primary" href="#">View More</a></p>
               </div>
              </div>
             <?php
@@ -33,7 +34,7 @@
 
             <?php
                $the_query = new WP_Query(array(
-                'category_name' => 'Homepage Slider',
+                'post_type' => 'slider',
                 'posts_per_page' => 3,
                 'offset' => 1
                 ));
@@ -41,10 +42,11 @@
                $the_query->the_post();
               ?>
               <div class="item">
-               <?php the_post_thumbnail('full-size');?>
+               <img src="<?php the_field("slide");?>">
                <div class="carousel-caption">
-                <h4><?php the_title();?></h4>
-                <p><?php the_excerpt();?></p>
+                <h1><?php the_title();?></h1>
+                <p><?php the_field("excerpt");?></p>
+                <p><a class="btn btn-large btn-primary" href="#">View More</a></p>
                </div>
               </div>
               <?php
@@ -96,10 +98,37 @@
 
 
 
+
+
       <h2>Recent Work</h2>
         <div class="row recent">
           <div class="col-md-3">
-              <a href="#"><img src="<?php bloginfo('template_directory'); ?>/images/iphone.jpg" class="img-responsive" alt="Responsive image"></a>
+
+
+            <?php
+
+            $args = array(
+
+              'post_type' => 'work'
+              'post-per-page' => 4,
+              'orderby' => 'date',
+
+              );
+
+            $the_query = new WP_Query( $args );
+
+            ?>
+
+            <?php
+              if ( have_posts() ) :
+                while ($the_query->have_posts() ):
+                  $the_query->the_post();
+            ?>
+
+            <?php
+              endwhile; endif; ?>
+
+              <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
           </div>
 
           <div class="col-md-3">
@@ -115,44 +144,6 @@
           </div>
         </div>
 
-        <div class="row widgets">
-           <div class="col-md-4 footer_left">
-            <?php if( dynamic_sidebar( 'footer_left' )): ?>
 
-            <?php else: ;?>
-
-
-            <h4>Twitter</h4><hr>
-            <p>Install Twiget Plugin  and place widget here.</p>
-
-            <?php endif; ?>
-           </div>
-
-           <div class="col-md-4 footer_middle">
-              <?php if( dynamic_sidebar( 'footer_middle' )): ?>
-
-             <?php else: ;?>
-
-
-             <h4>Recent Posts</h4><hr>
-             <p>Install Recent Posts Widget and place here.</p>
-
-           <?php endif; ?>
-           </div>
-
-           <div class="col-md-4 footer_right">
-            <?php if( dynamic_sidebar( 'footer_right' )): ?>
-
-            <?php else: ;?>
-
-
-            <h4>Instagram</h4><hr>
-            <p>Install WPInstagram Images Widget and place here.</p>
-
-            <?php endif; ?>
-
-           </div>
-        </div>
-    </div>
 
 <?php get_footer(); ?>

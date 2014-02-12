@@ -1,18 +1,19 @@
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
-
 
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
     <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
     <meta name="description" content="We make things worth making. Digital + Motion + Interaction.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php wp_enqueue_script("jquery"); ?>
+
+
 
     <?php wp_head(); ?>
 
