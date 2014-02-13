@@ -49,7 +49,7 @@
 
                  <div class="navbar-text pull-right">
                   <a href="#"><i class="largeIcon fa fa-facebook"></i></a>
-                   <a href="#"><i class="largeIcon fa fa-twitter"></i></a>
+                  <a href="#"><i class="largeIcon fa fa-twitter"></i></a>
                   <a href="#"><i class="largeIcon fa fa-instagram"></i></a>
                   <a href="#"><i class="largeIcon fa fa-linkedin"></i></a>
                   <a href="#"><i class="largeIcon fa fa-pinterest"></i></a>

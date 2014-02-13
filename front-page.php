@@ -108,7 +108,8 @@
 
             $args = array(
               'post_type' => 'work',
-              'posts_per_page' => 2
+              'posts_per_page' => 1,
+
               );
             $the_query = new WP_Query( $args );
 
@@ -124,7 +125,17 @@
 
             </div>
 
+            <div class="col-md-3">
+             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
+            </div>
 
+            <div class="col-md-3">
+             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
+            </div>
+
+            <div class="col-md-3">
+             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
+            </div>
 
             <?php endwhile; endif; ?>
           </div>

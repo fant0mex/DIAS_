@@ -156,8 +156,12 @@ h2 {
 
 /*widgets*/
 
+h3 {
+  font-size: 20px;
+}
+
 .widgets {
-  margin-left: 120px;
+  margin-left: 240px;
 }
 
 .footer_left {
@@ -206,6 +210,42 @@ h2 {
   font-size: 24px;
 }
 
+
+/*Wordpress Specific*/
+
+
+.page {
+  margin-top: 125px;
+}
+
+.page h3 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.page p {
+  padding: 10px 0;
+}
+
+.work {
+  margin-top: 125px;
+}
+
+.work img {
+  border: 0.5em solid white;
+  box-shadow: 3px 3px 3px #ccc;
+  margin-bottom: 50px;
+
+}
+
+
+
+
+
+
+
+
+
 /*Media Queries*/
 
 
@@ -237,7 +277,8 @@ hr {
   width: 20%;
 }
 .recent img{
-  width: 30%;
+  width: 240px;
+  height: 240px;
   float: right;
   margin-right: 100px;
 }
@@ -246,25 +287,7 @@ hr {
 }
 }
 
-/*Wordpress Specific*/
 
-
-.page {
-  margin-top: 125px;
-}
-
-.page h3 {
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.page p {
-  padding: 10px 0;
-}
-
-.work {
-  margin-top: 125px;
-}
 
 
 
