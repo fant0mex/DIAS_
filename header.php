@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/images/avatar_50fb2d27989a_128.png">
     <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
     <meta name="description" content="We make things worth making. Digital + Motion + Interaction.">
 
@@ -39,7 +40,7 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-              <?php wp_list_pages(array('title_li' => '', 'exclude' => 4)); ?>
+              <?php wp_nav_menu( array('menu' => 'Primary' )); ?>
 
             </ul>
           </div>

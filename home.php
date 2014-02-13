@@ -2,10 +2,11 @@
 
  <div class= "container">
   <div class="row page">
-    <div class="col-md-12 blog8">
+
 
   <h1>DIAS__SAID</h1>
 
+  <div class="col-md-9 blog">
 <?php
 if ( have_posts() ) :
   while ( have_posts() ):

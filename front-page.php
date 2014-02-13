@@ -130,6 +130,6 @@
     </div>
 </div>
 
-
+<?php get_template_part( 'content', 'widgets' ); ?>
 
 <?php get_footer(); ?>
