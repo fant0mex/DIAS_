@@ -140,14 +140,14 @@ hr {
 h2 {
 
   font-size: 2em;
-  font-weight: bold;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 25px;
 }
 
 .recent img {
   border: 0.5em solid white;
   box-shadow: 3px 3px 3px #ccc;
-  margin-bottom: 50px;
+  margin-bottom: 65px;
 }
 
 
@@ -158,6 +158,7 @@ h2 {
 
 h3 {
   font-size: 20px;
+  font-weight: 500;
 }
 
 .widgets {
@@ -236,6 +237,23 @@ h3 {
   box-shadow: 3px 3px 3px #ccc;
   margin-bottom: 50px;
 
+}
+
+.info {
+  list-style: none;
+}
+
+.info li{
+  display: inline;
+  padding: 5px;
+}
+
+h3#comments, #respond h3 {
+  font-weight: 400;
+}
+
+label {
+  font-weight: 400;
 }
 
 

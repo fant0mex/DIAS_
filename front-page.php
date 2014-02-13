@@ -102,44 +102,33 @@
 
       <h2>Recent Work</h2>
         <div class="row recent">
-          <div class="col-md-3">
 
-            <?php
+    <?php
 
-            $args = array(
-              'post_type' => 'work',
-              'posts_per_page' => 1,
+      $args = array(
+          'post_type' => 'work'
+        );
 
-              );
-            $the_query = new WP_Query( $args );
+      $the_query = new WP_Query( $args );
+    ?>
 
-            ?>
+    <?php
+        if ( have_posts() ) :
+        while ($the_query->have_posts() ):
+        $the_query->the_post();
+    ?>
 
-            <?php
-              if ( have_posts() ) :
-                while ($the_query->have_posts() ):
-                  $the_query->the_post();
-              ?>
+      <div class="col-md-3">
 
-                <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
+          <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
 
-            </div>
 
-            <div class="col-md-3">
-             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
-            </div>
+      </div>
 
-            <div class="col-md-3">
-             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
-            </div>
-
-            <div class="col-md-3">
-             <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
-            </div>
-
-            <?php endwhile; endif; ?>
-          </div>
-        </div>
+              <?php
+              endwhile; endif; ?>
+    </div>
+</div>
 
 
 
