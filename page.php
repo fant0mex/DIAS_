@@ -2,7 +2,11 @@
 
  <div class= "container">
   <div class="row page">
-    <div class="col-md-12">
+
+
+
+
+     <div class="col-md-7">
 
       <?php
       if ( have_posts() ) :
@@ -25,6 +29,17 @@
       <?php endif; ?>
 
     </div>
+
+    <div class="col-md-5">
+
+      <?php if ( is_page( 'contact') ) {
+
+      get_template_part('content', 'map');
+    }
+      ?>
+
+
+     </div>
   </div>
 </div>
 

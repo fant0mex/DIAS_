@@ -26,6 +26,9 @@
                   })
               });
               </script>
+              <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/leaflet/js/leaflet.js"></script>
+              <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/leaflet/js/dias.js"></script>
+
 
            <?php wp_footer(); ?>
 

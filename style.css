@@ -13,6 +13,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 @import url('bootstrap/css/bootstrap.css');
+@import url('leaflet/css/leaflet.css');
+
 
 body {
   background: rgb(240, 240, 240);
@@ -275,6 +277,13 @@ label {
   font-weight: 400;
 }
 
+#map {
+  height: 250px;
+  width: 400px;
+  padding-right: 40px;
+  margin-top: 20px;
+}
+
 
 
 
@@ -284,6 +293,11 @@ label {
 
 
 /*Media Queries*/
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
 
 
 /* Portrait tablets and small desktops */
@@ -335,11 +349,12 @@ hr {
     margin-bottom: 0px;
   }
   .logo img {
-    margin-left: 15px;
+    margin-left: 30px;
     margin-bottom: 12px;
   }
   .navbar-toggle {
     margin-top: 20px;
+    margin-right: 30px;
   }
 
   h1 {
@@ -380,6 +395,10 @@ hr {
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
+
+  .navbar-toggle {
+
+  }
   .carousel-caption p {
    display: none;
   }
