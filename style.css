@@ -172,7 +172,9 @@ h3 {
 }
 
 .widgets {
-  margin-left: 240px;
+  padding-left: 240px;
+  padding-top: 20px;
+  background-color: #FFF;
 }
 
 .footer_left {

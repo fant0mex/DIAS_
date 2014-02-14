@@ -20,7 +20,7 @@
                $the_query->the_post();
             ?>
           <div class="item active">
-           <img src="<?php the_field("slide");?>">
+           <img src="<?php the_field('slide');?>">
               <div class="carousel-caption">
                <h1><?php the_title();?></h1>
                <p><?php the_field("excerpt");?></p>
@@ -42,7 +42,7 @@
                $the_query->the_post();
               ?>
               <div class="item">
-               <img src="<?php the_field("slide");?>">
+               <img src="<?php the_field('slide');?>">
                <div class="carousel-caption">
                 <h1><?php the_title();?></h1>
                 <p><?php the_field("excerpt");?></p>
