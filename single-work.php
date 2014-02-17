@@ -12,7 +12,11 @@
 
           <img src="<?php the_field( 'project_image' ); ?>">
 
+          <h4><?php the_field( 'project_type' ); ?></h4>
+
           <p><?php the_field( 'description' ); ?></p>
+
+          <p>Client: <?php the_field( 'client' ); ?></p>
 
           <a href="<?php the_permalink() ;?>"><p><?php the_field( 'url' ) ;?></p></a>
 
