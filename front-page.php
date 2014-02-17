@@ -94,11 +94,12 @@
                 Maecenas consequat consequat pharetra.</p>
           </div>
         </div>
+      </div>
 
 
 
 
-
+  <div class="container">
 
       <h2>Recent Work</h2>
         <div class="row recent">

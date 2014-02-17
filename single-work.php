@@ -2,23 +2,31 @@
 
 <div class="container">
   <div class="row work">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <?php
       if ( have_posts() ) :
         while ( have_posts() ):
           the_post();
       ?>
-          <h3><?php the_title(); ?></h3>
+            <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
 
-          <img src="<?php the_field( 'project_image' ); ?>">
+      </div>
 
-          <h4><?php the_field( 'project_type' ); ?></h4>
+      <div class="col-md-6 single">
 
-          <p><?php the_field( 'description' ); ?></p>
+        <h1><?php the_title(); ?></h1>
 
-          <p>Client: <?php the_field( 'client' ); ?></p>
+        <ul>
 
-          <a href="<?php the_permalink() ;?>"><p><?php the_field( 'url' ) ;?></p></a>
+          <li>Client: <?php the_field( 'client' ); ?></li>
+          <li><?php the_field( 'project_type' ); ?></li>
+          <li><a href="<?php the_permalink() ;?>"><p><?php the_field( 'url' ) ;?></p></a></li>
+
+        </ul>
+
+        <hr>
+
+        <p><?php the_field( 'description' ); ?></p>
 
 
 

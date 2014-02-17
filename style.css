@@ -39,6 +39,7 @@ a:hover {
 .logo img{
   float: left;
   width: 125px;
+  margin-left: 20px;
 
 }
 
@@ -81,8 +82,14 @@ ul {
 
 
 .carousel-caption {
- margin-bottom: 20px;
+ margin-bottom: 40px;
  text-align: left;
+ background: rgba(0, 0, 0, 0.15);
+ width: 100%;
+ padding-left: 120px;
+ padding-top: 10px;
+ left: 0;
+
 
 }
 
@@ -114,7 +121,7 @@ ul {
 
 
 .about {
-  padding: 80px 0;
+  padding: 80px 0 0;
   text-align: center;
 
  }
@@ -215,6 +222,7 @@ h3 {
 
 .navbar-text {
   font-weight: bold;
+  padding: 0 10px;
 
 }
 
@@ -258,6 +266,7 @@ h3 {
 
 .info {
   list-style: none;
+  padding-top: 20px;
 }
 
 .info li{
@@ -265,9 +274,7 @@ h3 {
   padding: 5px;
 }
 
-.blog {
-  margin-left: 130px;
-}
+
 
 h3#comments, #respond h3 {
   font-weight: 400;
@@ -283,6 +290,46 @@ label {
   padding-right: 40px;
   margin-top: 20px;
 }
+
+.dark {
+  background-color: rgb(240, 240, 240);
+
+}
+
+.bright {
+  background-color: #FFF;
+}
+
+.blog {
+  padding-top: 60px;
+}
+
+.entry {
+  text-align: center;
+  padding-bottom: 20px;
+
+}
+
+.entry img {
+display: inline;
+}
+
+
+
+.single h1{
+  padding-bottom: 30px;
+}
+
+.single ul {
+  margin-left: -37px;
+
+}
+
+.single hr{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 
 
 

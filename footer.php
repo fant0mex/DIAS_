@@ -1,6 +1,6 @@
 
       <div class= "navbar navbar-default navbar-fixed-bottom">
-          <div class="container">
+          <div class="container-fluid">
 
 
                 <div class="navbar-text pull-left">
