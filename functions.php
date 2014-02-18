@@ -17,6 +17,7 @@ add_theme_support( 'menus');
 
 add_theme_support( 'post-thumbnails' );
 
+add_image_size( $name, $width, $height, $crop );
 
 
 function create_widget( $name, $id, $description ) {

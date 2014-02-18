@@ -3,12 +3,35 @@
 <div class="container">
   <div class="row work">
     <div class="col-md-6">
-      <?php
-      if ( have_posts() ) :
-        while ( have_posts() ):
-          the_post();
+    <?php
+
+      $args = array(
+          'post_type' => 'work'
+        );
+
+      $the_query = new WP_Query( $args );
+    ?>
+
+    <?php
+        if ( have_posts() ) :
+        while ($the_query->have_posts() ):
+        $the_query->the_post();
+    ?>
+
+          <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
+
+
+          <?php $images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=$post->ID' );
+
+           if ($images) {
+
+            foreach ( $images as $attachment_id => $attachment ) {
+            echo wp_get_attachment_image( $attachment_id, 'large' );
+            }
+            };
+
       ?>
-            <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
+
 
 
       </div>
