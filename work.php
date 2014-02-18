@@ -33,8 +33,13 @@ get_header(); ?>
 
       </div>
 
-              <?php
-              endwhile; endif; ?>
+               <?php
+                  endwhile;
+                  else:
+                  ?>
+       <p>There are no posts or pages here. </p>
+
+      <?php endif; ?>
     </div>
 </div>
 

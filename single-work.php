@@ -20,19 +20,9 @@
 
           <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
 
-
-          <?php $images =& get_children( 'post_type=attachment&post_mime_type=image&post_parent=$post->ID' );
-
-           if ($images) {
-
-            foreach ( $images as $attachment_id => $attachment ) {
-            echo wp_get_attachment_image( $attachment_id, 'large' );
-            }
-            };
-
-      ?>
-
-
+          <div class="project-images">
+            <?php the_field( 'extra_images' ); ?>
+          </div>
 
       </div>
 
@@ -59,8 +49,8 @@
         <?php
         endwhile;
       else:
-      ?>
-        <img src="">
+        ?>
+       <p>There are no posts or pages here. </p>
 
       <?php endif; ?>
 
