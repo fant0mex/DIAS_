@@ -3,27 +3,16 @@
 <div class="container">
   <div class="row work">
     <div class="col-md-6">
-    <?php
-
-      $args = array(
-          'post_type' => 'work'
-        );
-
-      $the_query = new WP_Query( $args );
-    ?>
-
-    <?php
-        if ( have_posts() ) :
-        while ($the_query->have_posts() ):
-        $the_query->the_post();
-    ?>
-
-          <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
+      <?php
+      if ( have_posts() ) :
+        while ( have_posts() ):
+          the_post();
+      ?>
+            <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
 
           <div class="project-images">
             <?php the_field( 'extra_images' ); ?>
           </div>
-
       </div>
 
       <div class="col-md-6 single">
@@ -46,13 +35,8 @@
 
 
 
-        <?php
-        endwhile;
-      else:
-        ?>
-       <p>There are no posts or pages here. </p>
 
-      <?php endif; ?>
+      <?php endwhile; endif; ?>
 
        </div>
     </div>
