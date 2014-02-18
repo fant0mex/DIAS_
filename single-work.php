@@ -10,6 +10,7 @@
       ?>
             <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
 
+
       </div>
 
       <div class="col-md-6 single">
@@ -32,7 +33,13 @@
 
 
 
-      <?php endwhile; endif; ?>
+        <?php
+        endwhile;
+      else:
+      ?>
+        <img src="">
+
+      <?php endif; ?>
 
        </div>
     </div>

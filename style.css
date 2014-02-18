@@ -262,16 +262,18 @@ h3 {
   box-shadow: 3px 3px 3px #ccc;
   margin-bottom: 50px;
 
+
 }
 
 .info {
   list-style: none;
-  padding-top: 20px;
+  padding-top: 15px;
 }
 
 .info li{
   display: inline;
-  padding: 5px;
+  padding-left: 10px;
+
 }
 
 
@@ -306,12 +308,14 @@ label {
 
 .entry {
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 
 }
 
 .entry img {
-display: inline;
+ display: inline-block;
+ padding: 10px;
+
 }
 
 
@@ -328,6 +332,15 @@ display: inline;
 .single hr{
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+#respond {
+  padding-top: 30px;
+}
+
+.cat {
+  padding-top: 40px;
+  padding-left: 40px;
 }
 
 
@@ -438,6 +451,7 @@ hr {
   .widgets {
   display: none;
 }
+
 }
 
 /* Landscape phones and smaller */

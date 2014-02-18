@@ -18,6 +18,7 @@ add_theme_support( 'menus');
 add_theme_support( 'post-thumbnails' );
 
 
+
 function create_widget( $name, $id, $description ) {
 
   $args = array(

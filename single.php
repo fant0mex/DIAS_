@@ -1,32 +1,51 @@
 <?php get_header(); ?>
 
- <div class= "container">
-  <div class="row page">
-    <div class="col-md-12">
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+ <div class="blog">
+
+ </div>
+
+    <?php if ( have_posts() ):
+      while ( have_posts() )
+        : the_post();
+      ?>
+
+   <div class="row entry">
+
+
 
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
+      <?php
+            if ( has_post_thumbnail() ) {
+              the_post_thumbnail('large', array('class' => 'img-responsive'));
+            }
+            ?>
+
           <ul class="info">
-            <li>Posted in: <?php the_category(', ') ;?></li>
+            <li>Posted in: <em><?php the_category(', ') ;?></em></li>
             <li>Written by: <?php the_author( );?></li>
-            <li>On: <em><?php the_time('l, F jS, Y'); ?></em></li>
+            <li>On: <?php the_time('l, F jS, Y'); ?></li>
           </ul>
 
-        <?php the_content(); ?>
+          <div class="container excerpt">
 
-        <hr>
+            <?php the_content(); ?>
 
-      <?php comments_template(); ?>
+          </div>
+
+
+
+
+
+
 
     <?php endwhile; else: ?>
       <p><?php _e('Sorry, this page does not exist.'); ?></p>
     <?php endif; ?>
 
     </div>
-  </div>
-</div>
+
 
 
 

@@ -8,6 +8,8 @@
 
  </div>
 
+ <h1 class="cat">Posted In: <em><?php single_cat_title(); ?></em></h1>
+
   <?php
 if ( have_posts() ) :
   while ( have_posts() ):
