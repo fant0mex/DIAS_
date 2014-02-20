@@ -67,28 +67,28 @@
  <div class="container">
       <div class="row about">
           <div class="col-md-3">
-            <img src="<?php bloginfo('template_directory'); ?>/images/tablet.png" alt="Responsive image">
+
               <h3>Mobile First</h3><hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
                 Maecenas consequat consequat pharetra.</p>
           </div>
 
           <div class="col-md-3">
-            <img src="<?php bloginfo('template_directory'); ?>/images/wrench.png" alt="Responsive image">
+
               <h3>Clean Code</h3><hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
                 Maecenas consequat consequat pharetra.</p>
           </div>
 
           <div class="col-md-3">
-            <img src="<?php bloginfo('template_directory'); ?>/images/user.png" alt="Responsive image">
+
               <h3>User Experience</h3><hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
                 Maecenas consequat consequat pharetra.</p>
           </div>
 
           <div class="col-md-3">
-            <img src="<?php bloginfo('template_directory'); ?>/images/thumb.png"alt="Responsive image">
+
               <h3>Social Strategy</h3><hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
                 Maecenas consequat consequat pharetra.</p>
@@ -98,10 +98,9 @@
 
 
 
+<div class="container">
 
-  <div class="container">
-
-      <h2>Recent Work</h2>
+      <h2 id="work">Recent Work</h2>
         <div class="row recent">
 
     <?php
@@ -119,7 +118,7 @@
         $the_query->the_post();
     ?>
 
-      <div class="col-md-3">
+      <div class="col-xs-6 col-sm-3">
 
           <a href="<?php the_permalink(); ?>"><img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image"></a>
 

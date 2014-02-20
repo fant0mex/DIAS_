@@ -30,27 +30,33 @@ a:hover {
   text-decoration: none;
 }
 
-.navbar-default {
-  background-color: #FFFFFF;
-  border: none;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
-}
-
-.logo img{
-  float: left;
-  width: 125px;
-  margin-left: 20px;
-
-}
-
 ul {
   list-style: none;
+}
+
+.navbar-default {
+  background-color: #FFF;
+  border: none;
+  height: 70px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+
+}
+
+
+#home li {
+  position: relative;
+  display: inline-block;
+  margin-top: -20px;
+
+  float: left;
+
 }
 
 .navbar-nav {
   float: right;
   font-size: 16px;
   font-weight: 700;
+
 
 }
 
@@ -62,7 +68,7 @@ ul {
 .navbar-nav  li  a {
   padding: 28px 40px;
   margin-right: -4px;
-  line-height: 75px;
+  line-height: 70px;
   transition-property: background, color;
   transition-duration: 0.25s;
   transitiontiming-function: ease-out;
@@ -81,12 +87,14 @@ ul {
 /*Carousel*/
 
 
+
 .carousel-caption {
  margin-bottom: 40px;
  text-align: left;
  background: rgba(0, 0, 0, 0.15);
- width: 100%;
+ width: 50%;
  padding-left: 120px;
+ padding-right: 30px;
  padding-top: 10px;
  left: 0;
 
@@ -238,13 +246,14 @@ h3 {
 
 
 .page {
-  margin-top: 170px;
-  margin-bottom: 80px;
+  padding-top: 50px;
+
 }
 
 .page h3 {
   font-weight: 700;
   margin-bottom: 20px;
+  padding-top: 90px;
 }
 
 .page p {
@@ -287,8 +296,8 @@ label {
 }
 
 #map {
-  height: 250px;
-  width: 400px;
+  height: 700px;
+  width: 740px;
   padding-right: 40px;
   margin-top: 20px;
 }
@@ -343,7 +352,107 @@ label {
   padding-left: 40px;
 }
 
+.article-bg img{
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
+.splash {
+  position: relative;
+  z-index: 50;
+  height: auto;
+}
+
+#intro {
+  padding: 20% 0 20% 0;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 5%;
+}
+
+#intro h2 {
+  font-size: 48px;
+  text-align: center;
+  font-weight: 300;
+  color: #FFF;
+  text-transform: uppercase;
+}
+
+#intro ul {
+  text-align: center;
+  font-size: 14px;
+}
+
+#intro li {
+  display: inline-block;
+  margin-right: 44px;
+  text-align: center;
+  font-size: 28px;
+  color: #FFF;
+  padding: 0 10px;
+}
+
+#intro a {
+  color: #FFF;
+}
+
+#intro p {
+  text-align: center;
+  margin: 40px 130px;
+  color: #FFF;
+  line-height: 23px;
+}
+
+.white {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5% 20%;
+}
+
+.details p {
+  line-height: 23px;
+  margin-top: -10px;
+}
+
+.detail img {
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  margin: 0 10%;
+}
+
+.action img {
+  width: 100%;
+  height: auto;
+}
+
+.quote h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  padding: 2% 0 2% 0;
+}
+
+#skills {
+  padding: 5% 0 5% 0;
+}
+
+  #skills h3 {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 300;
+  color: #FFF;
+
+}
+}
 
 
 
@@ -360,17 +469,19 @@ label {
 }
 
 
+
+
+
+
 /* Portrait tablets and small desktops */
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 320px) and (max-width: 889px) {
   h1 {
     font-size: 24px;
   }
 .carousel-caption p {
   font-size: 16px;
 }
-.btn {
-  display: none;
-}
+
 h2 {
   font-size: 20px;
 }
@@ -387,15 +498,28 @@ h2 {
 hr {
   width: 20%;
 }
-.recent img{
+/*.recent img{
   width: 240px;
   height: 240px;
   float: right;
   margin-right: 100px;
-}
+}*/
 .widgets {
   display: none;
 }
+
+  .navbar-fixed-top {
+    position: relative;
+    margin-bottom: 0px;
+  }
+  .logo img {
+    margin-left: 30px;
+    margin-bottom: 12px;
+  }
+  .navbar-toggle {
+    margin-top: 20px;
+    margin-right: 30px;
+  }
 }
 
 
@@ -403,7 +527,7 @@ hr {
 
 
 /* Landscape phones and portrait tablets */
-@media (max-width: 767px) {
+@media (max-width: 889px) {
   .navbar-fixed-top {
     position: relative;
     margin-bottom: 0px;
@@ -442,12 +566,12 @@ hr {
   hr {
   width: 20%;
   }
-  .recent img{
+/*  .recent img{
   width: 30%;
   float: right;
   margin-right: 80px;
   margin-top: 10px;
-}
+}*/
   .widgets {
   display: none;
 }
@@ -466,12 +590,12 @@ hr {
   h1 {
    text-align: center;
   }
-   .recent img {
+/*   .recent img {
    width: 30%;
    margin-right: 55px;
    margin-top: 10px;
 }
-
+*/
   .largeIcon {
     padding: 0 15px;
   }

@@ -11,7 +11,7 @@
     <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
     <meta name="description" content="We make things worth making. Digital + Motion + Interaction.">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <?php wp_enqueue_script("jquery"); ?>
 
@@ -35,13 +35,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <h1 class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/tumblr_static_dias_logo.gif"></a></h1>
+            <ul id="home">
+               <li><h1 class="logo"><a href="<?php echo site_url(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/dias_logo.png"></a></h1></li>
+               <li><h1 class="strap"><img src="<?php bloginfo('template_directory'); ?>/images/strapline.png"></h1></li>
+            </ul>
           </div>
 
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-              <?php wp_nav_menu( array('menu' => 'Primary' )); ?>
+              <li><?php wp_nav_menu( array('menu' => 'Primary' )); ?></li>
 
             </ul>
           </div>
