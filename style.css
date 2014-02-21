@@ -247,6 +247,7 @@ h3 {
 
 .page {
   padding-top: 50px;
+  margin-bottom: -20px;
 
 }
 
@@ -257,8 +258,8 @@ h3 {
 }
 
 .page p {
-  padding: 10px 0;
-  font-size: 16px
+  padding: 5px 0;
+  font-size: 16px;
 }
 
 .work {
@@ -296,10 +297,18 @@ label {
 }
 
 #map {
-  height: 700px;
-  width: 740px;
-  padding-right: 40px;
+
+
+  width: 120%;
+
   margin-top: 20px;
+  padding-right: 60%;
+  padding-bottom: 100%;
+  margin-right: 60%;
+}
+
+  .col-md-5 {
+  padding-left: 0;
 }
 
 .dark {
@@ -452,7 +461,24 @@ label {
   color: #FFF;
 
 }
+
+.contact {
+  margin-left: 5%;
 }
+
+.address {
+  background-color: #FFF;
+  padding-bottom: 21.8%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+
+.jobs {
+  background-color: #FFF473;
+  color: #A67A00;
+
+}
+
 
 
 
