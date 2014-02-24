@@ -23,10 +23,10 @@ body {
 
 a {
   color: #000;
-}
 
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 ul {
@@ -51,28 +51,25 @@ ul {
   float: right;
   font-size: 16px;
   font-weight: 700;
-}
 
-.navbar-nav li {
-  display: inline-block;
-}
+  li {
+    display: inline-block;
 
-.navbar-nav  li  a {
-  color: #000;
-  line-height: 70px;
-  margin-right: -4px;
-  padding: 28px 40px;
-  transition-property: background, color;
-  transition-duration: 0.25s;
-  transitiontiming-function: ease-out;
-}
+    a {
+      color: #000;
+      line-height: 70px;
+      margin-right: -4px;
+      padding: 28px 40px;
+      transition-property: background, color;
+      transition-duration: 0.25s;
+      transitiontiming-function: ease-out;
 
-.navbar-nav  li  a:hover {
-  background: #000;
-  color: #fff;
-  transition-property: background, color;
-  transition-duration: 0.25s;
-  transitiontiming-function: ease-out;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
 }
 
 
@@ -86,15 +83,15 @@ ul {
   padding-top: 10px;
   text-align: left;
   width: 50%;
-}
 
-.carousel-caption h1 {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
+  h1 {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
 
-.carousel-caption p {
-  font-size: 18px;
+  p {
+    font-size: 18px;
+  }
 }
 
 .btn {
@@ -113,19 +110,24 @@ ul {
 .about {
   padding: 80px 0 0;
   text-align: center;
-}
 
-.about img {
-  padding-bottom: 5px;
-  width: 30%;
-}
+  img {
+    padding-bottom: 5px;
+    width: 30%;
+  }
 
+  h3 {
+    color: #95a5a6;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 10px;
+  }
 
-.about h3 {
-  color: #95a5a6;
-  font-size: 1.5em;
-  font-weight: bold;
-  padding-top: 10px;
+  p {
+    font-size: 16px;
+    padding-top: 9px;
+    text-align: center;
+  }
 }
 
 hr {
@@ -134,12 +136,6 @@ hr {
   height: 1px;
   margin: 10px 0 12px;
   width: 60%;
-}
-
-.about p {
-  font-size: 16px;
-  padding-top: 9px;
-  text-align: center;
 }
 
 
@@ -174,10 +170,10 @@ h3 {
   list-style: none;
   margin: 0;
   padding: 0;
-}
 
-.footer_left label {
-  display: none;
+  label {
+    display: none;
+  }
 }
 
 .footer_middle ul {
@@ -196,11 +192,11 @@ h3 {
   box-shadow: none;
   height: auto;
   position: relative;
-}
 
-.navbar-fixed-bottom a {
-  color: #fff;
-  text-decoration: none;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .navbar-text {
@@ -219,38 +215,38 @@ h3 {
 .page {
   margin-bottom: -20px;
   padding-top: 50px;
-}
 
-.page h3 {
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-top: 90px;
-}
+  h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-top: 90px;
+  }
 
-.page p {
-  font-size: 16px;
-  padding: 5px 0;
+  p {
+    font-size: 16px;
+    padding: 5px 0;
+  }
 }
 
 .work {
   margin-bottom: 180px;
   margin-top: 250px;
-}
 
-.work img {
-  border: 0.5em solid #fff;
-  box-shadow: 3px 3px 3px #ccc;
-  margin-bottom: 50px;
+  img {
+    border: 0.5em solid #fff;
+    box-shadow: 3px 3px 3px #ccc;
+    margin-bottom: 50px;
+  }
 }
 
 .info {
   list-style: none;
   padding-top: 15px;
-}
 
-.info li {
-  display: inline;
-  padding-left: 10px;
+  li {
+    display: inline;
+    padding-left: 10px;
+  }
 }
 
 h3#comments,
@@ -282,24 +278,26 @@ label {
 .entry {
   padding-bottom: 10px;
   text-align: center;
+
+  img {
+    display: inline-block;
+    padding: 10px;
+  }
 }
 
-.entry img {
- display: inline-block;
- padding: 10px;
-}
+.single {
+  h1 {
+    padding-bottom: 30px;
+  }
 
-.single h1 {
-  padding-bottom: 30px;
-}
+  ul {
+    margin-left: -37px;
+  }
 
-.single ul {
-  margin-left: -37px;
-}
-
-.single hr {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  hr {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
 }
 
 #respond {
@@ -333,39 +331,39 @@ label {
   margin-bottom: 5%;
   padding: 20% 0;
   position: relative;
-}
 
-#intro h2 {
-  color: #fff;
-  font-size: 48px;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
-}
+  h2 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-#intro ul {
-  font-size: 14px;
-  text-align: center;
-}
+  ul {
+    font-size: 14px;
+    text-align: center;
+  }
 
-#intro li {
-  color: #fff;
-  display: inline-block;
-  font-size: 28px;
-  margin-right: 44px;
-  padding: 0 10px;
-  text-align: center;
-}
+  li {
+    color: #fff;
+    display: inline-block;
+    font-size: 28px;
+    margin-right: 44px;
+    padding: 0 10px;
+    text-align: center;
+  }
 
-#intro a {
-  color: #fff;
-}
+  a {
+    color: #fff;
+  }
 
-#intro p {
-  color: #fff;
-  line-height: 23px;
-  margin: 40px 130px;
-  text-align: center;
+  p {
+    color: #fff;
+    line-height: 23px;
+    margin: 40px 130px;
+    text-align: center;
+  }
 }
 
 .white {
@@ -400,13 +398,13 @@ label {
 
 #skills {
   padding: 5% 0;
-}
 
-#skills h3 {
-  color: #fff;
-  font-size: 36px;
-  font-weight: 300;
-  text-align: center;
+  h3 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 300;
+    text-align: center;
+  }
 }
 
 .contact {
@@ -476,7 +474,7 @@ label {
   }
 
   .navbar-fixed-top {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     position: relative;
   }
 
@@ -494,7 +492,7 @@ label {
 // Landscape phones and portrait tablets
 @media (max-width: 889px) {
   .navbar-fixed-top {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     position: relative;
   }
 
