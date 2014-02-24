@@ -4635,12 +4635,23 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 a {
-  color: black;
-  a:hover {
+  -webkit-transition: color 0.25s ease-out;
+  -moz-transition: color 0.25s ease-out;
+  -o-transition: color 0.25s ease-out;
+  transition: color 0.25s ease-out; }
+  a:hover, a:focus {
     text-decoration: none; }
 
 ul {
   list-style: none; }
+
+.logo a {
+  -webkit-transition: opacity 0.25s ease-out;
+  -moz-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out; }
+  .logo a:hover, .logo a:focus {
+    opacity: 0.6; }
 
 .navbar-default {
   background-color: white;
@@ -4672,6 +4683,16 @@ ul {
       .navbar-nav li a:hover {
         background: black;
         color: white; }
+
+a .fa {
+  -webkit-transition: opacity 0.25s ease-out;
+  -moz-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out; }
+
+a:hover .fa,
+a:focus .fa {
+  opacity: 0.6; }
 
 .carousel-caption {
   background: rgba(0, 0, 0, 0.15);
