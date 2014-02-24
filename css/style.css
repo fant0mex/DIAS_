@@ -4631,10 +4631,11 @@ td.visible-print {
 
 body {
   background: #f0f0f0;
+  color: #333333;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 a {
-  color: black; }
+  color: black;
   a:hover {
     text-decoration: none; }
 

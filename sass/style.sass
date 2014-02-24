@@ -15,12 +15,18 @@
 @import "../bootstrap/css/bootstrap.scss"
 @import "../leaflet/css/leaflet.scss"
 
+$main-bg: #f0f0f0
+$c-primary: #333333
+$c-secondary: #000
+$c-tertiary: #95a5a6
+
 body
-  background: #f0f0f0
+  background: $main-bg
+  color: $c-primary
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 
 a
-  color: #000
+  color: $c-secondary
 
   &:hover
     text-decoration: none
@@ -98,7 +104,7 @@ ul
     width: 30%
 
   h3
-    color: #95a5a6
+    color: $c-tertiary
     font-size: 1.5em
     font-weight: bold
     padding-top: 10px
@@ -109,7 +115,7 @@ ul
     text-align: center
 
 hr
-  background: #95a5a6
+  background: $c-tertiary
   border: 0
   height: 1px
   margin-top: 10px auto 12px
@@ -219,7 +225,7 @@ label
   width: 100%
 
 .dark
-  background-color: #f0f0f0
+  background-color: $main-bg
 
 .bright
   background-color: #fff
