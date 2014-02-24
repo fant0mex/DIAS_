@@ -311,10 +311,8 @@ label {
   padding-top: 40px;
 }
 
-.article-bg img {
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed;
+.article-bg {
+  background: 50% 0 no-repeat fixed;
   background-size: cover;
   height: 100%;
   left: 0;

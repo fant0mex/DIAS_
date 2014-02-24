@@ -10,11 +10,7 @@
       ?>
 
 
-          <div class="article-bg">
-            <img src="<?php bloginfo('template_directory'); ?>/images/big_test.jpg" style="background-image=<?php bloginfo('template_directory'); ?>/images/big_test.jpg">
-
-          </div>
-
+          <div class="article-bg" style="background-image: url(<?php bloginfo('template_directory'); ?>/images/big_test.jpg)"></div>
 
           <article class="splash container">
 
