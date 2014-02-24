@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/style.css" media="all" />
     <link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/images/avatar_50fb2d27989a_128.png">
 
     <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
