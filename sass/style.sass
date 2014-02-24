@@ -9,6 +9,7 @@
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html */
 
+@import "compass"
 
 // merges bootstrap and leaflet CSS into style.css
 @import "../bootstrap/css/bootstrap.scss"
@@ -52,9 +53,7 @@ ul
       line-height: 70px
       margin-right: -4px
       padding: 28px 40px
-      transition-property: background, color
-      transition-duration: 0.25s
-      transitiontiming-function: ease-out
+      +transition(background 0.25s ease-out, color 0.25s ease-out)
 
       &:hover
         background: #000
@@ -312,7 +311,7 @@ label
   margin-top: -10px
 
 .detail img
-  border-radius: 200px
+  +border-radius(200px)
   height: 400px
   margin: 0 10%
   width: 400px
