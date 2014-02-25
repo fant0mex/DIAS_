@@ -39,3 +39,31 @@ function create_widget( $name, $id, $description ) {
 create_widget( 'Left Footer', "footer_left", "Displays in the bottom left footer");
 create_widget( 'Middle Footer', "footer_middle", "Displays in the bottom middle footer");
 create_widget( 'Right Footer', "footer_right", "Displays in the bottom right footer");
+
+add_action('init', 'create_custom_post_types');
+
+function create_custom_post_types() {
+  register_post_type( 'work',
+    array(
+      'labels' => array(
+        'name' => __( 'Work' ),
+        'singular_name' => __( 'Work' )
+      ),
+      'public' => true,
+      'menu_icon' => get_stylesheet_directory_uri() . '/images/admin-work.png',
+      'menu_position' => 7
+    )
+  );
+
+  register_post_type( 'hero',
+    array(
+      'labels' => array(
+        'name' => __( 'Homepage Hero' ),
+        'singular_name' => __( 'Homepage Hero' )
+      ),
+      'public' => true,
+      'menu_icon' => get_stylesheet_directory_uri() . '/images/admin-hero.png',
+      'menu_position' => 8
+    )
+  );
+}

@@ -2,7 +2,7 @@
   get_header();
 
   $sliderImages = new WP_Query(array(
-                'post_type' => 'slider',
+                'post_type' => 'hero',
                 'posts_per_page' => 4
                 ));
 
@@ -15,11 +15,13 @@
 ?>
 
 <div id="myCarousel" class="carousel slide">
+  <?php if( $imageCount > 1 ): ?>
   <ol class="carousel-indicators">
     <?php for ( $i = 0; $i < $imageCount; $i++ ) : ?>
     <li data-target="#myCarousel" data-slide-to="<?= $i ?>" <?= $i === 0 ? ' class="active"': '' ?>></li>
     <?php endfor; ?>
   </ol>
+  <?php endif; ?>
 
   <div class="carousel-inner">
     <?php
@@ -46,6 +48,7 @@
     ?>
   </div>
 
+  <?php if( $imageCount > 1 ): ?>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
@@ -53,6 +56,7 @@
    <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+  <?php endif; ?>
 </div>
 
 <div class="container">
