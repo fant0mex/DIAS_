@@ -1,4 +1,4 @@
-    <div class= "navbar navbar-default navbar-fixed-bottom">
+    <footer id="footer">
       <div class="container-fluid">
         <div class="navbar-text pull-left">
           <a href="#">&copy; <?php echo date( 'Y' ) ;?> <?php bloginfo('name'); ?></a>
@@ -12,7 +12,7 @@
           <a href="#"><i class="largeIcon fa fa-pinterest"></i></a>
         </div>
       </div>
-    </div>
+    </footer>
 
     <script type="text/javascript">
       jQuery(document).ready(function($) {

@@ -4629,10 +4629,15 @@ td.visible-print {
   -webkit-border-radius: 2px;
   border-radius: 2px; }
 
+html {
+  min-height: 100%;
+  position: relative; }
+
 body {
   background: #f0f0f0;
   color: #333333;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0 0 58px; }
 
 a {
   -webkit-transition: color 0.25s ease-out;
@@ -4774,12 +4779,14 @@ h3 {
   list-style: none;
   width: 50%; }
 
-.navbar-fixed-bottom {
+#footer {
   background: black;
-  box-shadow: none;
-  height: auto;
-  position: relative; }
-  .navbar-fixed-bottom a {
+  bottom: 0;
+  min-height: 58px;
+  left: 0;
+  position: absolute;
+  right: 0; }
+  #footer a {
     color: white;
     text-decoration: none; }
 
