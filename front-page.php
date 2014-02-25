@@ -23,10 +23,10 @@
 
   <div class="carousel-inner">
     <?php
-    $count = 1;
+    $count = 0;
 
     while ( $sliderImages->have_posts() ) :
-      $the_query->the_post();
+      $sliderImages->the_post();
       $count++;
     ?>
       <div class="item<?= $count === 1 ? ' active' : '' ?>">
@@ -89,7 +89,7 @@
   <div class="row recent">
     <?php
     while ($recentWork->have_posts() ):
-      $the_query->the_post();
+      $recentWork->the_post();
     ?>
       <div class="col-xs-6 col-sm-3">
         <a href="<?php the_permalink(); ?>">
