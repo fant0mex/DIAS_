@@ -46,12 +46,13 @@ function create_custom_post_types() {
   register_post_type( 'work',
     array(
       'labels' => array(
-        'name' => __( 'Work' ),
-        'singular_name' => __( 'Work' )
+        'name' => __( 'Projects' ),
+        'singular_name' => __( 'Project' )
       ),
       'public' => true,
       'menu_icon' => get_stylesheet_directory_uri() . '/images/admin-work.png',
-      'menu_position' => 7
+      'menu_position' => 7,
+      'has_archive' => true,
     )
   );
 
