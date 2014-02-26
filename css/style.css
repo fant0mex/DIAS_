@@ -4757,7 +4757,9 @@ a:focus .fa {
   color: white; }
 
 #company-logos a img {
+  display: block;
   height: auto;
+  margin: 0 auto;
   max-width: 100%; }
 
 .about {
