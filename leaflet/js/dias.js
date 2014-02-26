@@ -7,7 +7,7 @@
 
   if( $carousels.length ) {
     $carousels.carousel({
-      interval: 2000
+      interval: false
     });
   }
 
