@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+  get_header();
+
+  the_post();
+?>
 
 <?php if( get_field('hero_image') ): ?>
 <div id="hero">
