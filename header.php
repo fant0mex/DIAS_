@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <header id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,4 +41,4 @@
           </ul>
         </div>
       </div>
-    </div>
+    </header>
