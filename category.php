@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="blog">
+<div class="container">
   <h1 class="cat">Posted In: <em><?php single_cat_title(); ?></em></h1>
 
   <?php

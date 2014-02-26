@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="blog">
+<div class="container">
   <?php if ( !have_posts() ) : ?>
     <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
   <?php endif; ?>

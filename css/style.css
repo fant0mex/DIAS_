@@ -4637,7 +4637,7 @@ body {
   background: #f0f0f0;
   color: #333333;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  margin: 0 0 88px; }
+  margin: 70px 0 88px; }
 
 a {
   -webkit-transition: color 0.25s ease-out;
@@ -4712,7 +4712,7 @@ a:focus .fa {
 
 #hero {
   height: 100%;
-  margin: 0 0 28px;
+  margin: -70px 0 28px;
   max-width: 100%;
   overflow: hidden;
   position: relative;
