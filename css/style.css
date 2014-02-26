@@ -4718,7 +4718,7 @@ a:focus .fa {
   position: relative;
   text-align: center; }
   #hero img {
-    min-width: 100%; }
+    width: 100%; }
   #hero h1 {
     font-weight: bold;
     margin-bottom: 8px; }
