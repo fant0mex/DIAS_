@@ -4746,6 +4746,10 @@ a:focus .fa {
   background: #29abe2;
   color: white; }
 
+#company-logos a img {
+  height: auto;
+  max-width: 100%; }
+
 .about {
   padding: 80px 0 0;
   text-align: center; }
