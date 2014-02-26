@@ -4856,12 +4856,8 @@ label {
 .bright {
   background-color: white; }
 
-.blog {
-  padding-top: 60px; }
-
 .entry {
-  padding-bottom: 10px;
-  text-align: center; }
+  padding-bottom: 10px; }
   .entry img {
     display: inline-block;
     padding: 10px; }
