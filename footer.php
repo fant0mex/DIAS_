@@ -7,6 +7,7 @@
         <div class="navbar-text pull-right">
           <a href="https://www.facebook.com/DIAScreative"><i class="largeIcon fa fa-facebook"></i></a>
           <a href="https://twitter.com/DIASCreative"><i class="largeIcon fa fa-twitter"></i></a>
+          <a href="http://vimeo.com/stevecurati"><i class="largeIcon fa fa-vimeo-square"></i></a>
           <a href="http://www.linkedin.com/company/dias-creative"><i class="largeIcon fa fa-linkedin"></i></a>
         </div>
       </div>
