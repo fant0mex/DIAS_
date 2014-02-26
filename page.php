@@ -1,12 +1,17 @@
 <?php get_header(); ?>
 
-<?php
-if ( is_page( 'contact') ) {
-  get_template_part('content', 'map');
-}
-?>
+<?php if( get_field('hero_image') ): ?>
+<div id="hero">
+  <img src="<?php the_field('hero_image'); ?>">
+  <div class="carousel-caption">
+    <h1><?php the_title();?></h1>
 
-<div class="container">
+    <p><?php the_field("hero_description");?></p>
+  </div>
+</div>
+<?php endif; ?>
+
+<article class="container">
   <?php if ( !have_posts() ) : ?>
     <p>Sorry, this page does not exist.</p>
   <?php endif; ?>
@@ -15,9 +20,11 @@ if ( is_page( 'contact') ) {
   while ( have_posts() ):
     the_post();
   ?>
+    <?php if( !get_field('hero_image') ): ?>
     <h2><?php the_title(); ?></h2>
+    <?php endif; ?>
     <p><?php the_content(); ?></p>
   <?php endwhile; ?>
-</div>
+</article>
 
 <?php get_footer(); ?>
