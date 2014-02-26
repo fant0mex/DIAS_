@@ -31,7 +31,7 @@
             </a>
           </h1>
 
-          <h2 id="strap"><?php bloginfo('description') ?></h2>
+          <h2 id="strap" class="hidden-sm hidden-xs"><?php bloginfo('description') ?></h2>
 
         </div>
 
