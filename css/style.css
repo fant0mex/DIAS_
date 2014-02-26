@@ -4697,7 +4697,7 @@ a {
       #header .navbar-nav li a:hover, #header .navbar-nav li a:focus {
         color: black;
         text-decoration: underline; }
-    #header .navbar-nav li.current_page_parent a {
+    #header .navbar-nav li.current_page_parent a, #header .navbar-nav li.current_page_item a {
       color: black; }
 
 a .fa {
