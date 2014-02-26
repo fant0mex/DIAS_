@@ -4637,7 +4637,7 @@ body {
   background: #f0f0f0;
   color: #333333;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  margin: 70px 0 88px; }
+  margin: 70px 0 58px; }
 
 a {
   -webkit-transition: color 0.25s ease-out;
@@ -4654,12 +4654,15 @@ a {
   padding: 0;
   vertical-align: bottom; }
 
-#logo a {
+#logo a,
+#company-logos a {
   -webkit-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
   -o-transition: opacity 0.25s ease-out;
   transition: opacity 0.25s ease-out; }
-  #logo a:hover, #logo a:focus {
+  #logo a:hover, #logo a:focus,
+  #company-logos a:hover,
+  #company-logos a:focus {
     opacity: 0.6; }
 
 #logo img {
@@ -4712,7 +4715,7 @@ a:focus .fa {
 
 #hero {
   height: 100%;
-  margin: -70px 0 28px;
+  margin: -70px 0 0;
   max-width: 100%;
   overflow: hidden;
   position: relative;
@@ -4728,14 +4731,20 @@ a:focus .fa {
 .heroless-padding {
   height: 30px; }
 
-.btn {
-  border: none;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 8px 15px; }
+.box-full-width {
+  padding: 70px 0 82px; }
+  .box-full-width p {
+    margin-bottom: 30px; }
 
-.btn-primary {
-  background-color: #39c290; }
+.box-secondary {
+  background: white;
+  color: #29abe2;
+  font-size: 24px;
+  line-height: 28px; }
+
+.box-tertiary {
+  background: #29abe2;
+  color: white; }
 
 .about {
   padding: 80px 0 0;

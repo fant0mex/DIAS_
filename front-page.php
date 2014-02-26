@@ -35,14 +35,16 @@
   ?>
 <?php endif; ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <?php the_content(); ?>
-    </div>
+<div class="box-secondary box-full-width">
+  <div class="container">
+    <?php the_content(); ?>
+  </div>
+</div>
 
-    <div class="col-sm-6">
-       images
+<div class="box-tertiary box-full-width">
+  <div class="container">
+    <div class="row" id="company-logos">
+      <?php the_field("company_logos");?>
     </div>
   </div>
 </div>
