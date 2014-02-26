@@ -1,21 +1,8 @@
 <?php
   get_header();
-
   the_post();
+  get_template_part('content', 'hero-image');
 ?>
-
-<?php if( get_field('hero_image') ): ?>
-<div id="hero">
-  <img src="<?php the_field('hero_image'); ?>">
-  <div class="carousel-caption">
-    <h1><?php the_title();?></h1>
-
-    <p><?php the_field("hero_description");?></p>
-  </div>
-</div>
-<?php else: ?>
-<div class="heroless-padding"></div>
-<?php endif; ?>
 
 <div class="container">
   <div class="row">
