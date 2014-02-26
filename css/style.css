@@ -4725,8 +4725,8 @@ a:focus .fa {
   #hero p {
     font-size: 18px; }
 
-.post-hero {
-  margin-top: 100%; }
+.heroless-padding {
+  height: 30px; }
 
 .btn {
   border: none;
@@ -4761,9 +4761,7 @@ hr {
   width: 60%; }
 
 h2 {
-  font-size: 2em;
-  padding-top: 40px;
-  padding-bottom: 25px; }
+  font-size: 2em; }
 
 .recent img {
   border: 0.5em solid white;
@@ -4867,8 +4865,8 @@ label {
 .single ul {
   margin-left: -37px; }
 .single hr {
-  margin-bottom: 20px;
-  margin-top: 20px; }
+  margin-bottom: 30px;
+  margin-top: 30px; }
 
 #respond {
   padding-top: 30px; }
@@ -4970,9 +4968,16 @@ label {
   width: 20%;
   z-index: 2; }
 
-.jobs {
+#jobs {
   background-color: #fff473;
-  color: #a67a00; }
+  color: #a67a00;
+  margin-bottom: -30px;
+  margin-top: 30px;
+  padding: 20px 0; }
+
+.leaflet-left {
+  left: auto;
+  right: 20px; }
 
 @media (min-width: 320px) and (max-width: 889px) {
   h1 {

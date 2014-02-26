@@ -13,16 +13,18 @@
     <p><?php the_field("hero_description");?></p>
   </div>
 </div>
+<?php else: ?>
+<div class="heroless-padding"></div>
 <?php endif; ?>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-4">
       <h3 class="page-head"><?php the_title(); ?></h3>
       <p><?php the_content(); ?></p>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9  col-sm-8">
       <div id="address">
         <h2>Address</h2>
 
@@ -34,25 +36,29 @@
       <div id="map"></div>
     </div>
   </div>
+</div>
 
-  <div class="row jobs">
-    <div class="col-xs-6">
-      <h2>Work With Us</h2>
+<div id="jobs">
+  <div class="container">
+    <div class="row jobs">
+      <div class="col-xs-6">
+        <h2>Work With Us</h2>
 
-      <p>If you’d like to chat about how DIAS can make things worth making with your company or organisation, get in touch.</p>
-    </div>
+        <p>If you’d like to chat about how DIAS can make things worth making with your company or organisation, get in touch.</p>
+      </div>
 
-    <div class="col-md-6">
-      <h2>Current Jobs</h2>
+      <div class="col-md-6">
+        <h2>Current Jobs</h2>
 
-      <ul>
-        <li>Job</li>
-          <ul>
-            <li>Specs</li>
-            <li>Duties</li>
-            <li>Info</li>
-          </ul>
-      </ul>
+        <ul>
+          <li>Job</li>
+            <ul>
+              <li>Specs</li>
+              <li>Duties</li>
+              <li>Info</li>
+            </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

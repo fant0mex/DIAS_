@@ -20,6 +20,8 @@ $c-primary: #333333
 $c-secondary: #000
 $c-tertiary: #95a5a6
 
+$vertical-padding: 30px
+
 html
   min-height: 100%
   position: relative
@@ -111,8 +113,8 @@ a:focus .fa
   p
     font-size: 18px
 
-.post-hero
-  margin-top: 100%
+.heroless-padding
+  height: $vertical-padding
 
 .btn
   border: none
@@ -155,8 +157,6 @@ hr
 // Recent //////////
 h2
   font-size: 2em
-  padding-top: 40px
-  padding-bottom: 25px
 
 .recent img
   border: 0.5em solid #fff
@@ -276,8 +276,8 @@ label
     margin-left: -37px
 
   hr
-    margin-bottom: 20px
-    margin-top: 20px
+    margin-bottom: $vertical-padding
+    margin-top: $vertical-padding
 
 #respond
   padding-top: 30px
@@ -383,9 +383,16 @@ label
   width: 20%
   z-index: 2
 
-.jobs
+#jobs
   background-color: #fff473
   color: #a67a00
+  margin-bottom: -$vertical-padding
+  margin-top: $vertical-padding
+  padding: 20px 0
+
+.leaflet-left
+  left: auto
+  right: 20px
 
 
 
