@@ -45,6 +45,10 @@ body
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   margin: 70px 0 58px
 
+img
+  height: auto
+  max-width: 100%
+
 .container
   max-width: $site-max-width
   width: auto
@@ -157,6 +161,10 @@ h3
   height: $vertical-padding
 
 // Homepage //////////
+.box-full-width h2
+  margin: -40px 0 40px
+  text-align: center
+
 .box-full-width
   padding: 70px 0 82px
   p
@@ -171,6 +179,37 @@ h3
 .box-tertiary
   background: #29abe2
   color: #fff
+
+#our-work
+  font-size: 0
+  text-align: center
+
+.our-work
+  display: inline-block
+  font-size: 14px
+  height: 180px
+  position: relative
+  +transition(transform .3s ease-out)
+  +transform-style(preserve-3d)
+  +transform-origin(0 0 45)
+  &:hover
+    +transform(rotateX(90deg))
+    z-index: 10
+  .img
+    box-shadow: 0 0 10px rgba(0,0,0,.25)
+    display: block
+    height: 180px
+    overflow: hidden
+    +transform(translateZ(90px))
+  span
+    background: #29abe2
+    box-shadow: 0 0 10px rgba(0,0,0,.25)
+    color: #fff
+    height: 180px
+    display: block
+    padding: 20px
+    text-align: left
+    +transform(rotateX(-90deg) translateZ(-90px))
 
 #company-logos a img
   display: block

@@ -4639,6 +4639,10 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   margin: 70px 0 58px; }
 
+img {
+  height: auto;
+  max-width: 100%; }
+
 .container {
   max-width: 1160px;
   width: auto; }
@@ -4758,6 +4762,10 @@ h3 {
 .heroless-padding {
   height: 30px; }
 
+.box-full-width h2 {
+  margin: -40px 0 40px;
+  text-align: center; }
+
 .box-full-width {
   padding: 70px 0 82px; }
   .box-full-width p {
@@ -4772,6 +4780,60 @@ h3 {
 .box-tertiary {
   background: #29abe2;
   color: white; }
+
+#our-work {
+  font-size: 0;
+  text-align: center; }
+
+.our-work {
+  display: inline-block;
+  font-size: 14px;
+  height: 180px;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform-origin: 0 0 45 50%;
+  -moz-transform-origin: 0 0 45 50%;
+  -ms-transform-origin: 0 0 45 50%;
+  -o-transform-origin: 0 0 45 50%;
+  transform-origin: 0 0 45 50%; }
+  .our-work:hover {
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+    z-index: 10; }
+  .our-work .img {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    display: block;
+    height: 180px;
+    overflow: hidden;
+    -webkit-transform: translateZ(90px);
+    -moz-transform: translateZ(90px);
+    -ms-transform: translateZ(90px);
+    -o-transform: translateZ(90px);
+    transform: translateZ(90px); }
+  .our-work span {
+    background: #29abe2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: white;
+    height: 180px;
+    display: block;
+    padding: 20px;
+    text-align: left;
+    -webkit-transform: rotateX(-90deg) translateZ(-90px);
+    -moz-transform: rotateX(-90deg) translateZ(-90px);
+    -ms-transform: rotateX(-90deg) translateZ(-90px);
+    -o-transform: rotateX(-90deg) translateZ(-90px);
+    transform: rotateX(-90deg) translateZ(-90px); }
 
 #company-logos a img {
   display: block;
