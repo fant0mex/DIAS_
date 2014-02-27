@@ -9,6 +9,8 @@
   if( $map.length ) {
     var map = L.map('map').setView([51.522755, -0.086504], 17);
 
+    map.scrollWheelZoom.disable();
+
     L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
         maxZoom: 18
     }).addTo(map);
