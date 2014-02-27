@@ -4708,7 +4708,7 @@ p:last-of-type {
       #header .navbar-nav li a:hover, #header .navbar-nav li a:focus {
         border-bottom: black 3px solid;
         color: black; }
-    #header .navbar-nav li.current_page_parent a, #header .navbar-nav li.current_page_item a {
+    #header .navbar-nav li.current_page_parent a, #header .navbar-nav li.current_page_item a, #header .navbar-nav li.current-menu-item a {
       color: black; }
 
 a .fa {
