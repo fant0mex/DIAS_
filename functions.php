@@ -36,9 +36,8 @@ function create_widget( $name, $id, $description ) {
 
 }
 
-create_widget( 'Left Footer', "footer_left", "Displays in the bottom left footer");
-create_widget( 'Middle Footer', "footer_middle", "Displays in the bottom middle footer");
-create_widget( 'Right Footer', "footer_right", "Displays in the bottom right footer");
+create_widget( 'Blog page sidebar', "sidebar_single_blog", "Sidebar widget for single blog page");
+create_widget( 'Blog listings sidebar', "sidebar_blog", "Sidebar widget for blog listings page");
 
 add_action('init', 'create_custom_post_types');
 

@@ -5,7 +5,7 @@
 ?>
 
 <article class="container">
-  <article class="page">
+  <article class="textual">
     <?php if( !get_field('hero_image') ): ?>
     <h2><?php the_title(); ?></h2>
     <?php endif; ?>

@@ -4721,6 +4721,10 @@ a:hover .fa,
 a:focus .fa {
   opacity: 0.6; }
 
+h2 {
+  font-size: 26px;
+  line-height: 30px; }
+
 h3 {
   font-size: 14px;
   font-weight: bold;
@@ -4780,11 +4784,6 @@ h3 {
   .about img {
     padding-bottom: 5px;
     width: 30%; }
-  .about h3 {
-    color: #95a5a6;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding-top: 10px; }
   .about p {
     font-size: 16px;
     padding-top: 9px;
@@ -4797,14 +4796,6 @@ hr {
   margin-top: 10px auto 12px;
   width: 60%; }
 
-h2 {
-  font-size: 2em; }
-
-.recent img {
-  border: 0.5em solid white;
-  box-shadow: 3px 3px 3px #cccccc;
-  margin-bottom: 65px; }
-
 #footer {
   background: black;
   bottom: 0;
@@ -4816,139 +4807,40 @@ h2 {
     color: white;
     text-decoration: none; }
 
-.navbar-text {
-  font-weight: bold;
-  padding: 0 10px; }
-
 .largeIcon {
   font-size: 24px;
   /*  margin-right: -30px */
   padding: 0 30px; }
 
-.work {
-  margin-bottom: 180px;
-  margin-top: 250px; }
-  .work img {
-    border: 0.5em solid white;
-    box-shadow: 3px 3px 3px #cccccc;
-    margin-bottom: 50px; }
-
-.info {
-  list-style: none;
-  padding-top: 15px; }
-  .info li {
-    display: inline;
-    padding-left: 10px; }
-
-.dark {
-  background-color: #f0f0f0; }
-
-.bright {
-  background-color: white; }
-
 .entry {
-  padding-bottom: 10px; }
-  .entry img {
-    display: inline-block;
-    padding: 10px; }
+  margin-bottom: 30px; }
+  .entry h2 {
+    margin: 30px 0 10px; }
+    .entry h2 a {
+      color: black; }
+  .entry .wp-post-image {
+    float: left;
+    height: auto;
+    max-width: 150px;
+    margin: 0 20px 30px 0; }
+  .entry .info {
+    color: #95a5a6;
+    font-size: 0.9em; }
 
-.single h1 {
-  padding-bottom: 30px; }
-.single ul {
-  margin-left: -37px; }
-.single hr {
-  margin-bottom: 30px;
-  margin-top: 30px; }
+.posts-archive a {
+  display: block;
+  font-size: 0.9em;
+  padding: 0 0 15px; }
 
-#respond {
-  padding-top: 30px; }
+#sidebar ul {
+  list-style: none;
+  padding-left: 0; }
+  #sidebar ul li {
+    padding: 0 0 10px; }
+#sidebar h3 {
+  margin: 40px 0 10px; }
 
-.cat {
-  padding-left: 40px;
-  padding-top: 40px; }
-
-.article-bg {
-  background: 50% 0 no-repeat fixed;
-  background-size: cover;
-  height: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1; }
-
-.splash {
-  height: auto;
-  position: relative;
-  z-index: 50; }
-
-#intro {
-  margin: 0 auto;
-  margin-bottom: 5%;
-  padding: 20% 0;
-  position: relative; }
-  #intro h2 {
-    color: white;
-    font-size: 48px;
-    font-weight: 300;
-    text-align: center;
-    text-transform: uppercase; }
-  #intro ul {
-    font-size: 14px;
-    text-align: center; }
-  #intro li {
-    color: white;
-    display: inline-block;
-    font-size: 28px;
-    margin-right: 44px;
-    padding: 0 10px;
-    text-align: center; }
-  #intro a {
-    color: white; }
-  #intro p {
-    color: white;
-    line-height: 23px;
-    margin: 40px 130px;
-    text-align: center; }
-
-.white {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 5% 20%; }
-
-.details p {
-  line-height: 23px;
-  margin-top: -10px; }
-
-.detail img {
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
-  -ms-border-radius: 200px;
-  -o-border-radius: 200px;
-  border-radius: 200px;
-  height: 400px;
-  margin: 0 10%;
-  width: 400px; }
-
-.action img {
-  height: auto;
-  width: 100%; }
-
-.quote h3 {
-  font-weight: 400;
-  font-size: 30px;
-  padding: 2% 0;
-  text-align: center;
-  text-transform: uppercase; }
-
-#skills {
-  padding: 5% 0; }
-  #skills h3 {
-    color: white;
-    font-size: 36px;
-    font-weight: 300;
-    text-align: center; }
-
-.page {
+.textual {
   font-size: 16px;
   line-height: 20px;
   margin: 30px auto;
