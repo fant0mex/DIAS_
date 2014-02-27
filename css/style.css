@@ -4790,6 +4790,7 @@ h3 {
   font-size: 14px;
   height: 180px;
   position: relative;
+  vertical-align: top;
   -webkit-transition: -webkit-transform 0.3s ease-out;
   -moz-transition: -moz-transform 0.3s ease-out;
   -o-transition: -o-transform 0.3s ease-out;
