@@ -4959,6 +4959,10 @@ h2 {
     font-weight: 300;
     text-align: center; }
 
+.page {
+  margin: 0 auto 20px;
+  max-width: 800px; }
+
 #contact-page {
   background: #009245;
   background: rgba(0, 146, 69, 0.75);
