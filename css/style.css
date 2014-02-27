@@ -4738,6 +4738,7 @@ h3 {
   position: relative;
   text-align: center; }
   #hero img {
+    height: auto;
     width: 100%; }
 
 #hero-caption {

@@ -3,15 +3,8 @@
 
   var $map = $('#map'),
       $chart = $("#myChart"),
-      $carousels = $('.carousel'),
       $contact = $('#contact-form>div'),
       MAXWIDTH = 1160;
-
-  if( $carousels.length ) {
-    $carousels.carousel({
-      interval: false
-    });
-  }
 
   if( $map.length ) {
     var map = L.map('map').setView([51.522755, -0.086504], 17);
