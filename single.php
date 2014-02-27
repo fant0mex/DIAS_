@@ -12,22 +12,14 @@
         the_post();
     ?>
 
-        <article class="entry">
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <article class="blog-post">
+          <h2><?php the_title(); ?></h2>
 
-          <?php
-          if ( has_post_thumbnail() ) {
-            the_post_thumbnail('large', array('class' => 'img-responsive'));
-          }
-          ?>
+          <div class="info">
+            <?php the_time('F jS, Y'); ?> by <?php the_author( );?>
+          </div>
 
-          <ul class="info">
-            <li>Posted in: <em><?php the_category(', ') ;?></em></li>
-            <li>Written by: <?php the_author( );?></li>
-            <li>On: <?php the_time('l, F jS, Y'); ?></li>
-          </ul>
-
-          <div class="excerpt">
+          <div class="main-text">
             <?php the_content(); ?>
           </div>
         </article>

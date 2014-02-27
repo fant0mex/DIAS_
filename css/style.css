@@ -4875,6 +4875,13 @@ hr {
   /*  margin-right: -30px */
   padding: 0 30px; }
 
+.blog-post {
+  padding-bottom: 30px; }
+  .blog-post h2 {
+    margin: 30px 0 10px; }
+  .blog-post .info {
+    margin-bottom: 30px; }
+
 .entry {
   margin-bottom: 30px; }
   .entry h2 {
@@ -4886,9 +4893,10 @@ hr {
     height: auto;
     max-width: 150px;
     margin: 0 20px 30px 0; }
-  .entry .info {
-    color: #95a5a6;
-    font-size: 0.9em; }
+
+.info {
+  color: #95a5a6;
+  font-size: 0.9em; }
 
 .posts-archive a {
   display: block;
