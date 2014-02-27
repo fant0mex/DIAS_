@@ -4733,11 +4733,13 @@ h3 {
 
 #hero {
   height: 100%;
-  margin: -70px 0 0;
   max-width: 100%;
   overflow: hidden;
   position: relative;
   text-align: center; }
+  @media only screen and (min-width: 521px) {
+    #hero {
+      margin: -70px 0 0; } }
   #hero img {
     height: auto;
     width: 100%; }

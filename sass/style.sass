@@ -132,12 +132,12 @@ h3
 // Hero Image //////////
 #hero
   height: 100%
-  margin: -70px 0 0
   max-width: 100%
   overflow: hidden
   position: relative
   text-align: center
-
+  +respond-to(not-xs)
+    margin: -70px 0 0
   img
     height: auto
     width: 100%
