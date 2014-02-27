@@ -2,11 +2,13 @@
 <div id="hero">
   <img src="<?php the_field('hero_image'); ?>">
 
+  <?php if( get_field('hero_description') ): ?>
   <div class="container">
     <div id="hero-caption">
-      <?php the_field("hero_description");?>
+      <?php the_field('hero_description');?>
     </div>
   </div>
+  <?php endif; ?>
 
 </div>
 <?php else: ?>
