@@ -10,7 +10,7 @@
     while ( have_posts() ):
       the_post();
   ?>
-    <article class="blog-post work-post">
+    <article class="blog-post work-post textual">
       <h2><?php the_title(); ?></h2>
 
       <div class="info">
