@@ -54,16 +54,4 @@ function create_custom_post_types() {
       'has_archive' => true,
     )
   );
-
-  register_post_type( 'hero',
-    array(
-      'labels' => array(
-        'name' => __( 'Homepage Hero' ),
-        'singular_name' => __( 'Homepage Hero' )
-      ),
-      'public' => true,
-      'menu_icon' => get_stylesheet_directory_uri() . '/images/admin-hero.png',
-      'menu_position' => 8
-    )
-  );
 }
