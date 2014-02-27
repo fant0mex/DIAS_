@@ -190,8 +190,11 @@ h3
   overflow: hidden
   position: relative
   vertical-align: top
-  &:hover
-    z-index: 10
+  &:hover,
+  &:active
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+    -webkit-user-select: none
+    -webkit-touch-callout: none
     div
       bottom: 0
   img

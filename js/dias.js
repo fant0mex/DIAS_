@@ -40,4 +40,6 @@
     }).resize();
   }
 
+  document.addEventListener("touchstart", function(){}, true);
+
 }(jQuery, jQuery(window)));
