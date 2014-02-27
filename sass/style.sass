@@ -69,8 +69,7 @@ p:last-of-type
   padding: 0
   vertical-align: bottom
 
-#logo a,
-#company-logos a
+#logo a
   +transition(opacity 0.25s ease-out)
   &:hover,
   &:focus
@@ -212,11 +211,14 @@ h3
     text-align: left
     +transform(rotateX(-90deg) translateZ(-90px))
 
-#company-logos a img
-  display: block
-  height: auto
-  margin: 0 auto
-  max-width: 100%
+#company-logos a
+  &:hover
+    opacity: .8
+  img
+    display: block
+    height: auto
+    margin: 0 auto
+    max-width: 100%
 
 // About //////////
 .about

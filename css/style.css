@@ -4665,15 +4665,12 @@ p:last-of-type {
   padding: 0;
   vertical-align: bottom; }
 
-#logo a,
-#company-logos a {
+#logo a {
   -webkit-transition: opacity 0.25s ease-out;
   -moz-transition: opacity 0.25s ease-out;
   -o-transition: opacity 0.25s ease-out;
   transition: opacity 0.25s ease-out; }
-  #logo a:hover, #logo a:focus,
-  #company-logos a:hover,
-  #company-logos a:focus {
+  #logo a:hover, #logo a:focus {
     opacity: 0.6; }
 
 #logo img {
@@ -4836,6 +4833,8 @@ h3 {
     -o-transform: rotateX(-90deg) translateZ(-90px);
     transform: rotateX(-90deg) translateZ(-90px); }
 
+#company-logos a:hover {
+  opacity: 0.8; }
 #company-logos a img {
   display: block;
   height: auto;
