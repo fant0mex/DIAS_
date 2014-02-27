@@ -1,9 +1,11 @@
-(function ($) {
+(function ($, $win) {
   'use strict';
 
   var $map = $('#map'),
       $chart = $("#myChart"),
-      $carousels = $('.carousel');
+      $carousels = $('.carousel'),
+      $contact = $('#contact-form>div'),
+      MAXWIDTH = 1160;
 
   if( $carousels.length ) {
     $carousels.carousel({
@@ -14,7 +16,7 @@
   if( $map.length ) {
     var map = L.map('map').setView([51.522755, -0.086504], 17);
 
-    L.tileLayer('http://{s}.tile.cloudmade.com/a0750f484fc24abc9d141c74cba0613a/997/256/{z}/{x}/{y}.png', {
+    L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
         maxZoom: 18
     }).addTo(map);
 
@@ -26,4 +28,20 @@
         myNewChart = new Chart(ctx);
   }
 
-}(jQuery));
+  if( $contact.length ) {
+    // "complex" layout in contact page requires some JS
+    // to make sure the contact form is aligned left with content
+    // when the browser is wider than our max width
+    $win.resize(function() {
+      var left = 0,
+          sideMargin = $win.width() - MAXWIDTH;
+
+      if( sideMargin > 0 ) {
+        left = sideMargin / 2;
+      }
+
+      $contact.css('paddingLeft', left + 'px');
+    }).resize();
+  }
+
+}(jQuery, jQuery(window)));

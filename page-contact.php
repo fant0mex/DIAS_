@@ -4,16 +4,18 @@
   get_template_part('content', 'hero-image');
 ?>
 
-<div class="container">
+<div class="container-fluid" id="contact-page">
   <div class="row">
-    <div class="col-md-3 col-sm-4">
-      <h3 class="page-head"><?php the_title(); ?></h3>
-      <p><?php the_content(); ?></p>
+    <div class="col-sm-4" id="contact-form">
+      <div>
+        <h3 class="page-head">Talk to us</h3>
+        <?php the_content(); ?>
+      </div>
     </div>
 
-    <div class="col-md-9  col-sm-8">
+    <div class="col-sm-8">
       <div id="address">
-        <h2>Address</h2>
+        <h3>Address</h3>
 
         <p>3rd Floor, 6-8 Bonhill Street, London, EC2A 4BX</p>
         <p>Tel: <a href="callto:+442079935746">+44 (0) 20 7993 5746</a></p>
@@ -29,22 +31,11 @@
   <div class="container">
     <div class="row jobs">
       <div class="col-xs-6">
-        <h2>Work With Us</h2>
-
-        <p>If you’d like to chat about how DIAS can make things worth making with your company or organisation, get in touch.</p>
+        <?php the_field('contact_page_left_box'); ?>
       </div>
 
       <div class="col-md-6">
-        <h2>Current Jobs</h2>
-
-        <ul>
-          <li>Job</li>
-            <ul>
-              <li>Specs</li>
-              <li>Duties</li>
-              <li>Info</li>
-            </ul>
-        </ul>
+        <?php the_field('contact_page_right_box'); ?>
       </div>
     </div>
   </div>

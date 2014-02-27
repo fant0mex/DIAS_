@@ -22,6 +22,19 @@ $c-tertiary: #95a5a6
 
 $vertical-padding: 30px
 
+$break-small: 520px
+$break-ipad: 768px
+$break-med: 920px
+$site-max-width: 1160px
+
+@mixin respond-to($media)
+  @if $media == screen-xs
+    @media only screen and (max-width: $break-small)
+      @content
+  @if $media == not-xs
+    @media only screen and (min-width: $break-small + 1)
+      @content
+
 html
   min-height: 100%
   position: relative
@@ -32,12 +45,18 @@ body
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   margin: 70px 0 58px
 
+.container
+  max-width: $site-max-width
+  width: auto
 a
   +transition(color 0.25s ease-out)
 
   &:hover,
   &:focus
     text-decoration: none
+
+p:last-of-type
+  margin-bottom: 0
 
 #logo,
 #strap
@@ -54,9 +73,9 @@ a
     opacity: 0.6
 
 #logo img
-  height: auto
+  height: 44px
   margin: 16px 0 0
-  max-width: 138px
+  width: 138px
 
 #strap
   font-size: 14px
@@ -96,6 +115,12 @@ a .fa
 a:hover .fa,
 a:focus .fa
   opacity: 0.6
+
+
+h3
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
 
 // Carousel //////////
 #hero
@@ -186,32 +211,6 @@ h2
   margin-bottom: 65px
 
 
-// Widgets //////////
-h3
-  font-size: 20px
-  font-weight: 500
-
-.widgets
-  background-color: #fff
-  padding-top: 20px
-
-.footer_left
-  font-size: 1em
-  list-style: none
-  margin: 0
-  padding: 0
-
-  label
-    display: none
-
-.footer_middle ul
-  padding: 10px
-
-.footer_right ul
-  list-style: none
-  width: 50%
-
-
 // Footer //////////
 #footer
   background: #000
@@ -265,17 +264,6 @@ h3
   li
     display: inline
     padding-left: 10px
-
-h3#comments,
-#respond h3
-  font-weight: 400
-
-label
-  font-weight: 400
-
-#map
-  padding-bottom: 50%
-  width: 100%
 
 .dark
   background-color: $main-bg
@@ -393,21 +381,74 @@ label
 
 
 // contact page
+#contact-page
+  background: #009245
+  background: rgba(#009245, 0.75)
+  color: #fff
+  margin-bottom: -$vertical-padding
+  margin-top: -$vertical-padding
+
+#contact-form,
 #address
-  background: #fff
-  background: rgba(#fff, 0.9)
-  bottom: 0
-  left: 10px
-  min-width: 200px
-  padding: 10px
-  position: absolute
-  top: 0
-  width: 20%
-  z-index: 2
+  a
+    color: #fff
+    &:hover
+      text-decoration: underline
+
+#contact-form
+  position: relative
+  > div
+    float: right
+    padding-bottom: 10px
+    width: 100%
+  label
+    display: block
+    font-size: 12px
+    font-weight: normal
+    line-height: 16px
+    margin: 0
+    text-transform: uppercase
+  input[type="text"],
+  input[type="email"],
+  textarea
+    background: #e6e6e6
+    border: solid 1px #fff
+    width: 100%
+  input
+    max-width: 100%
+  .wpcf7-submit
+    background: #fff
+    border: none
+    +border-radius(4px)
+    color: #009245
+    padding: 5px 12px
+    text-transform: uppercase
+    &:hover
+      background: #efe
+      background: rgba(#fff, .9)
+
+#map
+  height: 479px
+  margin-left: -20px
+  padding-bottom: 50%
+  right: -10px
+
+#address
+  padding: 10px 0
+  +respond-to(not-xs)
+    background: #009245
+    background: rgba(#009245, 0.75)
+    bottom: 0
+    left: 0
+    min-width: 200px
+    padding: 10px
+    position: absolute
+    top: 0
+    width: 20%
+    z-index: 2
 
 #jobs
-  background-color: #fff473
-  color: #a67a00
+  background-color: #e6e6e6
   margin-top: $vertical-padding
   padding: 20px 0
 
@@ -420,5 +461,9 @@ label
 // Media Queries //////////
 //
 @media (max-width: 889px)
+  #contact-form > div
+    float: none
+    max-width: 100%
+
   #logo
     margin-left: 10px
