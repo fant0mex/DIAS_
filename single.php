@@ -12,7 +12,7 @@
         the_post();
     ?>
 
-        <div class="row entry">
+        <article class="entry">
           <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
           <?php
@@ -30,7 +30,7 @@
           <div class="container excerpt">
             <?php the_content(); ?>
           </div>
-        </div>
+        </article>
     <?php
       endwhile;
     else:
