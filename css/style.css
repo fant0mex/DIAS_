@@ -4797,14 +4797,18 @@ h3 {
     min-height: 180px; }
   .our-work div {
     background: black;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
+    bottom: -100%;
     color: white;
     display: block;
-    height: 100%;
-    padding: 20px;
+    padding: 0 20px;
     position: absolute;
     text-align: left;
-    width: 100%; }
+    width: 100%;
+    -webkit-transition: bottom 0.2s ease-out;
+    -moz-transition: bottom 0.2s ease-out;
+    -o-transition: bottom 0.2s ease-out;
+    transition: bottom 0.2s ease-out; }
 
 #company-logos a:hover {
   opacity: 0.8; }

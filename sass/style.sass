@@ -198,14 +198,15 @@ h3
     min-height: 180px
   div
     background: #000
-    background: rgba(#000, .75)
+    background: rgba(#000, .5)
+    bottom: -100%
     color: #fff
     display: block
-    height: 100%
-    padding: 20px
+    padding: 0 20px
     position: absolute
     text-align: left
     width: 100%
+    +transition(bottom .2s ease-out)
 
 #company-logos a
   &:hover

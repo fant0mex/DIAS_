@@ -40,7 +40,4 @@
     }).resize();
   }
 
-  if( $ourWork.length )
-    $ourWork.each( function() { $(this).hoverdir(); } );
-
 }(jQuery, jQuery(window)));

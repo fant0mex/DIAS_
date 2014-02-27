@@ -14,7 +14,6 @@
     </footer>
 
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/chart/Chart.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/hoverdir/jquery.hoverdir-ck.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/dias-ck.js"></script>
     <?php wp_footer(); ?>
 

@@ -32,7 +32,6 @@
       <div>
         <h3><?php the_title() ?></h3>
         <h4><?php the_field( 'client' ); ?></h4>
-        -<?php the_excerpt() ?>-
       </div>
     </a>
     <?php endwhile; wp_reset_postdata(); ?>
