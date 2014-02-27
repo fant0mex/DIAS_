@@ -4786,52 +4786,35 @@ h3 {
   display: inline-block;
   font-size: 14px;
   height: 180px;
+  overflow: hidden;
   position: relative;
-  vertical-align: top;
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform-origin: 0 0 45 50%;
-  -moz-transform-origin: 0 0 45 50%;
-  -ms-transform-origin: 0 0 45 50%;
-  -o-transform-origin: 0 0 45 50%;
-  transform-origin: 0 0 45 50%; }
+  vertical-align: top; }
   .our-work:hover {
-    -webkit-transform: rotateX(90deg);
-    -moz-transform: rotateX(90deg);
-    -ms-transform: rotateX(90deg);
-    -o-transform: rotateX(90deg);
-    transform: rotateX(90deg);
     z-index: 10; }
+    .our-work:hover span {
+      bottom: 0; }
   .our-work .img {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     display: block;
     height: 180px;
-    overflow: hidden;
-    -webkit-transform: translateZ(90px);
-    -moz-transform: translateZ(90px);
-    -ms-transform: translateZ(90px);
-    -o-transform: translateZ(90px);
-    transform: translateZ(90px); }
+    overflow: hidden; }
+    .our-work .img img {
+      min-height: 180px; }
   .our-work span {
-    background: #29abe2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    background: black;
+    background: rgba(0, 0, 0, 0.75);
+    bottom: -100%;
     color: white;
-    height: 180px;
     display: block;
+    height: 180px;
+    left: 0;
     padding: 20px;
+    position: absolute;
+    right: 0;
     text-align: left;
-    -webkit-transform: rotateX(-90deg) translateZ(-90px);
-    -moz-transform: rotateX(-90deg) translateZ(-90px);
-    -ms-transform: rotateX(-90deg) translateZ(-90px);
-    -o-transform: rotateX(-90deg) translateZ(-90px);
-    transform: rotateX(-90deg) translateZ(-90px); }
+    -webkit-transition: bottom 0.2s ease-out;
+    -moz-transition: bottom 0.2s ease-out;
+    -o-transition: bottom 0.2s ease-out;
+    transition: bottom 0.2s ease-out; }
 
 #company-logos a:hover {
   opacity: 0.8; }

@@ -187,29 +187,32 @@ h3
   display: inline-block
   font-size: 14px
   height: 180px
+  overflow: hidden
   position: relative
   vertical-align: top
-  +transition(transform .3s ease-out)
-  +transform-style(preserve-3d)
-  +transform-origin(0 0 45)
   &:hover
-    +transform(rotateX(90deg))
     z-index: 10
+    span
+      bottom: 0
   .img
-    box-shadow: 0 0 10px rgba(0,0,0,.25)
     display: block
     height: 180px
     overflow: hidden
-    +transform(translateZ(90px))
+    img
+      min-height: 180px
   span
-    background: #29abe2
-    box-shadow: 0 0 10px rgba(0,0,0,.25)
+    background: #000
+    background: rgba(#000, .75)
+    bottom: -100%
     color: #fff
-    height: 180px
     display: block
+    height: 180px
+    left: 0
     padding: 20px
+    position: absolute
+    right: 0
     text-align: left
-    +transform(rotateX(-90deg) translateZ(-90px))
+    +transition(bottom .2s ease-out)
 
 #company-logos a
   &:hover
