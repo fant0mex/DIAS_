@@ -10,8 +10,8 @@
     while ( have_posts() ):
       the_post();
   ?>
-    <div class="col-sx-12">
-      <article class="blog-post work-post textual">
+    <div class="col-xs-12">
+      <article class="blog-post work-post">
         <h2><?php the_title(); ?></h2>
 
         <div class="info">
