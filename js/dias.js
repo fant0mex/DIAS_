@@ -4,6 +4,7 @@
   var $map = $('#map'),
       $chart = $("#myChart"),
       $contact = $('#contact-form>div'),
+      $ourWork = $('.our-work'),
       MAXWIDTH = 1160;
 
   if( $map.length ) {
@@ -38,5 +39,8 @@
       $contact.css('paddingLeft', left + 'px');
     }).resize();
   }
+
+  if( $ourWork.length )
+    $ourWork.each( function() { $(this).hoverdir(); } );
 
 }(jQuery, jQuery(window)));

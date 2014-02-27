@@ -28,12 +28,12 @@
     $image = get_field('project_image');
   ?>
     <a href="<?php the_permalink(); ?>" class="our-work">
-      <div class="img"><img src="<?= $image['sizes']['medium'] ?>"></div>
-      <span>
+      <img src="<?= $image['sizes']['medium'] ?>">
+      <div>
         <h3><?php the_title() ?></h3>
         <h4><?php the_field( 'client' ); ?></h4>
         -<?php the_excerpt() ?>-
-      </span>
+      </div>
     </a>
     <?php endwhile; wp_reset_postdata(); ?>
   </div>

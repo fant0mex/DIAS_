@@ -4791,30 +4791,20 @@ h3 {
   vertical-align: top; }
   .our-work:hover {
     z-index: 10; }
-    .our-work:hover span {
+    .our-work:hover div {
       bottom: 0; }
-  .our-work .img {
-    display: block;
-    height: 180px;
-    overflow: hidden; }
-    .our-work .img img {
-      min-height: 180px; }
-  .our-work span {
+  .our-work img {
+    min-height: 180px; }
+  .our-work div {
     background: black;
     background: rgba(0, 0, 0, 0.75);
-    bottom: -100%;
     color: white;
     display: block;
-    height: 180px;
-    left: 0;
+    height: 100%;
     padding: 20px;
     position: absolute;
-    right: 0;
     text-align: left;
-    -webkit-transition: bottom 0.2s ease-out;
-    -moz-transition: bottom 0.2s ease-out;
-    -o-transition: bottom 0.2s ease-out;
-    transition: bottom 0.2s ease-out; }
+    width: 100%; }
 
 #company-logos a:hover {
   opacity: 0.8; }
