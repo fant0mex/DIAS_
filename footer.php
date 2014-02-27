@@ -13,9 +13,8 @@
       </div>
     </footer>
 
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/leaflet/js/leaflet.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/chart/Chart.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/leaflet/js/dias-ck.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/chart/Chart.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/dias-ck.js"></script>
     <?php wp_footer(); ?>
 
   </body>
