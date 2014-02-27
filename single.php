@@ -27,7 +27,7 @@
             <li>On: <?php the_time('l, F jS, Y'); ?></li>
           </ul>
 
-          <div class="container excerpt">
+          <div class="excerpt">
             <?php the_content(); ?>
           </div>
         </article>
