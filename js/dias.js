@@ -4,7 +4,6 @@
   var $map = $('#map'),
       $chart = $("#myChart"),
       $contact = $('#contact-form>div'),
-      $ourWork = $('.our-work'),
       MAXWIDTH = 1160;
 
   if( $map.length ) {
@@ -17,11 +16,6 @@
     }).addTo(map);
 
     var marker = L.marker([51.522555, -0.085304]).addTo(map);
-  }
-
-  if( $chart.length ) {
-    var ctx = $chart.get(0).getContext("2d"),
-        myNewChart = new Chart(ctx);
   }
 
   if( $contact.length ) {
