@@ -89,3 +89,9 @@ function replace_placeholder_nav_menu_item_with_latest_post( $items, $menu, $arg
     // Return the modified (or maybe unmodified) menu items array
     return $items;
 }
+
+function cc_mime_types( $mimes ){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'cc_mime_types' );
