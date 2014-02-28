@@ -41,11 +41,8 @@
 
 <div class="box-tertiary box-full-width">
   <div class="container">
-    <div class="row">
-      <div class="col-12-xs">
-        <h2 id="our-partners">Who we work with</h2>
-      </div>
-    </div>
+    <h2 id="our-partners">Who we work with</h2>
+
     <div class="row" id="company-logos">
       <?php the_field("company_logos");?>
     </div>
