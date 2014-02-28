@@ -11,7 +11,7 @@
       the_post();
   ?>
     <div class="col-xs-12">
-      <article class="blog-post work-post">
+      <article class="blog-post work-post textual">
         <h2><?php the_title(); ?></h2>
 
         <div class="info">
