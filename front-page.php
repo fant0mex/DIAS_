@@ -18,7 +18,7 @@
 
 <div class="box-full-width">
   <div class="container">
-      <h2>Our work</h2>
+      <h2>Our projects</h2>
   </div>
 
   <div id="our-projects">
