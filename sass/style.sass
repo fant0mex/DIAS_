@@ -258,8 +258,9 @@ hr
 
 .largeIcon
   font-size: 24px
-  /*  margin-right: -30px*/
-  padding: 0 30px
+  padding: 0 10px
+  +respond-to(not-xs)
+    padding: 0 30px
 
 
 // Blog //////////
@@ -374,11 +375,14 @@ hr
     background: rgba(#398f14, .6)
 
 #map
-  height: 479px
+  height: 200px
   margin-left: -20px
   padding-bottom: 50%
   right: -10px
   z-index: 1
+  +respond-to(not-xs)
+    height: 479px
+
 
 #address
   padding: 10px 0 $vertical-padding

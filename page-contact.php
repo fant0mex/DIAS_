@@ -30,11 +30,11 @@
 <div id="jobs">
   <div class="container">
     <div class="row jobs">
-      <div class="col-xs-6">
+      <div class="col-sm-6">
         <?php the_field('contact_page_left_box'); ?>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <?php the_field('contact_page_right_box'); ?>
       </div>
     </div>
