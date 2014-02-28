@@ -17,17 +17,18 @@
 </div>
 
 <div class="box-full-width">
+  <div class="container">
+      <h2>Our work</h2>
+  </div>
 
-  <h2>Our work</h2>
-
-  <div id="our-work">
+  <div id="our-projects">
   <?php
   while( $recentWork->have_posts() ):
     $recentWork->the_post();
 
     $image = get_field('project_image');
   ?>
-    <a href="<?php the_permalink(); ?>" class="our-work">
+    <a href="<?php the_permalink(); ?>" class="our-projects">
       <img src="<?= $image['sizes']['medium'] ?>">
       <div>
         <h3><?php the_title() ?></h3>
@@ -42,7 +43,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12-xs">
-        <h2 id="our-partners">Our partners</h2>
+        <h2 id="our-partners">Who we work with</h2>
       </div>
     </div>
     <div class="row" id="company-logos">
