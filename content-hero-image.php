@@ -3,14 +3,13 @@
 $image = get_field('hero_image');
 
 if( $image ): ?>
-<div id="hero">
-  <img src="<?= $image['url']; ?>" height="<?= $image['height'] ?>" width="<?= $image['width'] ?>">
-
+<div id="hero" style="background-image: url(<?= $image['url']; ?>)">
+  <img src="<?= $image['url']; ?>" height="<?= $image['height'] ?>" width="<?= $image['width'] ?>"
+    <?= !get_field('hero_description') ? '' : ' class="no-text"' ?>>
   <?php if( get_field('hero_description') ): ?>
   <div class="container">
-    <div id="hero-caption"
-      data--50-bottom="padding-bottom:100px" data-top="padding-bottom:10px">
-      <div data-center="opacity:1" data-top="opacity:0"><?php the_field('hero_description');?></div>
+    <div id="hero-caption">
+      <?php the_field('hero_description');?>
     </div>
   </div>
   <?php endif; ?>

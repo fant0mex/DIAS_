@@ -22,8 +22,7 @@ $c-tertiary: #95a5a6
 
 $vertical-padding: 30px
 
-$break-small: 520px
-$break-ipad: 768px
+$break-small: 768px
 $break-med: 920px
 $site-max-width: 1160px
 
@@ -143,6 +142,8 @@ h3
 
 // Hero Image //////////
 #hero
+  background: 50% 50% no-repeat
+  background-size: cover
   height: 100%
   max-width: 100%
   overflow: hidden
@@ -152,22 +153,32 @@ h3
     margin: -70px 0 0
   img
     height: auto
+    position: relative
     width: 100%
+    +respond-to(screen-xs)
+      &.no-text
+        display: none
 
 #hero-caption
   background: #000
   background: rgba(#000, 0.5)
-  bottom: 0
   color: #fff
-  font-size: 24px
+  font-size: 20px
   font-weight: normal
-  line-height: 28px
+  line-height: 24px
   max-width: 480px
+  margin-top: 10px
   padding: 16px 10px 28px
-  position: absolute
+  position: relative
   text-align: left
   width: 100%
-  width: calc(100% - 20px)
+  +respond-to(not-xs)
+    bottom: 0
+    font-size: 24px
+    line-height: 28px
+    position: absolute
+    width: calc(100% - 20px)
+
 
 .heroless-padding
   height: $vertical-padding
