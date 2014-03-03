@@ -143,6 +143,8 @@ h3
 
 // Hero Image //////////
 #hero
+  background: 0 0 no-repeat
+  background-size: cover
   height: 100%
   max-width: 100%
   overflow: hidden
@@ -156,11 +158,7 @@ h3
     width: 100%
     +respond-to(screen-xs)
       &.no-text
-        height: 100%
-        left: 0
-        max-width: none
-        position: absolute
-        width: auto
+        display: none
 
 #hero-caption
   background: #000
