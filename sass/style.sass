@@ -74,10 +74,15 @@ p:last-of-type
   &:focus
     opacity: 0.6
 
-#logo img
-  height: 44px
-  margin: 16px 0 0
-  width: 138px
+#logo img,
+#logo object
+  height: 30px
+  margin: 20px 0 0
+  width: 90px
+  +respond-to(not-xs)
+    height: 44px
+    margin: 16px 0 0
+    width: 138px
 
 #strap
   font-size: 14px
