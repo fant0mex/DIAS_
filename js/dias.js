@@ -4,7 +4,12 @@
   var $map = $('#map'),
       $chart = $("#myChart"),
       $contact = $('#contact-form>div'),
+      touchDevice = 'ontouchstart' in window || 'onmsgesturechange' in window,
       MAXWIDTH = 1160;
+
+  if( touchDevice ) {
+    $('html').addClass('touch-device');
+  }
 
   if( $map.length ) {
     var map = L.map('map').setView([51.522755, -0.086504], 17);
