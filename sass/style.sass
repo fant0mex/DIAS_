@@ -120,9 +120,9 @@ p:last-of-type
       &:focus
         border-bottom-color: #000
         color: #000
-    &.current_page_parent a,
-    &.current_page_item a,
-    &.current-menu-item a
+    .not-home &.current_page_parent a,
+    .not-home &.current_page_item a,
+    .not-home &.current-menu-item a
       color: #000
 #menu-primary
   padding: 0
@@ -209,6 +209,11 @@ h3
 .box-tertiary
   background: #29abe2
   color: #fff
+
+#projects
+  left: 0
+  margin-top: -90px
+  position: absolute
 
 #our-projects
   font-size: 0
