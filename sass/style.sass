@@ -152,22 +152,36 @@ h3
     margin: -70px 0 0
   img
     height: auto
+    position: relative
     width: 100%
+    +respond-to(screen-xs)
+      &.no-text
+        height: 100%
+        left: 0
+        max-width: none
+        position: absolute
+        width: auto
 
 #hero-caption
   background: #000
   background: rgba(#000, 0.5)
-  bottom: 0
   color: #fff
-  font-size: 24px
+  font-size: 20px
   font-weight: normal
-  line-height: 28px
+  line-height: 24px
   max-width: 480px
+  margin-top: 10px
   padding: 16px 10px 28px
-  position: absolute
+  position: relative
   text-align: left
   width: 100%
-  width: calc(100% - 20px)
+  +respond-to(not-xs)
+    bottom: 0
+    font-size: 24px
+    line-height: 28px
+    position: absolute
+    width: calc(100% - 20px)
+
 
 .heroless-padding
   height: $vertical-padding
