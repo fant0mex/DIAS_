@@ -6,14 +6,7 @@
 
 <div class="container-fluid" id="contact-page">
   <div class="row">
-    <div class="col-sm-4" id="contact-form">
-      <div>
-        <h3 class="page-head">Talk to us</h3>
-        <?php the_content(); ?>
-      </div>
-    </div>
-
-    <div class="col-sm-8">
+    <div class="col-sm-8 col-sm-push-4">
       <div id="address">
         <h3>Address</h3>
 
@@ -23,6 +16,12 @@
       </div>
 
       <div id="map"></div>
+    </div>
+    <div class="col-sm-4 col-sm-pull-8" id="contact-form">
+      <div>
+        <h3 class="page-head">Talk to us</h3>
+        <?php the_content(); ?>
+      </div>
     </div>
   </div>
 </div>
