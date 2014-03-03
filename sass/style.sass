@@ -195,8 +195,11 @@ h3
 .box-secondary
   background: #fff
   color: #333
-  font-size: 24px
-  line-height: 28px
+  font-size: 20px
+  line-height: 24px
+  +respond-to(not-xs)
+    font-size: 24px
+    line-height: 28px
 
 .box-tertiary
   background: #29abe2
