@@ -35,7 +35,9 @@
 
           <h1 id="logo">
             <a href="<?php echo site_url(); ?>">
-              <img src="<?php bloginfo('template_directory'); ?>/images/logo.svg">
+              <object data="<?php bloginfo('template_directory'); ?>/images/logo.svg" type="image/svg+xml">
+                <img src="<?php bloginfo('template_directory'); ?>/images/ipad.jpg" />
+              </object>
             </a>
           </h1>
 
