@@ -22,6 +22,19 @@
           <?php the_content(); ?>
         </div>
       </article>
+      <div class="next-post pull-right">
+          <?php
+            next_post_link();
+          ?>
+        </div>
+
+        <div class="prev-post pull-left">
+          <?php
+            previous_post_link();
+          ?>
+        </div>
+
+
     </div>
   <?php
     endwhile;
