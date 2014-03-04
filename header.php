@@ -23,7 +23,7 @@
     </script>
   </head>
 
-  <body<?= (is_home() || is_front_page()) ? '' : ' class="not-home"' ?>>
+  <body class="<?= (is_home() || is_front_page()) ? 'home' : 'not-home' ?>">
     <header id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">

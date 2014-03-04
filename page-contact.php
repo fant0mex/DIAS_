@@ -4,7 +4,7 @@
   get_template_part('content', 'hero-image');
 ?>
 
-<div class="container-fluid" id="contact-page">
+<div class="container-fluid" id="contact">
   <div class="row">
     <div class="col-sm-8 col-sm-push-4">
       <div id="address">
@@ -39,7 +39,5 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/leaflet/leaflet.js"></script>
 
 <?php get_footer(); ?>
