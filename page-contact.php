@@ -16,6 +16,10 @@
       </div>
 
       <div id="map"></div>
+      <a class="icon navigate"
+        target="_blank"
+        href="http://maps.google.com/maps?daddr=3rd+Floor,+6-8+Bonhill+Street,+London,+EC2A+4BX&amp;saddr=">
+      </a>
     </div>
     <div class="col-sm-4 col-sm-pull-8" id="contact-form">
       <div>
