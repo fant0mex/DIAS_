@@ -25,17 +25,7 @@
 .linkdin
   @include use-sprite("linkdin")
 
-.icon
-  display: inline-block
-  margin-left: 30px
-  margin-right: 10px
-  padding: 0 20px
 
-  a .icon
-  +transition(opacity 0.25s ease-out)
-  &:hover,
-  &:focus
-    opacity: 0.6
 
 
 
@@ -321,7 +311,23 @@ hr
 
   .copy
     color: #fff
-    padding-top: 5px
+    padding-top: 8px
+
+  .icon
+    display: inline-block
+    margin-left: 20px
+    margin-right: 5px
+    padding: 0 20px
+    +respond-to(not-xs)
+      margin-left: 30px
+      margin-right: 10px
+      padding: 0 20px
+
+      a .icon
+      +transition(opacity 0.25s ease-out)
+      &:hover,
+      &:focus
+        opacity: 0.6
 
 
 
