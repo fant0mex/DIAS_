@@ -8,6 +8,8 @@ images_dir = "images"
 javascripts_dir = "js"
 fonts_dir = "fonts"
 
+relative_assets = true
+
 output_style = :compressed
 environment = :production
 
