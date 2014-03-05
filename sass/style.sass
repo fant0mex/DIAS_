@@ -11,6 +11,8 @@
 
 @import "compass"
 
+import "retina-sprites"
+
 @import "social/*.png"
 
 @include all-social-sprites
@@ -21,6 +23,12 @@
   width: 32px
   margin-left: 30px
   margin-right: 10px
+
+  a .social-sprite
+  +transition(opacity 0.25s ease-out)
+  &:hover,
+  &:focus
+    opacity: 0.6
 
 
 
