@@ -5,10 +5,10 @@
         </div>
 
         <div class="navbar-text pull-right">
-          <a class="social-facebook" href="https://www.facebook.com/DIAScreative"></a>
-          <a class="social-twitter" href="https://twitter.com/DIASCreative"></a>
-          <a class="social-vimeo" href="http://vimeo.com/user25467824"></a>
-          <a class="social-linkdin" href="http://www.linkedin.com/company/dias-creative"></a>
+          <a class="facebook" href="https://www.facebook.com/DIAScreative"></a>
+          <a class="twitter" href="https://twitter.com/DIASCreative"></a>
+          <a class="vimeo" href="http://vimeo.com/user25467824"></a>
+          <a class="linkdin" href="http://www.linkedin.com/company/dias-creative"></a>
         </div>
       </div>
     </footer>

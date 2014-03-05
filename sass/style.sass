@@ -11,24 +11,40 @@
 
 @import "compass"
 
-import "retina-sprites"
+@import "retina-sprites"
 
-@import "social/*.png"
+.facebook
+  @include use-sprite("facebook")
 
-@include all-social-sprites
+.twitter
+  @include use-sprite("twitter")
 
-.social-sprite
-  display: inline-block
-  height: 32px
-  width: 32px
-  margin-left: 30px
-  margin-right: 10px
+.vimeo
+  @include use-sprite("vimeo")
 
-  a .social-sprite
-  +transition(opacity 0.25s ease-out)
-  &:hover,
-  &:focus
-    opacity: 0.6
+.linkdin
+  @include use-sprite("linkdin")
+
+
+
+
+
+// @import "icons/*.png"
+
+// @include all-social-sprites
+
+// .social-sprite
+//   display: inline-block
+//   height: 32px
+//   width: 32px
+//   margin-left: 30px
+//   margin-right: 10px
+
+//   a .social-sprite
+//   +transition(opacity 0.25s ease-out)
+//   &:hover,
+//   &:focus
+//     opacity: 0.6
 
 
 
