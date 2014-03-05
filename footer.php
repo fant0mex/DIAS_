@@ -1,7 +1,7 @@
     <footer id="footer">
       <div class="container-fluid">
-        <div class="navbar-text pull-left">
-          <a href="#">&copy; <?php echo date( 'Y' ) ;?> <?php bloginfo('name'); ?></a>
+        <div class="navbar-text pull-left copy">
+          &copy; <?php echo date( 'Y' ) ;?> <?php bloginfo('name'); ?>
         </div>
 
         <div class="navbar-text pull-right">
