@@ -25,15 +25,11 @@
         </article>
 
         <div class="next-post pull-right">
-          <?php
-            next_post_link();
-          ?>
+          <?php next_post_link(); ?>
         </div>
 
         <div class="prev-post pull-left">
-          <?php
-            previous_post_link();
-          ?>
+          <?php previous_post_link(); ?>
         </div>
     <?php
       endwhile;
