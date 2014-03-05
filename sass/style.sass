@@ -475,14 +475,19 @@ hr
     .home &
       height: 200px
 
-.navigate
-  @include use-sprite("navigate")
+#navigate
+  background-color: #000
   bottom: 0
   position: absolute
   right: 0
   z-index: 10
-  &:hover
-    opacity: 0.8
+  .icon
+    +transition(opacity .25s ease-out)
+  &:hover .icon
+    opacity: 0.6
+
+.navigate
+  @include use-sprite("navigate")
 
 #address
   padding: 10px 0 $vertical-padding
