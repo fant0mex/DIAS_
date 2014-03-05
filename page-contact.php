@@ -4,16 +4,9 @@
   get_template_part('content', 'hero-image');
 ?>
 
-<div class="container-fluid" id="contact-page">
+<div class="container-fluid" id="contact">
   <div class="row">
-    <div class="col-sm-4" id="contact-form">
-      <div>
-        <h3 class="page-head">Talk to us</h3>
-        <?php the_content(); ?>
-      </div>
-    </div>
-
-    <div class="col-sm-8">
+    <div class="col-sm-8 col-sm-push-4">
       <div id="address">
         <h3>Address</h3>
 
@@ -23,6 +16,16 @@
       </div>
 
       <div id="map"></div>
+      <a class="icon navigate"
+        target="_blank"
+        href="http://maps.google.com/maps?daddr=3rd+Floor,+6-8+Bonhill+Street,+London,+EC2A+4BX&amp;saddr=">
+      </a>
+    </div>
+    <div class="col-sm-4 col-sm-pull-8" id="contact-form">
+      <div>
+        <h3 class="page-head">Talk to us</h3>
+        <?php the_content(); ?>
+      </div>
     </div>
   </div>
 </div>
@@ -40,7 +43,5 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/leaflet/leaflet.js"></script>
 
 <?php get_footer(); ?>

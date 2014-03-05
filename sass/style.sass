@@ -10,6 +10,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html */
 
 @import "compass"
+@import "retina-sprites"
+
 
 // merges bootstrap and leaflet CSS into style.css
 @import "../bootstrap/css/bootstrap.scss"
@@ -42,7 +44,7 @@ body
   background: $main-bg
   color: $c-primary
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-  margin: 70px 0 58px
+  margin: 70px 0 67px
 
 img
   height: auto
@@ -51,6 +53,7 @@ img
 .container
   max-width: $site-max-width
   width: auto
+
 a
   +transition(color 0.25s ease-out)
 
@@ -80,9 +83,9 @@ p:last-of-type
 
 #logo img,
 #logo object
-  height: 30px
+  height: 25px
   margin: 20px 0 0
-  width: 90px
+  width: 75px
   +respond-to(not-xs)
     height: 44px
     margin: 16px 0 0
@@ -295,15 +298,33 @@ hr
   position: absolute
   right: 0
 
-  a
+  .copy
     color: #fff
-    text-decoration: none
+    padding-top: 8px
 
-.largeIcon
-  font-size: 24px
-  padding: 0 10px
-  +respond-to(not-xs)
-    padding: 0 30px
+  .icon
+    margin-left: 20px
+    margin-right: 5px
+    +respond-to(not-xs)
+      margin-left: 30px
+      margin-right: 10px
+      a .icon
+        +transition(opacity 0.25s ease-out)
+      &:hover,
+      &:focus
+        opacity: 0.6
+
+.facebook
+  @include use-sprite("facebook")
+
+.twitter
+  @include use-sprite("twitter")
+
+.vimeo
+  @include use-sprite("vimeo")
+
+.linkdin
+  @include use-sprite("linkdin")
 
 
 // Blog //////////
@@ -377,15 +398,17 @@ hr
 
 
 // contact page
-#contact-page
+#contact
   background: #009245
   background: rgba(#009245, 0.75)
   color: #fff
-  margin-bottom: -$vertical-padding
-  margin-top: -$vertical-padding
+  .not-home &
+    margin-bottom: -$vertical-padding
+    margin-top: -$vertical-padding
 
 #contact-form,
 #address
+  color: #fff
   a
     color: #fff
     &:hover
@@ -449,7 +472,17 @@ hr
   z-index: 1
   +respond-to(not-xs)
     height: 479px
+    .home &
+      height: 200px
 
+.navigate
+  @include use-sprite("navigate")
+  bottom: 0
+  position: absolute
+  right: 0
+  z-index: 10
+  &:hover
+    opacity: 0.8
 
 #address
   padding: 10px 0 $vertical-padding
