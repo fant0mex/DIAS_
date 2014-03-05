@@ -367,15 +367,17 @@ hr
   max-width: 800px
 
 // contact page
-#contact-page
+#contact
   background: #009245
   background: rgba(#009245, 0.75)
   color: #fff
-  margin-bottom: -$vertical-padding
-  margin-top: -$vertical-padding
+  .not-home &
+    margin-bottom: -$vertical-padding
+    margin-top: -$vertical-padding
 
 #contact-form,
 #address
+  color: #fff
   a
     color: #fff
     &:hover
@@ -439,6 +441,8 @@ hr
   z-index: 1
   +respond-to(not-xs)
     height: 479px
+    .home &
+      height: 200px
 
 
 #address

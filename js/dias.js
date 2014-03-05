@@ -13,6 +13,12 @@
 
   if( $map.length ) {
     var map = L.map('map').setView([51.522755, -0.086504], 17);
+    var t, i, n, o, s, a = document.getElementsByTagName("script"),
+      r = /[\/^]dias-ck[\-\._]?([\w\-\._]*)\.js\??/;
+    for (t = 0, i = a.length; i > t; t++)
+      if (n = a[t].src, o = n.match(r)) s = n.split(r)[0], (s ? s + "/" : "");
+
+    L.Icon.Default.imagePath = s + "/libs/leaflet/images";
 
     map.scrollWheelZoom.disable();
 
