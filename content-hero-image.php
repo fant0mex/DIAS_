@@ -1,13 +1,10 @@
 
-<?php _e( wp_oembed_get( get_field( 'vimeo_url' ) ) ); ?>
 
-<!--
 
 <?php
 
 $image = get_field('hero_image');
-
-
+$vimeo = get_field('vimeo_url');
 
 
 if( $image ): ?>
@@ -22,10 +19,16 @@ if( $image ): ?>
   </div>
   <?php endif; ?>
 
-</div>
+<?php
+
+if( $vimeo ): ?>
+<?= _e( wp_oembed_get( get_field( 'vimeo_url') ) );?>
+<?php endif; ?>
+
+
 <?php else: ?>
 <div class="heroless-padding"></div>
-<?php endif; ?> -->
+<?php endif; ?>
 
 
 
