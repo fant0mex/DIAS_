@@ -1,6 +1,14 @@
+
+<?php _e( wp_oembed_get( get_field( 'vimeo_url' ) ) ); ?>
+
+<!--
+
 <?php
 
 $image = get_field('hero_image');
+
+
+
 
 if( $image ): ?>
 <div id="hero" style="background-image: url(<?= $image['url']; ?>)">
@@ -17,4 +25,7 @@ if( $image ): ?>
 </div>
 <?php else: ?>
 <div class="heroless-padding"></div>
-<?php endif; ?>
+<?php endif; ?> -->
+
+
+
