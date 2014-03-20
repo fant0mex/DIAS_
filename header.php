@@ -9,7 +9,6 @@
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/libs/dias_videoFill.sass">
     <link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/images/avatar_50fb2d27989a_128.png">
 
     <?php wp_enqueue_script("jquery"); ?>
