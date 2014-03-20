@@ -13,16 +13,21 @@ if( $image ): ?>
       <?php the_field('hero_description');?>
     </div>
   </div>
+
   <?php endif; ?>
 
 <?php
 
 if( $video ): ?>
   <div class="dias-video-filler">
-    <video height="1920" width="1080" muted autoplay="autoplay" loop>
+    <video muted autoplay="autoplay" loop>
       <source src="<?= $video; ?>" />
+    </video>
   </div>
+
 <?php endif; ?>
+
+</div>
 
 <?php else: ?>
 <div class="heroless-padding"></div>

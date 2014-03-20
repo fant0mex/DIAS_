@@ -11,13 +11,14 @@
 
 @import "compass"
 @import "retina-sprites"
-@import "../css/libs/dias_videoFill.sass"
+
 
 
 // merges bootstrap and leaflet CSS into style.css
 @import "../bootstrap/css/bootstrap.scss"
 @import "../css/libs/leaflet.scss"
 
+@import "../css/libs/dias_videoFill.sass"
 
 
 $main-bg: #f0f0f0
@@ -156,6 +157,8 @@ h3
   text-transform: uppercase
 
 // Hero Image //////////
+
+
 #hero
   background: 50% 50% no-repeat
   background-size: cover
@@ -173,6 +176,13 @@ h3
     +respond-to(screen-xs)
       &.no-text
         display: none
+
+  //Hero Video//////////
+
+  .dias-video-filler
+    position: absolute
+    z-index: 100
+    top: 0
 
 #hero-caption
   background: #000
