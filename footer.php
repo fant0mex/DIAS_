@@ -13,6 +13,7 @@
       </div>
     </footer>
 
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/libs/dias_videoFill.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/dias-ck.js" defer></script>
     <?php wp_footer(); ?>
 

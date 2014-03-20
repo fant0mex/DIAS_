@@ -1,6 +1,7 @@
 <?php
 
 $image = get_field('hero_image');
+$video = get_field('video_loop');
 
 if( $image ): ?>
 <div id="hero" style="background-image: url(<?= $image['url']; ?>)">
@@ -14,7 +15,15 @@ if( $image ): ?>
   </div>
   <?php endif; ?>
 
-</div>
+<?php
+
+if( $video ): ?>
+  <div class="dias-video-filler">
+    <video height="1920" width="1080" muted autoplay="autoplay" loop>
+      <source src="<?= $video; ?>" />
+  </div>
+<?php endif; ?>
+
 <?php else: ?>
 <div class="heroless-padding"></div>
 <?php endif; ?>
