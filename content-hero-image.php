@@ -10,6 +10,9 @@ if( $image ): ?>
   <div class="container">
     <div id="hero-caption">
       <?php the_field('hero_description');?>
+     </div>
+    <div class="button">
+      <a href="#">Find Out More About Us</a>
     </div>
   </div>
   <?php endif; ?>
