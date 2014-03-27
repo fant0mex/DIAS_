@@ -264,6 +264,23 @@ h3
 .identity
   background-color: #39B54A
 
+#our-projects
+  a
+    width: 50%
+    float: right
+  img
+    width: 100%
+  h3, p
+    position: absolute
+    top: 27.5%
+    margin-left: 160px
+    color: #000
+    background-color: rgba(#FFF, 0.8)
+    padding: 15px
+    font-size: 26px
+  p
+    top: 29.15%
+
 
 #our-work
   background: #E6E6E6
@@ -283,10 +300,7 @@ h3
   color: #fff
 
 
-#our-projects
-  img
-    width: 50%
-    float: right
+
 
 
 #our-thoughts
@@ -346,8 +360,6 @@ h3.client
     margin: 50px 0 0 650px
 
 .job
-  max-width: 400px
-
   h3
     font-size: 18px
     font-weight: normal
@@ -355,22 +367,17 @@ h3.client
     font-size: 14px
     padding-bottom: 30px
 
-
 .find
   background-color: #EAE5DC
-
-
-
 
 .address
   position: absolute
   z-index: 150
   color: #FFF
   background: rgba(#000, 0.5)
-  left: 40%
-  padding: 20px 60px
-  bottom: 20%
-
+  left: 38.8%
+  padding: 20px 61px
+  bottom: 17.9%
   a
     color: #FFF
 
@@ -534,23 +541,20 @@ contact page
       text-decoration: underline
 
 #contact-form
-  position: relative
+  position: absolute
+  z-index: 150
+  left: 29%
+  bottom: 7.5%
+
   > div
-    float: right
-    padding-bottom: 10px
-    width: 100%
-  label
-    display: block
-    font-size: 12px
-    font-weight: normal
-    line-height: 16px
-    margin: 0
-    text-transform: uppercase
+    float: left
+    padding-bottom: 8px
+    width: 106%
   input[type="text"],
   input[type="email"],
   textarea
-    background: #e6e6e6
-    border: solid 1px #fff
+    background: #F2F2F2
+    border: solid 1px #F2F2F2
     color: $c-primary
     width: 100%
   select
@@ -558,17 +562,23 @@ contact page
   input
     max-width: 100%
   .wpcf7-submit
-    background: #fff
-    border: none
-    +border-radius(4px)
-    color: #009245
-    padding: 5px 12px
+    background: #29ABE2
+    max-width: 300px
+    padding: 12px 18px
+    text-decoration: none
+    color: #FFF
     text-transform: uppercase
-    &:hover
-      background: #efe
-      background: rgba(#fff, .9)
+    font-size: 14px
+    border: 1px solid #29ABE2
 
 #contact-form
+  .wpcf7 input[type="text"],
+  .wpcf7 input[type="email"],
+  .wpcf7 textarea
+    text-transform: uppercase
+    font-size: 14px
+    padding-left: 5px
+
   div.wpcf7-response-output
     margin: 15px 0 0
     position: absolute
@@ -592,7 +602,7 @@ contact page
   +respond-to(not-xs)
     height: 583px
     .home &
-      height: 200px
+      height: 500px
 
 #navigate
   background-color: #000
