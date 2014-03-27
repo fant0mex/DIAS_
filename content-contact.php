@@ -17,13 +17,11 @@
     </div>
 
     <div id="contact-form">
-      <?php
-        $my_id = 137;
-        $post_id_137 = get_post($my_id);
-        $content = $post_id_137->post_content;
-        $content = apply_filters('the_content', $content);
-        echo $content;
-      ?>
-    </div>
+      <?php query_posts('pagename=contact'); ?>
+        <?php if (have_posts()) :
+          while (have_posts()) : the_post(); ?>
+            <?php the_content(); ?>
+     </div>
+      <?php endwhile; endif; ?>
   </div>
 </div>

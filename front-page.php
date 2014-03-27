@@ -21,27 +21,26 @@
   <h3 class="join">CASE STUDIES</h3>
 </div>
 
-<div class="row">
-  <div id="our-projects">
-    <?php
-      while( $recentWork->have_posts() ):
-        $recentWork->the_post();
+<div class="container-fluid">
+  <div class="row">
+    <div id="our-projects">
+      <?php
+        while( $recentWork->have_posts() ):
+          $recentWork->the_post();
 
-        $image = get_field('project_image');
-    ?>
-      <div>
-        <a href="<?php the_permalink(); ?>">
-          <img src="<?= $image['sizes']['large'] ?>">
-              <h3><?php the_field( 'client' ); ?></h3>
-              <?php the_content();?>
-          <!-- <button type="button" class="btn web">Website_4</button>
-          <button type="button" class="btn mobile">Mobile_2</button> -->
-        </a>
-      </div>
-    <?php endwhile; wp_reset_postdata(); ?>
+          $image = get_field('project_image');
+      ?>
+          <a href="<?php the_permalink(); ?>">
+            <img src="<?= $image['sizes']['large'] ?>">
+              <div>
+                <h3><?php the_field( 'client' ); ?></h3>
+                <?php the_content();?>
+              </div>
+          </a>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </div>
   </div>
 </div>
-
 
 <div class= "box-secondary" id= "our-work">
   <div class="container">
