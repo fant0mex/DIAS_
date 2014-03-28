@@ -10,12 +10,14 @@
   wp_reset_postdata();
 ?>
 
+
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
     <?php the_content(); ?>
       <a class="show-me" href="#">Find Out More About How We Work</a>
   </div>
 </div>
+
 
 <div class="container">
   <h3 class="join">CASE STUDIES</h3>
@@ -28,7 +30,7 @@
         while( $recentWork->have_posts() ):
           $recentWork->the_post();
 
-          $image = get_field('project_image');
+          $image = get_field('project_image_home');
       ?>
           <a href="<?php the_permalink(); ?>">
             <img src="<?= $image['sizes']['large'] ?>">
@@ -45,11 +47,11 @@
 <div class= "box-secondary" id= "our-work">
   <div class="container">
     <div class="project-type">
-      <button type="button" class="btn web">Website_4</button>
-      <button type="button" class="btn mobile">Mobile_2</button>
-      <button type="button" class="btn design">Design_4</button>
-      <button type="button" class="btn motion">Moving Image_1</button>
-      <button type="button" class="btn identity">Identity_1</button>
+      <button type="button" class="btn web">Website</button>
+      <button type="button" class="btn mobile">Mobile</button>
+      <button type="button" class="btn design">Design</button>
+      <button type="button" class="btn motion">Moving Image</button>
+      <button type="button" class="btn identity">Identity</button>
     </div>
       <a class="show-me" href="#">See more of our projects</a>
   </div>

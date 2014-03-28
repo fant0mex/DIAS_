@@ -172,7 +172,7 @@ h3
         display: none
 
 #hero-caption
-  background-color: #E6E6E6
+  background-color: rgba(#E6E6E6, 0.8)
   color: #000
   font-size: 20px
   font-weight: normal
@@ -184,7 +184,7 @@ h3
     bottom: 130px
     font-size: 24px
     line-height: 28px
-    // width: calc(100% - 20px)
+    max-width: 600px
 
 .button
   background: #29ABE2
@@ -315,16 +315,19 @@ h3
 
 #testimonial
   margin-top: 80px
+  max-width: 900px
 
   h2
     margin-left: 220px
     font-weight: 300
+    text-transform: uppercase
 
   p
     font-size: 14px
     line-height: 15px
     margin-top: 30px
     margin-left: 220px
+    font-weight: bold
     padding-bottom: $vertical-padding
 
 
@@ -499,14 +502,43 @@ hr
     margin: 40px 0 10px
 
 // single page
-.textual
+
+.sidebar
+  padding: 5px 0
+  img
+    margin: $vertical-padding 0
+  p
+    font-weight: bold
+    font-size: 14px
+  h5
+    margin-bottom: 0
+
+.brief
+  margin-top: 165px
+  margin-bottom: 165px
+  margin-left: 80px
+  max-width: 600px
+.projects
+  img
+    width: 50%
+    float: right
+.delivery
+  img
+    width: 100%
+#textual
   font-size: 16px
   line-height: 20px
-  margin: $vertical-padding auto
+  margin-left: 20%
   max-width: 700px
+  margin-top: 60px
+  margin-bottom: 60px
+  a
+    margin-top: $vertical-padding
+    margin-left: 30%
 
   h2
-    font-size: 40px
+    font-size: 25px
+    line-height: 30px
     margin: $vertical-padding auto
 
 
@@ -521,7 +553,7 @@ hr
       color: #a8a8a8
 
 
-contact page
+// contact page
 
 #contact-form,
 #address
@@ -609,10 +641,6 @@ contact page
 .navigate
   @include use-sprite("navigate")
 
-
-
-
-
 .leaflet-left
   left: auto
   right: 20px
@@ -620,7 +648,7 @@ contact page
 
 
 // Media Queries //////////
-//
+
 @media (max-width: 889px)
   #contact-form > div
     float: none
