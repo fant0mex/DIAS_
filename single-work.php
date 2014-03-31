@@ -4,12 +4,11 @@
 
   $project_type = get_field( 'project_type' );
 
-  $website = in_array( 'website', $project_type) ? 'active' : '';
-  $design = in_array( 'mobile', $project_type) ? 'active' : '';
-  $mobile = in_array( 'design', $project_type) ? 'active' : '';
-  $moving_image = in_array( 'moving_image', $project_type) ? 'active' : '';
-  $identity = in_array( 'identity', $project_type) ? 'active' : '';
+  $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2);
+  $random_posts = get_posts($args);
+
 ?>
+
 
 
 
@@ -34,10 +33,10 @@
           <h5>Links</h5>
           <a href="<?php the_permalink(); ?>"><p><?php the_field('url'); ?></p></a>
 
-          <?php
-            if ($project_type == true); ?>
-            <button class="btn <?php echo $project_type; ?>"><?php echo $project_type; ?></button>
 
+          <?php foreach($project_type as $item): ?>
+            <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+          <?php endforeach; ?>
         </div>
       </div>
       <div class="col-xs-9">
@@ -108,35 +107,52 @@
       <p><?php the_field('testimonial_giver'); ?></p>
   </div>
 </div>
+</DIV>
 
-<div class="container-fluid">
-  <div class="next-post pull-right">
-    <ul>
-      <?php
-        $posts = get_posts('post_type=work','orderby=rand', 'posts_per_page=1');
-        foreach($posts as $post) { ?>
-      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      </li>
-      <?php }
-      ?>
-    </ul>
+<div class="container">
+  <h3 class="join">OTHER PROJECTS</h3>
 </div>
 
-  <div class="prev-post pull-left">
-    <ul>
+<div class="container-fluid">
+  <div class="row">
+    <div id="our-projects">
       <?php
-        $posts = get_posts('post_type=work','orderby=rand', 'posts_per_page=1');
-        foreach($posts as $post) { ?>
-      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      </li>
+        $previous_post = array($random_posts[0]);
+        foreach($previous_post as $post) { ?>
+          <a href="<?php the_permalink(); ?>">
+            <?php $image = get_field('project_image_home'); ?>
+              <img src="<?= $image['sizes']['large'] ?>">
+                <div>
+                  <h3><?php the_field( 'client' ); ?></h3>
+                    <?php the_content();?>
+                </div>
+          </a>
       <?php }
       ?>
-    </ul>
+      <?php
+        $previous_post = array($random_posts[1]);
+        foreach($previous_post as $post) { ?>
+          <a href="<?php the_permalink(); ?>">
+            <?php $image = get_field('project_image_home'); ?>
+              <img src="<?= $image['sizes']['large'] ?>">
+               <div>
+                  <h3><?php the_field( 'client' ); ?></h3>
+                    <?php the_content();?>
+              </div>
+          </a>
+      <?php }
+      ?>
+    </div>
   </div>
 </div>
   <?php
     endwhile;
   endif;
   ?>
+<div class= "box-secondary" id= "our-work">
+  <div class="container">
+    <a class="show-me" href="#our-projects">See more of our projects</a>
+  </div>
+</div>
 </div>
 <?php get_footer(); ?>

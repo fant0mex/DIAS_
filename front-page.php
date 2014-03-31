@@ -50,7 +50,7 @@
       <button type="button" class="btn website">Website</button>
       <button type="button" class="btn mobile">Mobile</button>
       <button type="button" class="btn design">Design</button>
-      <button type="button" class="btn moving_image">Moving Image</button>
+      <button type="button" class="btn moving">Moving Image</button>
       <button type="button" class="btn identity">Identity</button>
     </div>
       <a class="show-me" href="#our-projects">See more of our projects</a>
