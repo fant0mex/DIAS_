@@ -1,7 +1,17 @@
 <?php
   get_header();
   get_template_part('content', 'hero-image');
+
+  $project_type = get_field( 'project_type' );
+
+  $website = in_array( 'website', $project_type) ? 'active' : '';
+  $design = in_array( 'mobile', $project_type) ? 'active' : '';
+  $mobile = in_array( 'design', $project_type) ? 'active' : '';
+  $moving_image = in_array( 'moving_image', $project_type) ? 'active' : '';
+  $identity = in_array( 'identity', $project_type) ? 'active' : '';
 ?>
+
+
 
 <div class="box-secondary">
   <div class="container">
@@ -22,8 +32,12 @@
           <h5>Project</h5>
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
-          <p><?php the_field('url'); ?></p>
-          <p><?php the_field('project_type'); ?></p>
+          <a href="<?php the_permalink(); ?>"><p><?php the_field('url'); ?></p></a>
+
+          <?php
+            if ($project_type == true); ?>
+            <button class="btn <?php echo $project_type; ?>"><?php echo $project_type; ?></button>
+
         </div>
       </div>
       <div class="col-xs-9">
@@ -97,11 +111,27 @@
 
 <div class="container-fluid">
   <div class="next-post pull-right">
-    <?php next_post_link(); ?>
-  </div>
+    <ul>
+      <?php
+        $posts = get_posts('post_type=work','orderby=rand', 'posts_per_page=1');
+        foreach($posts as $post) { ?>
+      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+      </li>
+      <?php }
+      ?>
+    </ul>
+</div>
 
   <div class="prev-post pull-left">
-    <?php previous_post_link(); ?>
+    <ul>
+      <?php
+        $posts = get_posts('post_type=work','orderby=rand', 'posts_per_page=1');
+        foreach($posts as $post) { ?>
+      <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+      </li>
+      <?php }
+      ?>
+    </ul>
   </div>
 </div>
   <?php

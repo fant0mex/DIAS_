@@ -14,7 +14,7 @@
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
     <?php the_content(); ?>
-      <a class="show-me" href="#">Find Out More About How We Work</a>
+      <a class="show-me" href="how-we-work">Find Out More About How We Work</a>
   </div>
 </div>
 
@@ -47,13 +47,13 @@
 <div class= "box-secondary" id= "our-work">
   <div class="container">
     <div class="project-type">
-      <button type="button" class="btn web">Website</button>
+      <button type="button" class="btn website">Website</button>
       <button type="button" class="btn mobile">Mobile</button>
       <button type="button" class="btn design">Design</button>
-      <button type="button" class="btn motion">Moving Image</button>
+      <button type="button" class="btn moving_image">Moving Image</button>
       <button type="button" class="btn identity">Identity</button>
     </div>
-      <a class="show-me" href="#">See more of our projects</a>
+      <a class="show-me" href="#our-projects">See more of our projects</a>
   </div>
 </div>
 
@@ -72,7 +72,7 @@
         </p>
       </div>
     </div>
-    <a class="show-me" href="#">Read some of our blogs</a>
+    <a class="show-me" href="blog">Read some of our blogs</a>
   </div>
 </div>
 
