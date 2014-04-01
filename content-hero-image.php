@@ -9,7 +9,9 @@ if( $image ): ?>
   <?php if( get_field('hero_description') ): ?>
   <div class="container">
     <div id="hero-caption">
-      <?php the_field('hero_description');?>
+      <div>
+        <?php the_field('hero_description');?>
+      </div>
      </div>
   </div>
   <?php endif; ?>
