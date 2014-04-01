@@ -1,7 +1,7 @@
 
 <div class="container-fluid" id="contact">
 
-  <iframe width="1309" height="500" frameborder="0" style="border:0"
+  <iframe width="100%" height="500" frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?q=Bonhill%20Street%2C%20London%20EC2A%204BX%2C%20United%20Kingdom&key=AIzaSyDgEEGJBk9TLjtb-VAvAk4Y0riBWm9mvjY">
   </iframe>
 

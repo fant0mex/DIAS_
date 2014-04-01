@@ -6,11 +6,7 @@
 
   $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2);
   $random_posts = get_posts($args);
-
 ?>
-
-
-
 
 <div class="box-secondary">
   <div class="container">
@@ -21,7 +17,7 @@
         the_post();
     ?>
 
-      <div class="col-xs-3">
+      <div class="col-xs-4">
         <div class="sidebar">
           <img src="<?php the_field('client_logo'); ?>">
           <h5>Client</h5>
@@ -32,14 +28,12 @@
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
           <a href="<?php the_permalink(); ?>"><p><?php the_field('url'); ?></p></a>
-
-
           <?php foreach($project_type as $item): ?>
             <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="col-xs-9">
+      <div class="col-xs-8">
         <div class="brief">
           <p><?php the_field('brief'); ?></p>
         </div>
@@ -117,32 +111,21 @@
   <div class="row">
     <div id="our-projects">
       <?php
-        $previous_post = array($random_posts[0]);
-        foreach($previous_post as $post) { ?>
-           <a href="<?php the_permalink(); ?>">
-            <?php $image = get_field('project_image_home'); ?>
-              <img src="<?= $image['sizes']['large'] ?>">
-               <div>
-                  <h3><?php the_field( 'client' ); ?></h3>
-                    <?php the_content();?>
-
-              </div>
-          </a>
-      <?php }
-      ?>
-      <?php
-        $previous_post = array($random_posts[1]);
-        foreach($previous_post as $post) { ?>
+        foreach($random_posts as $post) { setup_postdata($post) ?>
+         <?php $project_type = get_field( 'project_type' ); ?>
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
                <div>
                   <h3><?php the_field( 'client' ); ?></h3>
                     <?php the_content();?>
-
-              </div>
+                     <?php foreach($project_type as $item): ?>
+                      <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+                     <?php endforeach; ?>
+                </div>
           </a>
       <?php }
+        wp_reset_postdata();
       ?>
     </div>
   </div>
