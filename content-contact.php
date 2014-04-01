@@ -1,14 +1,10 @@
 
 <div class="container-fluid" id="contact">
-  <div class="row">
-    <div class="col-sm-12">
-      <div id="map"></div>
-        <a id="navigate"
-          target="_blank"
-          href="http://maps.google.com/maps?daddr=3rd+Floor,+6-8+Bonhill+Street,+London,+EC2A+4BX&amp;saddr=">
-          <i class="icon navigate"></i>
-        </a>
-    </div>
+
+  <iframe width="1309" height="500" frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?q=Bonhill%20Street%2C%20London%20EC2A%204BX%2C%20United%20Kingdom&key=AIzaSyDgEEGJBk9TLjtb-VAvAk4Y0riBWm9mvjY">
+  </iframe>
+
     <div class="address">
         <p>DIAS Creative<br>3rd Floor,<br>6-8 Bonhill Street<br>London, EC2A 4BX<br>United Kingdom</p><br>
         <p><a href="callto:+442079935746">+44 (0) 20 7993 5746</a></p>
@@ -23,5 +19,5 @@
             <?php the_content(); ?>
     </div>
       <?php endwhile; endif; ?>
-  </div>
 </div>
+

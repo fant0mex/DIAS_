@@ -140,7 +140,7 @@
 ?>
 
 <div class="box-full-width shout-out">
-  <img src="<?php bloginfo('template_directory'); ?>/images/microphone.jpg" />
+    <img src="<?php bloginfo('template_directory'); ?>/images/microphone.jpg">
 </div>
 
 <?php get_footer(); ?>

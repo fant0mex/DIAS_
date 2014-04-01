@@ -27,7 +27,7 @@
           <h5>Client</h5>
           <p><?php the_field('client'); ?></p>
           <h5>Product</h5>
-          <p><?php the_field('project_title'); ?></p>
+          <p><?php the_field('product_title'); ?></p>
           <h5>Project</h5>
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
@@ -119,13 +119,14 @@
       <?php
         $previous_post = array($random_posts[0]);
         foreach($previous_post as $post) { ?>
-          <a href="<?php the_permalink(); ?>">
+           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-                <div>
+               <div>
                   <h3><?php the_field( 'client' ); ?></h3>
                     <?php the_content();?>
-                </div>
+
+              </div>
           </a>
       <?php }
       ?>
@@ -138,6 +139,7 @@
                <div>
                   <h3><?php the_field( 'client' ); ?></h3>
                     <?php the_content();?>
+
               </div>
           </a>
       <?php }
