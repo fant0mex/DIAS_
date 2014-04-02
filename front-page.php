@@ -13,7 +13,9 @@
 
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
-    <?php the_content(); ?>
+    <div>
+      <?php the_content(); ?>
+    </div>
       <a class="show-me" href="how-we-work">Find Out More About How We Work</a>
   </div>
 </div>
@@ -31,12 +33,16 @@
           $recentWork->the_post();
 
           $image = get_field('project_image_home');
+          $project_type = get_field( 'project_type' );
       ?>
           <a href="<?php the_permalink(); ?>">
             <img src="<?= $image['sizes']['large'] ?>">
               <div>
                 <h3><?php the_field( 'client' ); ?></h3>
-                <?php the_content();?>
+                <p><?php the_field('project_blurb');?></p>
+                <?php foreach($project_type as $item): ?>
+                  <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+                <?php endforeach; ?>
               </div>
           </a>
       <?php endwhile; wp_reset_postdata(); ?>
@@ -57,7 +63,7 @@
   </div>
 </div>
 
-<div class= "box-secondary box-full-width" id="our-thoughts">
+<!-- <div class= "box-secondary box-full-width" id="our-thoughts">
   <div class="container">
     <h3 class="join">OUR THOUGHTS</h3>
     <div class="row">
@@ -74,7 +80,7 @@
     </div>
     <a class="show-me" href="blog">Read some of our blogs</a>
   </div>
-</div>
+</div> -->
 
 
 <div class="box-tertiary box-full-width">
@@ -140,7 +146,7 @@
 ?>
 
 <div class="box-full-width shout-out">
-    <img src="<?php bloginfo('template_directory'); ?>/images/microphone.jpg">
+  <img src="<?php bloginfo('template_directory'); ?>/images/microphone.jpg">
 </div>
 
 <?php get_footer(); ?>

@@ -27,7 +27,7 @@
           <h5>Project</h5>
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
-          <a href="<?php the_permalink(); ?>"><p><?php the_field('url'); ?></p></a>
+          <a href="<?php the_permalink(); ?>"><?php the_field('url'); ?></a>
           <?php foreach($project_type as $item): ?>
             <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
           <?php endforeach; ?>
@@ -35,7 +35,7 @@
       </div>
       <div class="col-xs-8">
         <div class="brief">
-          <p><?php the_field('brief'); ?></p>
+          <?php the_field('brief'); ?>
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
               <img src="<?= $image['sizes']['large'] ?>">
                <div>
                   <h3><?php the_field( 'client' ); ?></h3>
-                    <?php the_content();?>
+                    <p><?php the_field('project_blurb');?></p>
                      <?php foreach($project_type as $item): ?>
                       <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
                      <?php endforeach; ?>
@@ -136,7 +136,7 @@
   ?>
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-    <a class="show-me" href="#our-projects">See more of our projects</a>
+    <a class="show-me middle" href="#our-projects">See more of our projects</a>
   </div>
 </div>
 </div>
