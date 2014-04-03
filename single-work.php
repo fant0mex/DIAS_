@@ -3,8 +3,8 @@
   get_template_part('content', 'hero-image');
 
   $project_type = get_field( 'project_type' );
-
-  $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2);
+  $currentID = get_the_ID();
+  $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2, 'exclude' => $currentID);
   $random_posts = get_posts($args);
 ?>
 
@@ -117,11 +117,11 @@
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
                <div>
-                  <h3><?php the_field( 'client' ); ?></h3>
-                    <p><?php the_field('project_blurb');?></p>
-                     <?php foreach($project_type as $item): ?>
+                <h3><?php the_field( 'client' ); ?></h3>
+                  <p><?php the_field('project_blurb');?></p>
+                    <?php foreach($project_type as $item): ?>
                       <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
-                     <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
           </a>
       <?php }

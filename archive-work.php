@@ -1,28 +1,36 @@
-<?php get_header(); ?>
-
 <?php
-  $the_query = new WP_Query(array(
-    'post_type' => 'work'
-  ));
+  get_header();
+  // get_template_part('content', 'hero-image');
+
+  $project_type = get_field( 'project_type' );
+
+  $args = array('post_type' => 'work', 'orderby' => 'date');
+  $random_posts = get_posts($args);
 ?>
 
-<div class="container">
-  <div class="row work">
-    <?php if ( !have_posts() ) : ?>
-      <p>There are no posts or pages here. </p>
-    <?php endif; ?>
 
-    <?php
-    while ($the_query->have_posts() ):
-      $the_query->the_post();
-    ?>
-      <div class="col-md-3">
-        <a href="<?php the_permalink(); ?>">
-          <img src="<?php the_field( 'project_image' ); ?>" class="img-responsive" alt="Responsive image">
-        </a>
-      </div>
 
-    <?php endwhile; ?>
+<div class="container-fluid">
+  <div class="row">
+    <div id="our-projects">
+      <?php
+        foreach($random_posts as $post) { setup_postdata($post) ?>
+         <?php $project_type = get_field( 'project_type' ); ?>
+          <a href="<?php the_permalink(); ?>">
+            <?php $image = get_field('project_image_home'); ?>
+              <img src="<?= $image['sizes']['large'] ?>">
+               <div>
+                  <h3><?php the_field( 'client' ); ?></h3>
+                    <p><?php the_field('project_blurb');?></p>
+                     <?php foreach($project_type as $item): ?>
+                      <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+                     <?php endforeach; ?>
+                </div>
+          </a>
+      <?php }
+        wp_reset_postdata();
+      ?>
+    </div>
   </div>
 </div>
 

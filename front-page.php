@@ -4,7 +4,8 @@
   get_template_part('content', 'hero-image');
 
   $recentWork = new WP_Query(array(
-    'post_type' => 'work'
+    'post_type' => 'work',
+    'posts_per_page' => 2,
   ));
 
   wp_reset_postdata();
