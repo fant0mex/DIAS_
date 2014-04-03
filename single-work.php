@@ -116,11 +116,11 @@
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-               <div>
+               <div class="container">
                 <h3><?php the_field( 'client' ); ?></h3>
                   <p><?php the_field('project_blurb');?></p>
                     <?php foreach($project_type as $item): ?>
-                      <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+                      <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
                     <?php endforeach; ?>
                 </div>
           </a>

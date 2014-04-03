@@ -14,7 +14,7 @@
 
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
-    <div>
+    <div class="method">
       <?php the_content(); ?>
     </div>
       <a class="show-me" href="how-we-work">Find Out More About How We Work</a>
@@ -53,14 +53,14 @@
 
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-    <div class="project-type">
+   <!--  <div class="project-type">
       <button type="button" class="btn website">Website</button>
       <button type="button" class="btn mobile">Mobile</button>
       <button type="button" class="btn design">Design</button>
       <button type="button" class="btn moving">Moving Image</button>
       <button type="button" class="btn identity">Identity</button>
-    </div>
-      <a class="show-me" href="#our-projects">See more of our projects</a>
+    </div> -->
+      <a class="show-me middle" href="#our-projects">See more of our projects</a>
   </div>
 </div>
 
@@ -92,7 +92,7 @@
     </div>
     <div class="row" id="testimonial">
 
-      <h2>"I THINK THE SUSTAINABLE ARENA NEEDS MORE<br>COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX<br>SOLUTIONS SEEM EASY."</h2>
+      <h2>"I THINK THE SUSTAINABLE ARENA NEEDS MORE COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX SOLUTIONS SEEM EASY."</h2>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
          Fsc (Forest Stewardship Council) US
