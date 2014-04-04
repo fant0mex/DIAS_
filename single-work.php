@@ -29,7 +29,7 @@
           <h5>Links</h5>
           <a href="<?php the_permalink(); ?>"><?php the_field('url'); ?></a>
           <?php foreach($project_type as $item): ?>
-            <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+            <button disabled class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
           <?php endforeach; ?>
         </div>
       </div>
@@ -104,7 +104,7 @@
 </DIV>
 
 <div class="container">
-  <h3 class="join">OTHER PROJECTS</h3>
+  <h3 class="join other">OTHER PROJECTS</h3>
 </div>
 
 <div class="container-fluid">

@@ -9,10 +9,14 @@ if( $image ): ?>
   <?php if( get_field('hero_description') ): ?>
   <div class="container">
     <div id="hero-caption">
-      <div>
+      <div class="box-secondary">
         <?php the_field('hero_description');?>
+        <a class="show-me" href="#case">Find Out More About Us</a>
       </div>
      </div>
+
+
+
   </div>
   <?php endif; ?>
 

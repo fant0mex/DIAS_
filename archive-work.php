@@ -8,7 +8,17 @@
   $random_posts = get_posts($args);
 ?>
 
-
+<div id="hero" style="background-image">
+  <img src="<?php bloginfo('template_directory'); ?>/images/helmuts.jpg"/>
+  <div class="container">
+    <div id="hero-caption">
+      <div class="box-secondary">
+        Write Something For This Bit
+        <a class="show-me" href="#case">Find Out More About Us</a>
+      </div>
+     </div>
+  </div>
+</div>
 
 <div class="container-fluid">
   <div class="row">

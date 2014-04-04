@@ -15,9 +15,11 @@
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
     <div class="method">
-      <?php the_content(); ?>
+      <?php echo get_the_content(); ?>
     </div>
-      <a class="show-me" href="how-we-work">Find Out More About How We Work</a>
+    <div>
+      <a class="show-me top" href="how-we-work">Find Out More About How We Work</a>
+    </div>
   </div>
 </div>
 
@@ -53,45 +55,19 @@
 
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-   <!--  <div class="project-type">
-      <button type="button" class="btn website">Website</button>
-      <button type="button" class="btn mobile">Mobile</button>
-      <button type="button" class="btn design">Design</button>
-      <button type="button" class="btn moving">Moving Image</button>
-      <button type="button" class="btn identity">Identity</button>
-    </div> -->
-      <a class="show-me middle" href="#our-projects">See more of our projects</a>
+      <a class="show-me middle" href="work">See more of our projects</a>
   </div>
 </div>
-
-<!-- <div class= "box-secondary box-full-width" id="our-thoughts">
-  <div class="container">
-    <h3 class="join">OUR THOUGHTS</h3>
-    <div class="row">
-      <div class="col-xs-6">
-        <p>Duis ac tempor lectus, id egestas orci.
-          Maecenas orci turpis, rhoncus ornare fermentum sit amet, accumsan eget magna.
-        </p>
-      </div>
-      <div class="col-xs-6">
-        <p>Duis ac tempor lectus, id egestas orci.
-          Maecenas orci turpis, rhoncus ornare fermentum sit amet, accumsan eget magna.
-        </p>
-      </div>
-    </div>
-    <a class="show-me" href="blog">Read some of our blogs</a>
-  </div>
-</div> -->
-
 
 <div class="box-tertiary box-full-width">
   <div class="container">
     <h3 class="join client">CLIENTS</h3>
     <div class="row" id="company-logos">
       <?php the_field("company_logos");?>
+
     </div>
     <div class="row" id="testimonial">
-
+      <h1>........................................</h1>
       <h2>"I THINK THE SUSTAINABLE ARENA NEEDS MORE COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX SOLUTIONS SEEM EASY."</h2>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
