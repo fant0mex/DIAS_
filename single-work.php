@@ -101,7 +101,7 @@
       <p><?php the_field('testimonial_giver'); ?></p>
   </div>
 </div>
-</DIV>
+</div>
 
 <div class="container">
   <h3 class="join other">OTHER PROJECTS</h3>
@@ -116,11 +116,11 @@
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-               <div class="container">
-                <h3><?php the_field( 'client' ); ?></h3>
-                  <p><?php the_field('project_blurb');?></p>
+               <div>
+                 <h3><span><?php the_field( 'client' ); ?></span></h3>
+                  <p><span><?php the_field('project_blurb');?></span></p>
                     <?php foreach($project_type as $item): ?>
-                      <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+                      <button disabled class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
                     <?php endforeach; ?>
                 </div>
           </a>
@@ -136,7 +136,7 @@
   ?>
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-    <a class="show-me middle" href="#our-projects">See more of our projects</a>
+    <a class="show-me middle" href="../">See more of our projects</a>
   </div>
 </div>
 </div>

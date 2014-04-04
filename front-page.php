@@ -41,10 +41,10 @@
           <a href="<?php the_permalink(); ?>">
             <img src="<?= $image['sizes']['large'] ?>">
               <div>
-                <h3><?php the_field( 'client' ); ?></h3>
-                <p><?php the_field('project_blurb');?></p>
+                <h3><span><?php the_field( 'client' ); ?></span></h3>
+                <p><span><?php the_field('project_blurb');?></span></p>
                 <?php foreach($project_type as $item): ?>
-                  <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+                  <button disabled class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
                 <?php endforeach; ?>
               </div>
           </a>

@@ -325,18 +325,17 @@ h3
     left: 20%
     display: inline
     // max-width: 250px
-    h3
-      padding: 15px 15px 0
-    p
-      padding: 5px 15px 10px
+
 
     h3, p
-
+      padding: 0
       color: #000
-      background-color: rgba(#FFF, 0.8)
+
       font-size: 18px
       margin-bottom: 0
-      line-height: 18px
+      line-height: 22px
+      span
+        background-color: rgba(#FFF, 0.8)
 
 
 #our-work
@@ -625,14 +624,16 @@ hr
 
 // contact page
 
-.address
+#contact
   position: absolute
-  z-index: 150
+  left: 50%
+  margin-left: -135px
+  width: 270px
+  margin-top: -100px
+.address
   color: #FFF
   background: rgba(#000, 0.5)
-  left: 38.6%
   padding: 10px 110px 10px 8px
-  bottom: 17.9%
   a
     color: #FFF
 
@@ -645,10 +646,6 @@ hr
       text-decoration: underline
 
 #contact-form
-  position: absolute
-  z-index: 150
-  left: 38.6%
-  bottom: 7%
   margin-top: 10px
 
   > div

@@ -1,5 +1,5 @@
 
-<div class="container-fluid" id="contact">
+
 
   <script type="text/javascript">
             function initialize() {
@@ -44,19 +44,22 @@
                 <div id="map_dias" style="width: 100%; height: 500px"></div>
 
             </div>
-  <div class="address">
-    <p>DIAS Creative<br>3rd Floor,<br>6-8 Bonhill Street<br>London, EC2A 4BX<br>United Kingdom</p><br>
-    <p><a href="callto:+442079935746">+44 (0) 20 7993 5746</a></p>
-    <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
-    <p>#dias_creative</p>
-  </div>
 
-  <div id="contact-form">
-    <?php query_posts('pagename=contact'); ?>
-      <?php if (have_posts()) :
-        while (have_posts()) : the_post(); ?>
-          <?php the_content(); ?>
-  </div>
-      <?php endwhile; endif; ?>
-</div>
+  <div id="contact">
+    <div class="address">
+     <p>DIAS Creative<br>3rd Floor,<br>6-8 Bonhill Street<br>London, EC2A 4BX<br>United Kingdom</p><br>
+     <p><a href="callto:+442079935746">+44 (0) 20 7993 5746</a></p>
+     <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
+     <p>#dias_creative</p>
+    </div>
+
+    <div id="contact-form">
+        <?php query_posts('pagename=contact'); ?>
+          <?php if (have_posts()) :
+            while (have_posts()) : the_post(); ?>
+              <?php the_content(); ?>
+    </div>
+          <?php endwhile; endif; ?>
+    </div>
+
 

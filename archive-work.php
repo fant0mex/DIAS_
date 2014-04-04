@@ -13,7 +13,7 @@
   <div class="container">
     <div id="hero-caption">
       <div class="box-secondary">
-        Write Something For This Bit
+        SEE WHAT HAPPENS WHEN WE PUT ON OUR THINKING CAPS AND START PEDALING…
         <a class="show-me" href="#case">Find Out More About Us</a>
       </div>
      </div>
@@ -30,8 +30,8 @@
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
                <div>
-                  <h3><?php the_field( 'client' ); ?></h3>
-                    <p><?php the_field('project_blurb');?></p>
+                  <h3><span><?php the_field( 'client' ); ?></span></h3>
+                    <p><span><?php the_field('project_blurb');?></span></p>
                      <?php foreach($project_type as $item): ?>
                       <button class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
                      <?php endforeach; ?>
