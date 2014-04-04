@@ -42,66 +42,9 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="projects">
-      <?php the_field('project_images'); ?>
-    </div>
-  </div>
+<div id="project-page">
+    <?php the_content(); ?>
 </div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>Our Approach</h3>
-      <p><?php the_field('our_approach'); ?></p>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="projects">
-      <?php the_field('approach_images'); ?>
-    </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>What We Delivered</h3>
-      <p><?php the_field('delivered'); ?></p>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="delivery">
-     <?php the_field('delivery_images'); ?>
-    </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>Results</h3>
-      <p><?php the_field('results'); ?></p>
-        <a class="show-me" href="<?php the_field('url'); ?>">View Project Website</a>
-     </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="testimonial">
-      <h2>"<?php the_field('testimonial'); ?>"</h2>
-      <p><?php the_field('testimonial_giver'); ?></p>
-  </div>
-</div>
-</DIV>
 
 <div class="container">
   <h3 class="join other">OTHER PROJECTS</h3>
