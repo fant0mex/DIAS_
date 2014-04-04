@@ -42,65 +42,8 @@
   </div>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="projects">
-      <?php the_field('project_images'); ?>
-    </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>Our Approach</h3>
-      <p><?php the_field('our_approach'); ?></p>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="projects">
-      <?php the_field('approach_images'); ?>
-    </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>What We Delivered</h3>
-      <p><?php the_field('delivered'); ?></p>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="delivery">
-     <?php the_field('delivery_images'); ?>
-    </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="textual">
-      <h3>Results</h3>
-      <p><?php the_field('results'); ?></p>
-        <a class="show-me" href="<?php the_field('url'); ?>">View Project Website</a>
-     </div>
-  </div>
-</div>
-
-<div class="box-secondary">
-  <div class="container">
-    <div id="testimonial">
-      <h2>"<?php the_field('testimonial'); ?>"</h2>
-      <p><?php the_field('testimonial_giver'); ?></p>
-  </div>
-</div>
+<div id="project-page">
+    <?php the_content(); ?>
 </div>
 
 <div class="container">
@@ -116,11 +59,11 @@
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-               <div>
-                 <h3><span><?php the_field( 'client' ); ?></span></h3>
-                  <p><span><?php the_field('project_blurb');?></span></p>
+               <div class="container">
+                <h3><?php the_field( 'client' ); ?></h3>
+                  <p><?php the_field('project_blurb');?></p>
                     <?php foreach($project_type as $item): ?>
-                      <button disabled class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+                      <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
                     <?php endforeach; ?>
                 </div>
           </a>
@@ -136,7 +79,7 @@
   ?>
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-    <a class="show-me middle" href="../">See more of our projects</a>
+    <a class="show-me middle" href="#our-projects">See more of our projects</a>
   </div>
 </div>
 </div>

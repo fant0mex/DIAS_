@@ -101,4 +101,18 @@
 
     dias_scroll.init();
 
+    var $imageInProjectPage = $('#project-page');
+
+    if( $imageInProjectPage.length ) {
+
+      $imageInProjectPage.find('p img').each(function() {
+        $(this).closest('p').addClass('image-container clearfix');
+      });
+
+      $imageInProjectPage.find('iframe').each(function() {
+        var $this = $(this);
+        $this.wrap('<div class="embed-container">').closest('p').addClass('image-container');
+      });
+    }
+
 }(jQuery, jQuery(window)));
