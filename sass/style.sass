@@ -26,7 +26,7 @@ $vertical-padding: 30px
 
 $break-small: 768px
 $break-med: 920px
-$site-max-width: 1160px
+$site-max-width: 1200px
 
 @mixin respond-to($media)
   @if $media == screen-xs
@@ -44,7 +44,9 @@ body
   background: $main-bg
   color: $c-primary
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-  margin: 70px 0 67px
+  margin: 50px 0 67px
+  +respond-to(not-xs)
+    margin-top: 70px
 
 img
   height: auto
@@ -97,13 +99,11 @@ p:last-of-type
   line-height: 22px
 
 #header
-  background: #fff
-  background: rgba(#fff, 0.9)
+  background: none
   border: none
   font: bold 14px/18px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   min-height: 70px
   position: fixed
-
 
 #header .navbar-nav
   background: #fff
@@ -132,6 +132,18 @@ p:last-of-type
     // .not-home &.current_page_item a,
     // .not-home &.current-menu-item a
     //   color: #000
+
+#float-header
+  background: #fff
+  background: rgba(#fff, 0.9)
+  +transition(transform 1s)
+  +respond-to(not-xs)
+    margin-top: 22px
+    .home &
+      +transform(translateY(-100%))
+      &.show
+        +transform(translateY(0))
+
 #menu-primary
   padding: 0
 

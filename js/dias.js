@@ -47,4 +47,58 @@
 
   document.addEventListener("touchstart", function(){}, true);
 
+    // Scroll funcitons ////////////////////////////////////////////////////////////////////////////
+    //
+    var dias_scroll = {
+        scrollPos: 0,
+        MAX_MARGIN: 20,
+        MIN_MARGIN: 0,
+        init: function() {
+            var ds = this;
+
+            ds.cacheItems();
+            ds.bindEvents();
+        },
+        cacheItems: function() {
+            var ds = this;
+
+            ds.$win = $(window);
+            ds.$doc = $(document);
+            ds.$header = $('#float-header');
+
+            ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
+        },
+        bindEvents: function() {
+            var ds = this;
+
+            ds.$win.scroll(function() {
+                ds.scrollPos = ds.$doc.scrollTop();
+                ds.headSticking();
+            });
+
+            if( $('body.home').length ) {
+              ds.$win.scroll(function() {
+                ds.homePageFade();
+              });
+            }
+        },
+        headSticking: function() {
+            var ds = this,
+              newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
+
+            ds.$header.css('marginTop', newMargin + 'px');
+        },
+        homePageFade: function() {
+           var ds = this;
+
+            if( ds.scrollPos > 100 ) {
+              ds.$header.addClass('show');
+            } else {
+              ds.$header.removeClass('show');
+            }
+        }
+    };
+
+    dias_scroll.init();
+
 }(jQuery, jQuery(window)));

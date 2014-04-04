@@ -25,7 +25,7 @@
 
   <body <?php if (is_page('home')) { echo 'onload="initialize()" onunload="GUnload()"'; } ?> class="<?= (is_home() || is_front_page()) ? 'home' : 'not-home' ?>">
     <header id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
+      <div class="container" id="float-header">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
