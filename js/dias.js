@@ -91,7 +91,7 @@
         homePageFade: function() {
            var ds = this;
 
-            if( ds.scrollPos > 100 ) {
+            if( ds.scrollPos > ds.MAX_MARGIN ) {
               ds.$header.addClass('show');
             } else {
               ds.$header.removeClass('show');

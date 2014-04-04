@@ -137,10 +137,12 @@ p:last-of-type
   background: #fff
   background: rgba(#fff, 0.9)
   +transition(transform 1s)
+  +respond-to(screen-xs)
+    margin-top: 0 !important
   +respond-to(not-xs)
     margin-top: 22px
     .home &
-      +transform(translateY(-100%))
+      +transform(translateY(-200%))
       &.show
         +transform(translateY(0))
 
