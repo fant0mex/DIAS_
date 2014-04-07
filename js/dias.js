@@ -101,6 +101,24 @@
 
     dias_scroll.init();
 
+    $('body').on('click', '[href^="#"]', function(e) {
+        var $this = $(this),
+            id = $this.attr('href').toString(),
+            $item = $(id);
+
+        if( $item.length ) {
+          e.preventDefault();
+
+          $('html, body').animate({
+              scrollTop: ($item.offset().top - 110)
+          }, 600);
+        }
+
+    });
+
+    //
+    // Scroll funcitons end ////////////////////////////////////////////////////////////////////////
+
     var $imageInProjectPage = $('#project-page');
 
     if( $imageInProjectPage.length ) {
