@@ -46,6 +46,55 @@
     <?php the_content(); ?>
 </div>
 
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <?php
+    $the_query = new WP_Query(array(
+    'post_type' => 'work',
+    'posts_per_page' => 1
+    ));
+    while ( $the_query->have_posts() ) :
+    $the_query->the_post();
+
+    $image = get_field('slider_image');
+    ?>
+
+    <div class="item active">
+      <img src="<?= $image ?>">
+   </div><!-- item active -->
+
+  <?php
+    endwhile;
+   wp_reset_postdata();
+  ?>
+
+  <?php
+    $the_query = new WP_Query(array(
+    'post_type' => 'work',
+    'posts_per_page' => 3,
+    'offset' => 1
+  ));
+    while ( $the_query->have_posts() ) :
+    $the_query->the_post();
+
+    $image = get_field('slider_image');
+  ?>
+
+    <div class="item">
+      <img src="<?= $image ?>">
+    </div><!-- item -->
+
+  <?php
+    endwhile;
+    wp_reset_postdata();
+  ?>
+ </div><!-- carousel-inner -->
+
+ <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+ <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+</div><!-- #myCarousel -->
+
+
 <div class="container">
   <h3 class="join other">OTHER PROJECTS</h3>
 </div>
