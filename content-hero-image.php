@@ -11,7 +11,9 @@ if( $image ): ?>
     <div id="hero-caption">
       <div class="box-secondary">
         <?php the_field('hero_description');?>
-        <a class="show-me scroll" href="#case">Find Out More About Us</a>
+        <?php if(is_home() || is_front_page()): ?>
+        <div><a class="show-me scroll" href="#case">Find Out More About Us</a></div>
+        <?php endif; ?>
       </div>
      </div>
 
