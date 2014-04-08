@@ -6,6 +6,13 @@ if( $image ): ?>
 <div id="hero" style="background-image: url(<?= $image['url']; ?>)">
   <img src="<?= $image['url']; ?>" height="<?= $image['height'] ?>" width="<?= $image['width'] ?>"
     <?= !get_field('hero_description') ? '' : ' class="no-text"' ?>>
+
+  <?php if( get_field('video_loop') ): ?>
+    <div class="video-container dias-video-filler">
+      <video src="<?php the_field('video_loop');?>"></video>
+    </div>
+  <?php endif; ?>
+
   <?php if( get_field('hero_description') ): ?>
   <div class="container">
     <div id="hero-caption">
@@ -16,9 +23,6 @@ if( $image ): ?>
         <?php endif; ?>
       </div>
      </div>
-
-
-
   </div>
   <?php endif; ?>
 

@@ -14,8 +14,8 @@
 
 
 // merges bootstrap and leaflet CSS into style.css
-@import "../bootstrap/css/bootstrap.scss"
-@import "../css/libs/leaflet.scss"
+@import "../bootstrap/css/bootstrap"
+@import "../css/libs/leaflet"
 
 $main-bg: #f0f0f0
 $c-primary: #333333
@@ -169,6 +169,8 @@ h3
   padding: 5px 0 5px 0
 
 // Hero Image //////////
+@import "dias_videoFill"
+
 #hero
   background: 50% 50% no-repeat
   background-size: cover
@@ -185,6 +187,15 @@ h3
     +respond-to(screen-xs)
       &.no-text
         display: none
+  .video-container
+    display: none
+    +respond-to(not-xs)
+      bottom: 0
+      display: block
+      left: 0
+      position: absolute
+      right: 0
+      top: 0
 
 #hero-caption
   color: #000
