@@ -9,7 +9,7 @@ if( $image ): ?>
 
   <?php if( get_field('video_loop') ): ?>
     <div class="video-container dias-video-filler">
-      <video src="<?php the_field('video_loop');?>"></video>
+      <video src="<?php the_field('video_loop');?>" loop="loop" autoplay="autoplay"></video>
     </div>
   <?php endif; ?>
 
