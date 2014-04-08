@@ -6,6 +6,7 @@
   $currentID = get_the_ID();
   $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2, 'exclude' => $currentID);
   $random_posts = get_posts($args);
+
 ?>
 
 <div class="box-secondary">
@@ -46,53 +47,24 @@
     <?php the_content(); ?>
 </div>
 
-<div id="myCarousel" class="carousel slide">
+
+
+<div id="carousel" class="carousel">
+
   <div class="carousel-inner">
-    <?php
-    $the_query = new WP_Query(array(
-    'post_type' => 'work',
-    'posts_per_page' => 1
-    ));
-    while ( $the_query->have_posts() ) :
-    $the_query->the_post();
-
-    $image = get_field('slider_image');
+    <?php $images = get_post_meta($post->ID, 'slider', false);
+      $n=0;
+      foreach($images as $image): $n++;
     ?>
+    <div class="item<?php if($n==1) echo ' active' ?>">
+      <img src="<?php echo $image; ?>" />
+    </div>
+    <?php endforeach ?>
+  </div>
+  <a class="left carousel-control" href="#carousel" data-slide="prev"></a>
+  <a class="right carousel-control" href="#carousel" data-slide="next"></a>
+</div>
 
-    <div class="item active">
-      <img src="<?= $image ?>">
-   </div><!-- item active -->
-
-  <?php
-    endwhile;
-   wp_reset_postdata();
-  ?>
-
-  <?php
-    $the_query = new WP_Query(array(
-    'post_type' => 'work',
-    'posts_per_page' => 3,
-    'offset' => 1
-  ));
-    while ( $the_query->have_posts() ) :
-    $the_query->the_post();
-
-    $image = get_field('slider_image');
-  ?>
-
-    <div class="item">
-      <img src="<?= $image ?>">
-    </div><!-- item -->
-
-  <?php
-    endwhile;
-    wp_reset_postdata();
-  ?>
- </div><!-- carousel-inner -->
-
- <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
- <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-</div><!-- #myCarousel -->
 
 
 <div class="container">
