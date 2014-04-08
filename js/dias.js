@@ -133,4 +133,10 @@
       });
     }
 
+
+$(document).ready(function(){
+  $('.carousel').slick();
+});
+
+
 }(jQuery, jQuery(window)));

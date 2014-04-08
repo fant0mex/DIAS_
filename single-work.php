@@ -49,21 +49,22 @@
 
 
 
-<div id="carousel" class="carousel">
+  <div id="carousel" class="carousel">
 
-  <div class="carousel-inner">
-    <?php $images = get_post_meta($post->ID, 'slider', false);
-      $n=0;
-      foreach($images as $image): $n++;
-    ?>
-    <div class="item<?php if($n==1) echo ' active' ?>">
-      <img src="<?php echo $image; ?>" />
-    </div>
-    <?php endforeach ?>
+
+      <?php $images = get_post_meta($post->ID, 'slider', false);
+        $n=0;
+        foreach($images as $image): $n++;
+      ?>
+      <div class="item<?php if($n==1) echo ' active' ?>">
+        <img src="<?php echo $image; ?>" />
+      </div>
+      <?php endforeach ?>
+
   </div>
-  <a class="left carousel-control" href="#carousel" data-slide="prev"></a>
-  <a class="right carousel-control" href="#carousel" data-slide="next"></a>
-</div>
+
+
+
 
 
 
@@ -100,7 +101,7 @@
   ?>
 <div class= "box-secondary" id= "our-work">
   <div class="container">
-    <a class="show-me middle" href="#our-projects">See more of our projects</a>
+    <a class="show-me middle" href="../work">See more of our projects</a>
   </div>
 </div>
 </div>
