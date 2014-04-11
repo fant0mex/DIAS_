@@ -113,7 +113,7 @@ p:last-of-type
   +respond-to(not-xs)
     background: none
     float: right
-    text-align: center
+
   li
     display: block
     +respond-to(not-xs)
@@ -130,10 +130,10 @@ p:last-of-type
       &:focus
         border-bottom-color: #000
         color: #000
-    // .not-home &.current_page_parent a,
-    // .not-home &.current_page_item a,
-    // .not-home &.current-menu-item a
-    //   color: #000
+    .not-home &.current_page_parent a,
+    .not-home &.current_page_item a,
+    .not-home &.current-menu-item a
+      color: #000
 
 #float-header
   background: #fff
@@ -260,6 +260,7 @@ h3
     padding: 10px
     max-width: 900px
     line-height: 31px
+
   a
     display: block
     margin-bottom: 40px
@@ -273,8 +274,8 @@ h3
 .box-secondary
   background: #fff
   color: #333
-  font-size: 20px
-  line-height: 24px
+  font-size: 18px
+  line-height: 21px
   +respond-to(not-xs)
     font-size: 24px
     line-height: 28px
@@ -354,10 +355,12 @@ h3
     h3, p
       padding: 0
       color: #000
-
-      font-size: 18px
       margin-bottom: 0
-      line-height: 22px
+      font-size: 16px
+      line-height: 18px
+      +respond-to(not-xs)
+        font-size: 18px
+        line-height: 22px
       span
         background-color: rgba(#FFF, 0.8)
 
@@ -504,7 +507,7 @@ hr
     padding-top: 8px
 
   .icon
-    margin-left: 20px
+    margin-left: 15px
     margin-right: 5px
     +respond-to(not-xs)
       margin-left: 30px
@@ -720,7 +723,7 @@ article.textual
 // contact page
 
 #contact
-  display: none
+  position: relative
   +respond-to(not-xs)
     display: inline
     position: absolute
@@ -731,9 +734,31 @@ article.textual
 .address
   color: #FFF
   background: rgba(#000, 0.5)
-  padding: 10px 110px 10px 8px
+  // padding: 10px 10px
+
+  +respond-to(not-xs)
+    padding: 10px 110px 10px 8px
+  > p
+    padding: 20px 5px 0 20px
+    // +respond-to(not-xs)
+
+
+  > div
+
+    background-color: #29abe2
+
+    +respond-to(not-xs)
+      background: rgba(#000, 0.01)
+    p
+      border-bottom: 1px solid #FFF
+      padding: 5px 10px
+      margin: 0
+      +respond-to(not-xs)
+        border: none
   a
     color: #FFF
+    padding: 5px
+
 
 #contact-form,
 #address
@@ -745,6 +770,9 @@ article.textual
 
 #contact-form
   margin-top: 10px
+  display: none
+  +respond-to(not-xs)
+    display: inline
 
   > div
     float: left

@@ -47,10 +47,12 @@
 
   <div id="contact">
     <div class="address">
-     <p>DIAS Creative<br>3rd Floor,<br>6-8 Bonhill Street<br>London, EC2A 4BX<br>United Kingdom</p><br>
-     <p><a href="callto:+442079935746">+44 (0) 20 7993 5746</a></p>
-     <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
-     <p>#dias_creative</p>
+      <p>DIAS Creative<br>3rd Floor,<br>6-8 Bonhill Street<br>London, EC2A 4BX<br>United Kingdom</p><br>
+        <div>
+          <p><a href="callto:+442079935746">+44(0)2079935746</a></p>
+          <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
+          <p><a href="https://twitter.com/DIASCreative">#dias_creative</a></p>
+        </div>
     </div>
 
     <div id="contact-form">
