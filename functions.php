@@ -43,6 +43,7 @@ function create_custom_post_types() {
       'menu_icon' => get_stylesheet_directory_uri() . '/images/admin-work.png',
       'menu_position' => 7,
       'has_archive' => true,
+      'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
     )
   );
 }
