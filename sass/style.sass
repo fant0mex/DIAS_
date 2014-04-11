@@ -87,9 +87,9 @@ p:last-of-type
 
 #logo img,
 #logo object
-  height: 25px
-  margin: 20px 0 0
-  width: 75px
+  height: 35px
+  margin: 10px 0 0 20px
+  width: 105px
   +respond-to(not-xs)
     height: 44px
     margin: 16px 0 0
@@ -200,24 +200,29 @@ h3
       top: 0
 
 #hero-caption
-  color: #000
-  font-size: 20px
-  font-weight: normal
-  line-height: 24px
-  padding: 5px 0
+  padding-top: 150px
   text-transform: uppercase
 
-  .box-secondary
-    background-color: rgba(#e6e6e6, 0.8)
-    display: inline
+
 
   +respond-to(not-xs)
     bottom: 130px
-    font-size: 24px
+
     line-height: 28px
     max-width: 600px
     position: absolute
 
+  .box-secondary
+    color: #000
+    background-color: rgba(#e6e6e6, 0.8)
+    display: inline
+    font-size: 17px
+    line-height: 16px
+    +respond-to(not-xs)
+      font-size: 24px
+      font-weight: normal
+      text-align: left
+      line-height: 20px
     .not-home &
       bottom: auto
       top: 120px
@@ -229,8 +234,8 @@ h3
   background: #29ABE2
   max-width: 400px
   position: absolute
-  top: 83.9%
-  padding: 12px 15px
+  top: 83%
+  padding: 10px 15px
   a
     text-decoration: none
     color: #FFF
@@ -277,19 +282,24 @@ h3
 
   a.show-me
     background: #29ABE2
-    max-width: 300px
-    padding: 12px 15px
+    max-width: 200px
+    padding: 6px 7.5px
     text-decoration: none
     color: #fff
     text-transform: uppercase
-    font-size: 14px
+    font-size: 10px
     display: inline-block
-    margin-bottom: 60px
     white-space: nowrap
+    +respond-to(not-xs)
+      font-size: 14px
+      padding: 12px 15px
+      max-width: 300px
+      margin-bottom: 60px
 
   a.middle
     display: block
     margin: 0 auto 10%
+    text-align: center
 
   a.top
     margin-top: 30px
@@ -317,16 +327,21 @@ h3
 
 #our-projects
   a
-    width: 50%
+    width: 100%
     float: right
     position: relative
+    +respond-to(not-xs)
+      width: 50%
+      float: right
+      position: relative
   img
     width: 100%
-    +filter(grayscale(100%))
-    +transition(0.25s ease-in-out)
-    &:hover,
-    &:focus
-      +filter(grayscale(0))
+    +respond-to(not-xs)
+      +filter(grayscale(100%))
+      +transition(0.25s ease-in-out)
+      &:hover,
+      &:focus
+        +filter(grayscale(0))
   div
     position: absolute
     top: auto
@@ -417,9 +432,11 @@ h3.client
   margin-bottom: 30px
 
 .jobs
-  background-color: #E0DBD4
-  color: #4D4D4D
-
+  display: none
+  +respond-to(not-xs)
+    background-color: #E0DBD4
+    color: #4D4D4D
+    display: block
   h2
     padding: 20px 0 50px 0
 
@@ -442,6 +459,9 @@ h3.client
 
 .shout-out
   padding: 0
+  display: none
+  +respond-to(not-xs)
+    display: inline
   img
     width: 100%
     height: auto
@@ -643,13 +663,18 @@ article.textual
   left: 55px
   padding: 20px
 .slick-next
-  right: 55px
+  right: 75px
   padding: 20px
+
+.slick-prev:before, .slick-next:before
+  color: #ccc
+
+
 //
 // project page end ////////////////////////////////////////////////////////////
 
 .brief
-  margin-top: 165px
+  margin-top: 105px
   margin-bottom: 165px
   margin-left: 80px
   max-width: 600px
@@ -695,11 +720,14 @@ article.textual
 // contact page
 
 #contact
-  position: absolute
-  left: 50%
-  margin-left: -135px
-  width: 270px
-  margin-top: -100px
+  display: none
+  +respond-to(not-xs)
+    display: inline
+    position: absolute
+    left: 50%
+    margin-left: -135px
+    width: 270px
+    margin-top: -100px
 .address
   color: #FFF
   background: rgba(#000, 0.5)
