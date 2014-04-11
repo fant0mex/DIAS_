@@ -347,10 +347,10 @@ h3
     position: absolute
     top: auto
     bottom: 10%
-    left: 20%
+    left: 15%
     display: inline
-    // max-width: 250px
-
+    +respond-to(not-xs)
+      left: 20%
 
     h3, p
       padding: 0
@@ -400,9 +400,13 @@ h3
 #testimonial
   margin-top: 60px
   max-width: 900px
-  margin-left: 20%
-  margin-right: 20%
   text-align: center
+  margin-left: 10%
+  margin-right: 10%
+  h1
+  +respond-to(not-xs)
+    margin-left: 20%
+    margin-right: 20%
   h1
     margin-bottom: 80px
     font-size: 20px
