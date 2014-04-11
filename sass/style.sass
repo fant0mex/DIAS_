@@ -32,10 +32,10 @@ $site-max-width: 1200px
 
 @mixin respond-to($media)
   @if $media == screen-xs
-    @media only screen and (max-width: $break-small)
+    @media only screen and (max-width: $break-small - 1)
       @content
   @if $media == not-xs
-    @media only screen and (min-width: $break-small + 1)
+    @media only screen and (min-width: $break-small)
       @content
 
 html
