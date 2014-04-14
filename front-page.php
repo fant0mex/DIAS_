@@ -87,30 +87,19 @@
 
   <div class="container">
     <div class="row jobs">
-      <div class="col-xs-6 col-md-4 job">
-        <h3>A Job</h3>
-        <p>In eget nisl eget neque ultrices accumsan molestie nec metus.<br>
-           Cras tincidunt malesuada arcu, eu scelerisque augue egestas ac.<br>
-           Morbi tempor id nulla ac feugiat.</p>
-        <a class="show-me" href="#">Is This You?</a>
-      </div>
-      <div class="col-xs-6 col-md-4 job">
-        <h3>A Job</h3>
-        <p>In eget nisl eget neque ultrices accumsan molestie nec metus.<br>
-           Cras tincidunt malesuada arcu, eu scelerisque augue egestas ac.<br>
-           Morbi tempor id nulla ac feugiat.</p>
-        <a class="show-me" href="#">Is This You?</a>
-      </div>
-      <div class="col-xs-6 col-md-4 job">
-        <h3>A Job</h3>
-        <p>In eget nisl eget neque ultrices accumsan molestie nec metus.<br>
-           Cras tincidunt malesuada arcu, eu scelerisque augue egestas ac.<br>
-           Morbi tempor id nulla ac feugiat.</p>
-        <a class="show-me" href="#">Is This You?</a>
-      </div>
+      <?php query_posts('category_name=job&showposts=3'); ?>
+        <?php while (have_posts()) : the_post(); ?>
+        <div class="col-xs-6 col-md-4 job">
+        <h3><?php the_title(); ?></h3>
+        <?php the_excerpt(); ?>
+        <a class="show-me" href="<?php the_permalink(); ?>">Is This You?</a>
+        </div>
+        <?php endwhile;?>
+
     </div>
   </div>
- </div>
+</div>
+
 
 <div class= "box-secondary find">
    <div class="container">
