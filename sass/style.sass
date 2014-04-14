@@ -217,7 +217,7 @@ h3
     background-color: rgba(#e6e6e6, 0.8)
     display: inline
     font-size: 17px
-    line-height: 16px
+    line-height: 18px
     +respond-to(not-xs)
       font-size: 24px
       font-weight: normal
@@ -350,7 +350,7 @@ h3
       color: #000
       margin-bottom: 0
       font-size: 16px
-      line-height: 18px
+      line-height: 20px
       +respond-to(not-xs)
         font-size: 18px
         line-height: 22px
@@ -387,8 +387,10 @@ h3
     img
       display: block
       height: auto
-      margin: 0 auto
       max-width: 100%
+      margin: 10px
+      +respond-to(not-xs)
+        margin: 0 auto
 
 #testimonial
   margin-top: 60px
@@ -397,12 +399,13 @@ h3
   margin-left: 10%
   margin-right: 10%
   h1
-  +respond-to(not-xs)
-    margin-left: 20%
-    margin-right: 20%
-  h1
     margin-bottom: 80px
     font-size: 20px
+    margin-left: 10%
+    margin-right: 10%
+    +respond-to(not-xs)
+      margin-left: 20%
+      margin-right: 20%
   h2
     font-weight: 300
     text-transform: uppercase
@@ -736,7 +739,7 @@ article.textual
   +respond-to(not-xs)
     padding: 10px 110px 10px 8px
   > p
-    padding: 20px 5px 0 20px
+    padding: 20px 5px 0 30px
     // +respond-to(not-xs)
 
 
@@ -748,7 +751,7 @@ article.textual
       background: rgba(#000, 0.01)
     p
       border-bottom: 1px solid #FFF
-      padding: 5px 10px
+      padding: 5px 20px
       margin: 0
       +respond-to(not-xs)
         border: none
