@@ -12,14 +12,15 @@
                     zoom: 16,
                     center: firstLatlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    scrollwheel: false
+                    scrollwheel: false,
+                    draggable: false
                 };
 
                 var map = new google.maps.Map(document.getElementById("map_dias"), firstOptions);
 
                 firstmarker = new google.maps.Marker({
                     map:map,
-                    draggable:false,
+                    draggable: false,
                     animation: google.maps.Animation.DROP,
                     title: 'DIAS Creative',
                     position: dias
@@ -39,11 +40,11 @@
             }
             </script>
 
+          <div>
             <div class="map">
-
-                <div id="map_dias" style="width: 100%; height: 500px"></div>
-
+              <div id="map_dias" style="width: 100%; height: 500px"></div>
             </div>
+          </div>
 
   <div id="contact">
     <div class="address">

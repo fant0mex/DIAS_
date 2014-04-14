@@ -331,17 +331,16 @@ h3
       position: relative
   img
     width: 100%
-    +respond-to(not-xs)
-      +filter(grayscale(100%))
-      +transition(0.25s ease-in-out)
-      &:hover,
-      &:focus
-        +filter(grayscale(0))
+    +filter(grayscale(100%))
+    +transition(0.25s ease-in-out)
+    &:hover,
+    &:focus
+      +filter(grayscale(0))
   div
     position: absolute
     top: auto
     bottom: 10%
-    left: 15%
+    left: 10%
     display: inline
     +respond-to(not-xs)
       left: 20%
@@ -505,8 +504,8 @@ hr
     padding-top: 8px
 
   .icon
-    margin-left: 15px
-    margin-right: 5px
+    margin-left: 0px
+    margin-right: 15px
     +respond-to(not-xs)
       margin-left: 30px
       margin-right: 10px
