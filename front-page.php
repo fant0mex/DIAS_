@@ -89,13 +89,12 @@
     <div class="row jobs">
       <?php query_posts('category_name=job&showposts=3'); ?>
         <?php while (have_posts()) : the_post(); ?>
-        <div class="col-xs-6 col-md-4 job">
-        <h3><?php the_title(); ?></h3>
-        <?php the_excerpt(); ?>
-        <a class="show-me" href="<?php the_permalink(); ?>">Is This You?</a>
-        </div>
+          <div class="col-xs-6 col-md-4 job">
+            <h3><?php the_title(); ?></h3>
+              <?php the_excerpt(); ?>
+                <a class="show-me" href="<?php the_permalink(); ?>">Is This You?</a>
+          </div>
         <?php endwhile;?>
-
     </div>
   </div>
 </div>
