@@ -12,9 +12,9 @@
   <img src="<?php bloginfo('template_directory'); ?>/images/helmuts.jpg"/>
   <div class="container">
     <div id="hero-caption">
-      <div class="box-secondary">
+      <div class="box-secondary not-home">
         SEE WHAT HAPPENS WHEN WE PUT ON OUR THINKING CAPS AND START PEDALING…
-        <a class="show-me" href="#case">Find Out More About Us</a>
+
       </div>
      </div>
   </div>
