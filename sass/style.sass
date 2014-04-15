@@ -57,9 +57,9 @@ img
   height: auto
   max-width: 100%
 
-.container
-  max-width: $site-max-width
-  width: auto
+// .container
+//   max-width: $site-max-width
+//   width: auto
 
 a
   +transition(color 0.25s ease-out)
@@ -167,6 +167,7 @@ h2
   font-size: 26px
   line-height: 30px
 
+
 h3
   font-size: 14px
   font-weight: bold
@@ -222,10 +223,10 @@ h3
     font-size: 17px
     line-height: 18px
     +respond-to(not-xs)
-      font-size: 24px
+      font-size: 23.5px
       font-weight: normal
       text-align: left
-      line-height: 20px
+      line-height: 21.5px
 
 
 .button
@@ -392,8 +393,7 @@ h3
       display: block
       height: auto
       max-width: 100%
-      margin: 10px 20px
-      +respond-to(not-xs)
+      +respond-to(not-sm)
         margin: 0 auto
 
 #testimonial
@@ -468,7 +468,7 @@ h3.client
   padding: 0
   display: none
   +respond-to(not-sm)
-    display: inline
+    display: inline-block
   img
     width: 100%
     height: auto
@@ -853,6 +853,3 @@ article.textual
   #contact-form > div
     float: none
     max-width: 100%
-
-  #logo
-    margin-left: 10px

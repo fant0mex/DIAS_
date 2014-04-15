@@ -81,8 +81,8 @@
 <div class= "box-secondary jobs">
   <div class="container">
     <h3 class="join">WORK WITH US</h3>
-      <h2>WE ARE ALWAYS ON THE LOOK OUT FOR TALENT, INSPIRED PEOPLE AND<br>
-        COLLABORATORS. SEND US YOUR CV. WE DO NOT DEAL WITH RECRUITERS.</h2>
+      <h2>WE ARE ALWAYS ON THE LOOK OUT FOR TALENT, INSPIRED PEOPLE AND
+        COLLABORATORS.<br> SEND US YOUR CV. WE DO NOT DEAL WITH RECRUITERS.</h2>
   </div>
 
   <div class="container">
