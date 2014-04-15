@@ -8,13 +8,12 @@
   $random_posts = get_posts($args);
 ?>
 
-<div id="hero" style="background-image">
-  <img src="<?php bloginfo('template_directory'); ?>/images/helmuts.jpg"/>
+<div id="hero" style="background-image: url(<?php bloginfo('template_directory'); ?>/images/helmuts.jpg)">
+  <img src="<?php bloginfo('template_directory'); ?>/images/helmuts.jpg" class="no-text">
   <div class="container">
     <div id="hero-caption">
       <div class="box-secondary">
         SEE WHAT HAPPENS WHEN WE PUT ON OUR THINKING CAPS AND START PEDALING…
-
       </div>
      </div>
   </div>
