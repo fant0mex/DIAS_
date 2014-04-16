@@ -141,11 +141,12 @@ p:last-of-type
 #float-header
   background: #fff
   background: rgba(#fff, 0.9)
-  +transition(transform 1s)
   +respond-to(screen-xs)
     margin-top: 0 !important
   +respond-to(not-xs)
     margin-top: 22px
+  .ios &
+    +transition(margin 1s)
 
 #menu-primary
   padding: 0
