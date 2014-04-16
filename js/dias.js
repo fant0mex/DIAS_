@@ -75,27 +75,12 @@
                 ds.scrollPos = ds.$doc.scrollTop();
                 ds.headSticking();
             });
-
-            if( $('body.home').length ) {
-              ds.$win.scroll(function() {
-                ds.homePageFade();
-              });
-            }
         },
         headSticking: function() {
             var ds = this,
               newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
 
             ds.$header.css('marginTop', newMargin + 'px');
-        },
-        homePageFade: function() {
-           var ds = this;
-
-            if( ds.scrollPos > ds.MAX_MARGIN ) {
-              ds.$header.addClass('show');
-            } else {
-              ds.$header.removeClass('show');
-            }
         }
     };
 
