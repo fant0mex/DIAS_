@@ -110,7 +110,7 @@
   get_template_part( 'content','contact' );
 ?>
 
-<div class="box-full-width shout-out">
+<div class="container-fluid shout-out">
   <img src="<?php bloginfo('template_directory'); ?>/images/microphone.jpg">
 </div>
 
