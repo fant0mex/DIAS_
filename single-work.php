@@ -18,7 +18,7 @@
         the_post();
     ?>
 
-      <div class="col-xs-4">
+      <div class="col-md-4">
         <div class="sidebar">
           <img src="<?php the_field('client_logo'); ?>">
           <h5>Client</h5>
@@ -34,7 +34,7 @@
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="col-xs-8">
+      <div class="col-md-8">
         <div class="brief">
           <?php the_field('brief'); ?>
         </div>
@@ -81,12 +81,12 @@
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-               <div class="container">
-                <h3><span><?php the_field( 'client' ); ?></span></h3>
-                <p><span><?php the_field('project_blurb');?></span></p>
-                    <?php foreach($project_type as $item): ?>
-                      <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
-                    <?php endforeach; ?>
+                <div>
+                  <h3><span><?php the_field( 'client' ); ?></span></h3>
+                  <p><span><?php the_field('project_blurb');?></span></p>
+                      <?php foreach($project_type as $item): ?>
+                        <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+                      <?php endforeach; ?>
                 </div>
           </a>
       <?php }
