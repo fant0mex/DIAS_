@@ -404,16 +404,13 @@ h3
   margin-top: 60px
   max-width: 900px
   text-align: center
+  margin-bottom: 30px
   margin-left: 10%
   margin-right: 10%
-  h1
-    margin-bottom: 80px
-    font-size: 20px
-    margin-left: 10%
-    margin-right: 10%
-    +respond-to(not-xs)
-      margin-left: 20%
-      margin-right: 20%
+  +respond-to(not-xs)
+    margin-left: 20%
+    margin-right: 20%
+
   h2
     font-weight: 300
     text-transform: uppercase
@@ -422,7 +419,7 @@ h3
   p
     font-size: 13px
     line-height: 17px
-    margin-top: $vertical-padding
+
     margin-bottom: 60px
     font-weight: bold
     padding-bottom: $vertical-padding
@@ -681,6 +678,9 @@ article.textual
 
 .slick-prev:before, .slick-next:before
   color: #ccc
+
+.slick-slider
+  margin-bottom: 0
 
 
 //

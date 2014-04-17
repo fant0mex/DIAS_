@@ -44,24 +44,32 @@
 </div>
 
 <div id="project-page">
-    <?php the_content(); ?>
+  <?php the_content(); ?>
 </div>
 
 
 
-  <div id="carousel" class="carousel">
-
-
-      <?php $images = get_post_meta($post->ID, 'slider', false);
-        $n=0;
-        foreach($images as $image): $n++;
-      ?>
-      <div class="item<?php if($n==1) echo ' active' ?>">
-        <img src="<?php echo $image; ?>" />
-      </div>
-      <?php endforeach ?>
-
+<div id="carousel" class="carousel">
+  <?php $images = get_post_meta($post->ID, 'slider', false);
+    $n=0;
+    foreach($images as $image): $n++;
+  ?>
+  <div class="item<?php if($n==1) echo ' active' ?>">
+    <img src="<?php echo $image; ?>" />
   </div>
+  <?php endforeach ?>
+</div>
+
+<div class="box-secondary">
+  <div class="container">
+    <div class="row">
+      <div id="testimonial">
+        <h2><?php the_field('testimonial'); ?></h2><br>
+        <p><?php the_field('testimonial_giver'); ?></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
