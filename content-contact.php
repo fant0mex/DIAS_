@@ -36,6 +36,7 @@
                 google.maps.event.addListener(firstmarker, 'click', function() {
                     infowindow1.open(map,firstmarker);
                 });
+                infowindow1.open(map,firstmarker);
 
             }
             </script>
@@ -62,7 +63,7 @@
             while (have_posts()) : the_post(); ?>
               <?php the_content(); ?>
     </div>
-          <?php endwhile; endif; ?>
+        <?php endwhile; endif; ?>
     </div>
 
 
