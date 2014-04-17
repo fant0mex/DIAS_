@@ -67,7 +67,7 @@
 
     </div>
     <div class="row" id="testimonial">
-      <h1>........................................</h1>
+      <h1>...............................</h1>
       <h2>"I THINK THE SUSTAINABLE ARENA NEEDS MORE COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX SOLUTIONS SEEM EASY."</h2>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
