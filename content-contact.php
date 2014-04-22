@@ -38,6 +38,9 @@
                 });
                 infowindow1.open(map,firstmarker);
 
+                google.maps.event.addDomListener(window, 'resize', function() {
+                    map.panTo(firstLatlng);
+                });
             }
             </script>
 
