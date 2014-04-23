@@ -9,7 +9,6 @@
 ?>
 
 <div id="hero" style="background-image: url(<?php bloginfo('template_directory'); ?>/images/helmuts.jpg)">
-  <img src="<?php bloginfo('template_directory'); ?>/images/helmuts.jpg" class="no-text">
   <div class="container">
     <div id="hero-caption">
       <div class="box-secondary">
