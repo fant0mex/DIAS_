@@ -1,54 +1,53 @@
 
+<script type="text/javascript">
+  function initialize() {
+
+    var dias = new google.maps.LatLng(51.5226036, -0.0855062);
+
+    var firstLatlng = new google.maps.LatLng(51.5226036, -0.0855062);
+
+    var firstOptions = {
+        zoom: 16,
+        center: firstLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        draggable: false
+    };
+
+    var map = new google.maps.Map(document.getElementById("map_dias"), firstOptions);
+
+    firstmarker = new google.maps.Marker({
+        map:map,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
+        title: 'DIAS Creative',
+        position: dias
+    });
+
+    var contentString1 = '<p>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
 
 
-  <script type="text/javascript">
-            function initialize() {
+    var infowindow1 = new google.maps.InfoWindow({
+        content: contentString1
+    });
 
-                var dias = new google.maps.LatLng(51.5226036, -0.0855062);
+    google.maps.event.addListener(firstmarker, 'click', function() {
+        infowindow1.open(map,firstmarker);
+    });
+    infowindow1.open(map,firstmarker);
 
-                var firstLatlng = new google.maps.LatLng(51.5226036, -0.0855062);
+    google.maps.event.addDomListener(window, 'resize', function() {
+        map.panTo(firstLatlng);
+    });
+  }
+</script>
 
-                var firstOptions = {
-                    zoom: 16,
-                    center: firstLatlng,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    scrollwheel: false,
-                    draggable: false
-                };
-
-                var map = new google.maps.Map(document.getElementById("map_dias"), firstOptions);
-
-                firstmarker = new google.maps.Marker({
-                    map:map,
-                    draggable: false,
-                    animation: google.maps.Animation.DROP,
-                    title: 'DIAS Creative',
-                    position: dias
-                });
-
-                var contentString1 = '<p>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
-
-
-                var infowindow1 = new google.maps.InfoWindow({
-                    content: contentString1
-                });
-
-                google.maps.event.addListener(firstmarker, 'click', function() {
-                    infowindow1.open(map,firstmarker);
-                });
-                infowindow1.open(map,firstmarker);
-
-                google.maps.event.addDomListener(window, 'resize', function() {
-                    map.panTo(firstLatlng);
-                });
-            }
-            </script>
-
-  <div>
-    <div class="map">
-      <div id="map_dias" style="width: 100%; height: 500px"></div>
+<div>
+  <div class="map">
+    <div id="map_dias">
     </div>
   </div>
+</div>
 
 <div class="box-tertiary box-full-width dial">
   <div class="container">
@@ -67,11 +66,11 @@
 
       <div class="col-md-8">
         <div id="contact-form">
-            <?php query_posts('pagename=contact'); ?>
-              <?php if (have_posts()) :
-                while (have_posts()) : the_post(); ?>
-                  <?php the_content(); ?>
-                  <?php endwhile; endif; ?>
+          <?php query_posts('pagename=contact'); ?>
+          <?php if (have_posts()) :
+          while (have_posts()) : the_post(); ?>
+            <?php the_content(); ?>
+          <?php endwhile; endif; ?>
         </div>
       </div>
     </div>
