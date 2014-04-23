@@ -52,7 +52,7 @@
 <div class="box-tertiary box-full-width dial">
   <div class="container">
     <div id="contact">
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <div class="address">
           <div>
             <h3>CHAT TO US</h3>
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <div id="contact-form">
           <?php query_posts('pagename=contact'); ?>
           <?php if (have_posts()) :

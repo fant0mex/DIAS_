@@ -744,11 +744,11 @@ article.textual
 #map_dias
   width: 100%
   height: 500px
+
 .dial
   padding: 0
   +respond-to(not-sm)
     padding: 40px 20px 0 30px
-
   > div
     padding: 0
     margin: 0
@@ -756,7 +756,8 @@ article.textual
     +respond-to(not-sm)
       padding: 0 10px
       margin: 0 auto
-      width: 1160px
+      width: auto
+
 #contact
   h3, h4
     display: none
@@ -768,19 +769,15 @@ article.textual
     padding: 0
     margin: 0
     +respond-to(not-sm)
-      padding: 0 10px
+      padding: 0 100px
 
 .address
   color: #FFF
-
   h4
     font-size: 16px
     margin-bottom: 10px
-
-
   >div
     background-color: #29abe2
-
     +respond-to(not-sm)
       background: inherit
     p
@@ -793,7 +790,7 @@ article.textual
   a
     color: #FFF
     font-size: 16px
-    padding: 10px 20px
+    padding: 10px 5%
     +respond-to( not-sm)
       padding: 10px 60px
       +respond-to(not-xs)
@@ -801,7 +798,6 @@ article.textual
 
 
 #contact-form,
-
 #address
   color: #fff
   a
@@ -885,9 +881,8 @@ article.textual
 
 
 
-// Media Queries //////////
 
-@media (max-width: 889px)
-  #contact-form > div
-    float: none
-    max-width: 100%
+
+
+
+
