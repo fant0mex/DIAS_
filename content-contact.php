@@ -26,7 +26,7 @@
                     position: dias
                 });
 
-                var contentString1 = '<p>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /><a href="tel:+442079935746">+44(0)2079935746</a><br /><a href="mailto:info@diascreative.com">info@diascreative.com</a><br /><a href="https://twitter.com/DIASCreative">#dias_creative</a></p>';
+                var contentString1 = '<p>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
 
 
                 var infowindow1 = new google.maps.InfoWindow({
@@ -44,29 +44,39 @@
             }
             </script>
 
+  <div>
+    <div class="map">
+      <div id="map_dias" style="width: 100%; height: 500px"></div>
+    </div>
+  </div>
+
+<div class="box-tertiary box-full-width dial">
+  <div class="container">
+    <div id="contact">
+      <div class="col-md-4">
+        <div class="address">
           <div>
-            <div class="map">
-              <div id="map_dias" style="width: 100%; height: 500px"></div>
-            </div>
+            <h3>CHAT TO US</h3>
+            <h4>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br />United Kingdom<br /></h4>
+            <p><a href="tel:+442079935746">+44(0)2079935746</a></p>
+            <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
+            <p><a href="https://twitter.com/DIASCreative">#dias_creative</a></p>
           </div>
-
-  <div id="contact">
-    <div class="address">
-
-        <div>
-          <p><a href="tel:+442079935746">+44(0)2079935746</a></p>
-          <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
-          <p><a href="https://twitter.com/DIASCreative">#dias_creative</a></p>
         </div>
-    </div>
+      </div>
 
-    <div id="contact-form">
-        <?php query_posts('pagename=contact'); ?>
-          <?php if (have_posts()) :
-            while (have_posts()) : the_post(); ?>
-              <?php the_content(); ?>
+      <div class="col-md-8">
+        <div id="contact-form">
+            <?php query_posts('pagename=contact'); ?>
+              <?php if (have_posts()) :
+                while (have_posts()) : the_post(); ?>
+                  <?php the_content(); ?>
+        </div>
+            <?php endwhile; endif; ?>
+      </div>
     </div>
-        <?php endwhile; endif; ?>
-    </div>
+  </div>
+</div>
+</div>
 
 

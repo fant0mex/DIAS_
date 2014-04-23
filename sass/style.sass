@@ -740,46 +740,64 @@ article.textual
 
 
 // contact page
-
-#contact
-  position: relative
+.dial
+  padding: 0
   +respond-to(not-sm)
-    display: inline
-    position: absolute
-    left: 50%
-    margin-left: -135px
-    width: 270px
-    margin-top: -120px
-.address
-  color: #FFF
-  background: rgba(#000, 0.5)
-  // padding: 10px 10px
-
-  +respond-to(not-sm)
-    padding: 10px 110px 10px 8px
-  > p
-    padding: 20px 5px 0 30px
-    // +respond-to(not-xs)
-
+    padding: 40px 20px 0 30px
 
   > div
+    padding: 0
+    margin: 0
+    width: 100%
+    +respond-to(not-sm)
+      padding: 0 10px
+      margin: 0 auto
+      width: 1160px
+#contact
+  h3, h4
+    display: none
+    +respond-to(not-sm)
+      display: block
+      margin-bottom: 20px
+      line-height: 22px
+  > div
+    padding: 0
+    margin: 0
+    +respond-to(not-sm)
+      padding: 0 10px
 
+.address
+  color: #FFF
+
+  h4
+    font-size: 16px
+    margin-bottom: 10px
+
+
+  >div
     background-color: #29abe2
 
     +respond-to(not-sm)
-      background: rgba(#000, 0.01)
+      background: inherit
     p
       border-bottom: 1px solid #FFF
-      padding: 5px 20px
       margin: 0
+      padding: 10px 0
       +respond-to(not-sm)
         border: none
+        padding: 0
   a
     color: #FFF
-    padding: 5px
+    font-size: 16px
+    padding: 10px 20px
+    +respond-to( not-sm)
+      padding: 10px 60px
+      +respond-to(not-xs)
+        padding: 0
 
 
 #contact-form,
+
 #address
   color: #fff
   a
@@ -796,7 +814,8 @@ article.textual
   > div
     float: left
     padding-bottom: 8px
-    width: 100%
+    width: 70%
+    margin-top: 20px
   input[type="text"],
   input[type="email"],
   textarea
