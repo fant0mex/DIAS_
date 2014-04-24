@@ -47,99 +47,95 @@
 
   document.addEventListener("touchstart", function(){}, true);
 
-    // Scroll funcitons ////////////////////////////////////////////////////////////////////////////
-    //
-    var dias_scroll = {
-        scrollPos: 0,
-        MAX_MARGIN: 20,
-        MIN_MARGIN: 0,
-        init: function() {
-            var ds = this;
+  // Scroll funcitons ////////////////////////////////////////////////////////////////////////////
+  //
+  var dias_scroll = {
+      scrollPos: 0,
+      MAX_MARGIN: 20,
+      MIN_MARGIN: 0,
+      init: function() {
+          var ds = this;
 
-            ds.cacheItems();
-            ds.bindEvents();
-        },
-        cacheItems: function() {
-            var ds = this;
+          ds.cacheItems();
+          ds.bindEvents();
+      },
+      cacheItems: function() {
+          var ds = this;
 
-            ds.$win = $(window);
-            ds.$doc = $(document);
-            ds.$header = $('#float-header');
+          ds.$win = $(window);
+          ds.$doc = $(document);
+          ds.$header = $('#float-header');
 
-            ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
-        },
-        bindEvents: function() {
-            var ds = this;
+          ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
+      },
+      bindEvents: function() {
+          var ds = this;
 
-            ds.$win.scroll(function() {
-                ds.scrollPos = ds.$doc.scrollTop();
-                ds.headSticking();
-            });
-        },
-        headSticking: function() {
-            var ds = this,
-              newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
+          ds.$win.scroll(function() {
+              ds.scrollPos = ds.$doc.scrollTop();
+              ds.headSticking();
+          });
+      },
+      headSticking: function() {
+          var ds = this,
+            newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
 
-            ds.$header.css('marginTop', newMargin + 'px');
-        }
-    };
+          ds.$header.css('marginTop', newMargin + 'px');
+      }
+  };
 
-    dias_scroll.init();
+  dias_scroll.init();
 
-    $('body').on('click', '[href^="#"]', function(e) {
-        var $this = $(this),
-            id = $this.attr('href').toString(),
-            $item = $(id);
+  $('body').on('click', '[href^="#"]', function(e) {
+      var $this = $(this),
+          id = $this.attr('href').toString(),
+          $item = $(id);
 
-        if( $item.length ) {
-          e.preventDefault();
+      if( $item.length ) {
+        e.preventDefault();
 
-          $('html, body').animate({
-              scrollTop: ($item.offset().top - 110)
-          }, 600);
-        }
+        $('html, body').animate({
+            scrollTop: ($item.offset().top - 110)
+        }, 600);
+      }
 
+  });
+
+  if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
+    $('body').addClass('ios');
+  }
+
+  //
+  // Scroll funcitons end ////////////////////////////////////////////////////////////////////////
+
+  var $imageInProjectPage = $('#project-page');
+
+  if( $imageInProjectPage.length ) {
+
+    $imageInProjectPage.find('p img').each(function() {
+      $(this).closest('p').addClass('image-container clearfix');
     });
 
-    if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
-      $('body').addClass('ios');
-    }
-
-    //
-    // Scroll funcitons end ////////////////////////////////////////////////////////////////////////
-
-    var $imageInProjectPage = $('#project-page');
-
-    if( $imageInProjectPage.length ) {
-
-      $imageInProjectPage.find('p img').each(function() {
-        $(this).closest('p').addClass('image-container clearfix');
-      });
-
-      $imageInProjectPage.find('iframe').each(function() {
-        var $this = $(this);
-        $this.wrap('<div class="embed-container">').closest('p').addClass('image-container');
-      });
-    }
+    $imageInProjectPage.find('iframe').each(function() {
+      var $this = $(this);
+      $this.wrap('<div class="embed-container">').closest('p').addClass('image-container');
+    });
+  }
 
 
-    var $contact = $('#contact'),
-        $menuItem = $('#menu-primary a[href$="#contact"]').parent();
+  var $contact = $('#contact'),
+      $menuItem = $('#menu-primary a[href$="#contact"]').parent();
 
-    if( $contact.length ) {
-      $contact.scroll(function() {
-        if ($contact.offset().top < $(window).scrollTop() + $(document).height() && $contact.offset().top + $contact.height() > $(window).scrollTop()) {
-          $menuItem.addClass('current-menu-item');
-        }
-      });
-    }
+  if( $contact.length ) {
+    $contact.scroll(function() {
+      if ($contact.offset().top < $(window).scrollTop() + $(document).height() && $contact.offset().top + $contact.height() > $(window).scrollTop()) {
+        $menuItem.addClass('current-menu-item');
+      }
+    });
+  }
 
-
-$(document).ready(function(){
-  $('.carousel').slick();
-});
-
-
-
+  $(document).ready(function(){
+    $('.carousel').slick();
+  });
 
 }(jQuery, jQuery(window)));
