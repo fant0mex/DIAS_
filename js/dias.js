@@ -123,17 +123,16 @@
     }
 
 
-    var $contact = $('#contact');
-
-    var $menuItem = $('#menu-primary a[href$="#contact"]').parent();
+    var $contact = $('#contact'),
+        $menuItem = $('#menu-primary a[href$="#contact"]').parent();
 
     if( $contact.length ) {
-    $contact.scroll(function() {
-      if ($contact.offset().top < $(window).scrollTop() + $(document).height() && $contact.offset().top + $contact.height() > $(window).scrollTop()) {
-        $menuItem.addClass('current-menu-item');
+      $contact.scroll(function() {
+        if ($contact.offset().top < $(window).scrollTop() + $(document).height() && $contact.offset().top + $contact.height() > $(window).scrollTop()) {
+          $menuItem.addClass('current-menu-item');
+        }
       });
     }
-  }
 
 
 $(document).ready(function(){
