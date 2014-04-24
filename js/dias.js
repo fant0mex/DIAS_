@@ -129,7 +129,9 @@
   if( $contact.length ) {
     $win.scroll(function() {
       if ($contact.offset().top < $win.scrollTop() + $win.height() && $contact.offset().top + $contact.height() > $win.scrollTop()) {
-        $menuItem.addClass('current-menu-item');
+        $menuItem.addClass('forced-current-menu-item');
+      } else {
+        $menuItem.removeClass('forced-current-menu-item');
       }
     });
   }
