@@ -4,5 +4,2606 @@
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */+function(e){"use strict";function i(r){e(t).remove();e(n).each(function(){var t=s(e(this)),n={relatedTarget:this};if(!t.hasClass("open"))return;t.trigger(r=e.Event("hide.bs.dropdown",n));if(r.isDefaultPrevented())return;t.removeClass("open").trigger("hidden.bs.dropdown",n)})}function s(t){var n=t.attr("data-target");if(!n){n=t.attr("href");n=n&&/#[A-Za-z]/.test(n)&&n.replace(/.*(?=#[^\s]*$)/,"")}var r=n&&e(n);return r&&r.length?r:t.parent()}var t=".dropdown-backdrop",n="[data-toggle=dropdown]",r=function(t){e(t).on("click.bs.dropdown",this.toggle)};r.prototype.toggle=function(t){var n=e(this);if(n.is(".disabled, :disabled"))return;var r=s(n),o=r.hasClass("open");i();if(!o){"ontouchstart"in document.documentElement&&!r.closest(".navbar-nav").length&&e('<div class="dropdown-backdrop"/>').insertAfter(e(this)).on("click",i);var u={relatedTarget:this};r.trigger(t=e.Event("show.bs.dropdown",u));if(t.isDefaultPrevented())return;r.toggleClass("open").trigger("shown.bs.dropdown",u);n.focus()}return!1};r.prototype.keydown=function(t){if(!/(38|40|27)/.test(t.keyCode))return;var r=e(this);t.preventDefault();t.stopPropagation();if(r.is(".disabled, :disabled"))return;var i=s(r),o=i.hasClass("open");if(!o||o&&t.keyCode==27){t.which==27&&i.find(n).focus();return r.click()}var u=" li:not(.divider):visible a",a=i.find("[role=menu]"+u+", [role=listbox]"+u);if(!a.length)return;var f=a.index(a.filter(":focus"));t.keyCode==38&&f>0&&f--;t.keyCode==40&&f<a.length-1&&f++;~f||(f=0);a.eq(f).focus()};var o=e.fn.dropdown;e.fn.dropdown=function(t){return this.each(function(){var n=e(this),i=n.data("bs.dropdown");i||n.data("bs.dropdown",i=new r(this));typeof t=="string"&&i[t].call(n)})};e.fn.dropdown.Constructor=r;e.fn.dropdown.noConflict=function(){e.fn.dropdown=o;return this};e(document).on("click.bs.dropdown.data-api",i).on("click.bs.dropdown.data-api",".dropdown form",function(e){e.stopPropagation()}).on("click.bs.dropdown.data-api",n,r.prototype.toggle).on("keydown.bs.dropdown.data-api",n+", [role=menu], [role=listbox]",r.prototype.keydown)}(jQuery);+function(e){"use strict";var t=function(n,r){this.options=e.extend({},t.DEFAULTS,r);this.$window=e(window).on("scroll.bs.affix.data-api",e.proxy(this.checkPosition,this)).on("click.bs.affix.data-api",e.proxy(this.checkPositionWithEventLoop,this));this.$element=e(n);this.affixed=this.unpin=this.pinnedOffset=null;this.checkPosition()};t.RESET="affix affix-top affix-bottom";t.DEFAULTS={offset:0};t.prototype.getPinnedOffset=function(){if(this.pinnedOffset)return this.pinnedOffset;this.$element.removeClass(t.RESET).addClass("affix");var e=this.$window.scrollTop(),n=this.$element.offset();return this.pinnedOffset=n.top-e};t.prototype.checkPositionWithEventLoop=function(){setTimeout(e.proxy(this.checkPosition,this),1)};t.prototype.checkPosition=function(){if(!this.$element.is(":visible"))return;var n=e(document).height(),r=this.$window.scrollTop(),i=this.$element.offset(),s=this.options.offset,o=s.top,u=s.bottom;this.affixed=="top"&&(i.top+=r);typeof s!="object"&&(u=o=s);typeof o=="function"&&(o=s.top(this.$element));typeof u=="function"&&(u=s.bottom(this.$element));var a=this.unpin!=null&&r+this.unpin<=i.top?!1:u!=null&&i.top+this.$element.height()>=n-u?"bottom":o!=null&&r<=o?"top":!1;if(this.affixed===a)return;this.unpin&&this.$element.css("top","");var f="affix"+(a?"-"+a:""),l=e.Event(f+".bs.affix");this.$element.trigger(l);if(l.isDefaultPrevented())return;this.affixed=a;this.unpin=a=="bottom"?this.getPinnedOffset():null;this.$element.removeClass(t.RESET).addClass(f).trigger(e.Event(f.replace("affix","affixed")));a=="bottom"&&this.$element.offset({top:n-u-this.$element.height()})};var n=e.fn.affix;e.fn.affix=function(n){return this.each(function(){var r=e(this),i=r.data("bs.affix"),s=typeof n=="object"&&n;i||r.data("bs.affix",i=new t(this,s));typeof n=="string"&&i[n]()})};e.fn.affix.Constructor=t;e.fn.affix.noConflict=function(){e.fn.affix=n;return this};e(window).on("load",function(){e('[data-spy="affix"]').each(function(){var t=e(this),n=t.data();n.offset=n.offset||{};n.offsetBottom&&(n.offset.bottom=n.offsetBottom);n.offsetTop&&(n.offset.top=n.offsetTop);t.affix(n)})})}(jQuery);+function(e){"use strict";var t=function(n,r){this.$element=e(n);this.options=e.extend({},t.DEFAULTS,r);this.transitioning=null;this.options.parent&&(this.$parent=e(this.options.parent));this.options.toggle&&this.toggle()};t.DEFAULTS={toggle:!0};t.prototype.dimension=function(){var e=this.$element.hasClass("width");return e?"width":"height"};t.prototype.show=function(){if(this.transitioning||this.$element.hasClass("in"))return;var t=e.Event("show.bs.collapse");this.$element.trigger(t);if(t.isDefaultPrevented())return;var n=this.$parent&&this.$parent.find("> .panel > .in");if(n&&n.length){var r=n.data("bs.collapse");if(r&&r.transitioning)return;n.collapse("hide");r||n.data("bs.collapse",null)}var i=this.dimension();this.$element.removeClass("collapse").addClass("collapsing")[i](0);this.transitioning=1;var s=function(){this.$element.removeClass("collapsing").addClass("collapse in")[i]("auto");this.transitioning=0;this.$element.trigger("shown.bs.collapse")};if(!e.support.transition)return s.call(this);var o=e.camelCase(["scroll",i].join("-"));this.$element.one(e.support.transition.end,e.proxy(s,this)).emulateTransitionEnd(350)[i](this.$element[0][o])};t.prototype.hide=function(){if(this.transitioning||!this.$element.hasClass("in"))return;var t=e.Event("hide.bs.collapse");this.$element.trigger(t);if(t.isDefaultPrevented())return;var n=this.dimension();this.$element[n](this.$element[n]())[0].offsetHeight;this.$element.addClass("collapsing").removeClass("collapse").removeClass("in");this.transitioning=1;var r=function(){this.transitioning=0;this.$element.trigger("hidden.bs.collapse").removeClass("collapsing").addClass("collapse")};if(!e.support.transition)return r.call(this);this.$element[n](0).one(e.support.transition.end,e.proxy(r,this)).emulateTransitionEnd(350)};t.prototype.toggle=function(){this[this.$element.hasClass("in")?"hide":"show"]()};var n=e.fn.collapse;e.fn.collapse=function(n){return this.each(function(){var r=e(this),i=r.data("bs.collapse"),s=e.extend({},t.DEFAULTS,r.data(),typeof n=="object"&&n);!i&&s.toggle&&n=="show"&&(n=!n);i||r.data("bs.collapse",i=new t(this,s));typeof n=="string"&&i[n]()})};e.fn.collapse.Constructor=t;e.fn.collapse.noConflict=function(){e.fn.collapse=n;return this};e(document).on("click.bs.collapse.data-api","[data-toggle=collapse]",function(t){var n=e(this),r,i=n.attr("data-target")||t.preventDefault()||(r=n.attr("href"))&&r.replace(/.*(?=#[^\s]+$)/,""),s=e(i),o=s.data("bs.collapse"),u=o?"toggle":n.data(),a=n.attr("data-parent"),f=a&&e(a);if(!o||!o.transitioning){f&&f.find('[data-toggle=collapse][data-parent="'+a+'"]').not(n).addClass("collapsed");n[s.hasClass("in")?"addClass":"removeClass"]("collapsed")}s.collapse(u)})}(jQuery);+function(e){"use strict";function t(){var e=document.createElement("bootstrap"),t={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"};for(var n in t)if(e.style[n]!==undefined)return{end:t[n]};return!1}e.fn.emulateTransitionEnd=function(t){var n=!1,r=this;e(this).one(e.support.transition.end,function(){n=!0});var i=function(){n||e(r).trigger(e.support.transition.end)};setTimeout(i,t);return this};e(function(){e.support.transition=t()})+function(e){var t=function(t,n){this.$element=e(t);this.$indicators=this.$element.find(".carousel-indicators");this.options=n;this.paused=this.sliding=this.interval=this.$active=this.$items=null;this.options.pause=="hover"&&this.$element.on("mouseenter",e.proxy(this.pause,this)).on("mouseleave",e.proxy(this.cycle,this))};t.DEFAULTS={interval:5e3,pause:"hover",wrap:!0};t.prototype.cycle=function(t){t||(this.paused=!1);this.interval&&clearInterval(this.interval);this.options.interval&&!this.paused&&(this.interval=setInterval(e.proxy(this.next,this),this.options.interval));return this};t.prototype.getActiveIndex=function(){this.$active=this.$element.find(".item.active");this.$items=this.$active.parent().children();return this.$items.index(this.$active)};t.prototype.to=function(t){var n=this,r=this.getActiveIndex();if(t>this.$items.length-1||t<0)return;return this.sliding?this.$element.one("slid.bs.carousel",function(){n.to(t)}):r==t?this.pause().cycle():this.slide(t>r?"next":"prev",e(this.$items[t]))};t.prototype.pause=function(t){t||(this.paused=!0);if(this.$element.find(".next, .prev").length&&e.support.transition){this.$element.trigger(e.support.transition.end);this.cycle(!0)}this.interval=clearInterval(this.interval);return this};t.prototype.next=function(){if(this.sliding)return;return this.slide("next")};t.prototype.prev=function(){if(this.sliding)return;return this.slide("prev")};t.prototype.slide=function(t,n){var r=this.$element.find(".item.active"),i=n||r[t](),s=this.interval,o=t=="next"?"left":"right",u=t=="next"?"first":"last",a=this;if(!i.length){if(!this.options.wrap)return;i=this.$element.find(".item")[u]()}if(i.hasClass("active"))return this.sliding=!1;var f=e.Event("slide.bs.carousel",{relatedTarget:i[0],direction:o});this.$element.trigger(f);if(f.isDefaultPrevented())return;this.sliding=!0;s&&this.pause();if(this.$indicators.length){this.$indicators.find(".active").removeClass("active");this.$element.one("slid.bs.carousel",function(){var t=e(a.$indicators.children()[a.getActiveIndex()]);t&&t.addClass("active")})}if(e.support.transition&&this.$element.hasClass("slide")){i.addClass(t);i[0].offsetWidth;r.addClass(o);i.addClass(o);r.one(e.support.transition.end,function(){i.removeClass([t,o].join(" ")).addClass("active");r.removeClass(["active",o].join(" "));a.sliding=!1;setTimeout(function(){a.$element.trigger("slid.bs.carousel")},0)}).emulateTransitionEnd(r.css("transition-duration").slice(0,-1)*1e3)}else{r.removeClass("active");i.addClass("active");this.sliding=!1;this.$element.trigger("slid.bs.carousel")}s&&this.cycle();return this};var n=e.fn.carousel;e.fn.carousel=function(n){return this.each(function(){var r=e(this),i=r.data("bs.carousel"),s=e.extend({},t.DEFAULTS,r.data(),typeof n=="object"&&n),o=typeof n=="string"?n:s.slide;i||r.data("bs.carousel",i=new t(this,s));typeof n=="number"?i.to(n):o?i[o]():s.interval&&i.pause().cycle()})};e.fn.carousel.Constructor=t;e.fn.carousel.noConflict=function(){e.fn.carousel=n;return this};e(document).on("click.bs.carousel.data-api","[data-slide], [data-slide-to]",function(t){var n=e(this),r,i=e(n.attr("data-target")||(r=n.attr("href"))&&r.replace(/.*(?=#[^\s]+$)/,"")),s=e.extend({},i.data(),n.data()),o=n.attr("data-slide-to");o&&(s.interval=!1);i.carousel(s);(o=n.attr("data-slide-to"))&&i.data("bs.carousel").to(o);t.preventDefault()});e(window).on("load",function(){e('[data-ride="carousel"]').each(function(){var t=e(this);t.carousel(t.data())})})}(jQuery)}(jQuery);(function(){(function(e,t){"use strict";var n;n={maxHeight:1440,maxWidth:2560,minHeight:240,minWidth:280,padding:0,init:function(){var e;e=this.cacheItems();return e?this.bindEvents():!1},cacheItems:function(){this.$videos=e(".dias-video-filler video, .dias-video-filler iframe");if(this.$videos.length<1)return!1;this.$videos.each(function(){var t;t=e(this);return t.data("parent",t.parent())});return this.$videos.css({left:"50%",top:"50%"})},bindEvents:function(){var n;n=this;this.$videos.bind("load loadedmetadata",function(){return n.cacheAspect(e(this))});t.bind("resize",function(){return n.videosResize()});return t.resize()},cacheAspect:function(e){var t,n;e.css({width:"100%",height:"auto"});n=e.width();t=e.height();e.data("ratio",n/t);return this.videoResize(e)},videoResize:function(e){var t,n,r,i,s,o,u;n=e.data("ratio");t=e.data("parent");r=t.height();i=t.width();n==null&&(n=e.width()/e.height());s=i/r;if(s<n){o=Math.min(Math.max(r,this.minHeight),this.maxHeight)-this.padding;u=o*n}else{o=Math.min(Math.max(i/n,this.minHeight),this.maxHeight)-this.padding;u=o*n}e.css({height:o,width:u,marginTop:-o/2,marginLeft:-u/2});return e},videosResize:function(){var t;t=this;return t.$videos.each(function(){return t.videoResize(e(this))})}};return n.init()})(jQuery,jQuery(window))}).call(this);(function(e){"use strict";typeof define=="function"&&define.amd?define(["jquery"],e):e(jQuery)})(function(e){"use strict";var t=window.Slick||{};t=function(){function n(n,r){var i=this,s,o;i.defaults={accessibility:!0,arrows:!0,autoplay:!1,autoplaySpeed:3e3,centerMode:!1,centerPadding:50,cssEase:"ease",dots:!1,draggable:!0,easing:"linear",fade:!1,infinite:!0,lazyLoad:"ondemand",onBeforeChange:null,onAfterChange:null,onInit:null,onReInit:null,pauseOnHover:!0,placeholders:!0,responsive:null,slide:"div",slidesToShow:1,slidesToScroll:1,speed:300,swipe:!0,touchMove:!0,touchThreshold:5,vertical:!1};i.initials={animating:!1,autoPlayTimer:null,currentSlide:0,currentLeft:null,direction:1,dots:null,listWidth:null,listHeight:null,loadIndex:0,nextArrow:null,prevArrow:null,slideCount:null,slideWidth:null,slideTrack:null,slides:null,sliding:!1,slideOffset:0,placeholderOffset:0,swipeLeft:null,list:null,touchObject:{},transformsEnabled:!1};e.extend(i,i.initials);i.activeBreakpoint=null;i.animType=null;i.animProp=null;i.breakpoints=[];i.breakpointSettings=[];i.paused=!1;i.positionProp=null;i.slider=e(n);i.slidesCache=null;i.cssTransitions=!1;i.windowWidth=0;i.windowTimer=null;i.options=e.extend({},i.defaults,r);i.originalSettings=i.options;s=i.options.responsive||null;if(s&&s.length>-1){for(o in s)if(s.hasOwnProperty(o)){i.breakpoints.push(s[o].breakpoint);i.breakpointSettings[s[o].breakpoint]=s[o].settings}i.breakpoints.sort(function(e,t){return t-e})}i.autoPlay=e.proxy(i.autoPlay,i);i.autoPlayClear=e.proxy(i.autoPlayClear,i);i.changeSlide=e.proxy(i.changeSlide,i);i.setPosition=e.proxy(i.setPosition,i);i.swipeHandler=e.proxy(i.swipeHandler,i);i.dragHandler=e.proxy(i.dragHandler,i);i.keyHandler=e.proxy(i.keyHandler,i);i.autoPlayIterator=e.proxy(i.autoPlayIterator,i);i.instanceUid=t++;i.init()}var t=0;return n}();t.prototype.addSlide=function(t,n,r){var i=this,s;if(typeof n=="boolean"){r=n;n=null}i.unload();s=i.slideTrack.children(this.options.slide);if(typeof n=="number")if(n===0&&e(s).length===0)e(t).appendTo(i.slideTrack);else{if(n<0||n>=e(s).length&&e(s).length!==0){i.reinit();return!1}r?e(t).insertBefore(e(s.get(n))):e(t).insertAfter(e(s.get(n)))}else r===!0?e(t).prependTo(i.slideTrack):e(t).appendTo(i.slideTrack);i.slides=i.slideTrack.children(this.options.slide);i.slideTrack.children(this.options.slide).remove();i.slideTrack.append(i.slides);i.reinit()};t.prototype.animateSlide=function(t,n){var r={},i=this;if(i.transformsEnabled===!1)i.options.vertical===!1?i.slideTrack.animate({left:t},i.options.speed,i.options.easing,n):i.slideTrack.animate({top:t},i.options.speed,i.options.easing,n);else if(i.cssTransitions===!1)e({animStart:i.currentLeft}).animate({animStart:t},{duration:i.options.speed,easing:i.options.easing,step:function(e){if(i.options.vertical===!1){r[i.animType]="translate("+e+"px, 0px)";i.slideTrack.css(r)}else{r[i.animType]="translate(0px,"+e+"px,0px)";i.slideTrack.css(r)}},complete:function(){n&&n.call()}});else{i.applyTransition();i.options.vertical===!1?r[i.animType]="translate3d("+t+"px, 0px, 0px)":r[i.animType]="translate3d(0px,"+t+"px, 0px)";i.slideTrack.css(r);n&&setTimeout(function(){i.disableTransition();n.call()},i.options.speed)}};t.prototype.applyTransition=function(t){var n=this,r,i;r="all "+n.options.speed+"ms "+n.options.cssEase;n.options.vertical===!1?i=n.listWidth/2+" 50%":i="";n.options.fade===!1?n.slideTrack.css({transition:r,transformOrigin:i}):e(n.slides.get(t)).css({transition:r})};t.prototype.autoPlay=function(){var e=this;e.autoPlayTimer&&clearInterval(e.autoPlayTimer);e.slideCount>e.options.slidesToShow&&e.paused!==!0&&(e.autoPlayTimer=setInterval(e.autoPlayIterator,e.options.autoplaySpeed))};t.prototype.autoPlayClear=function(){var e=this;e.autoPlayTimer&&clearInterval(e.autoPlayTimer)};t.prototype.autoPlayIterator=function(){var e=this;if(e.options.infinite===!1)if(e.direction===1){e.currentSlide+1===e.slideCount-1&&(e.direction=0);e.slideHandler(e.currentSlide+e.options.slidesToScroll)}else{e.currentSlide-1===0&&(e.direction=1);e.slideHandler(e.currentSlide-e.options.slidesToScroll)}else e.slideHandler(e.currentSlide+e.options.slidesToScroll)};t.prototype.buildArrows=function(){var t=this;if(t.options.arrows===!0&&t.slideCount>t.options.slidesToShow){t.prevArrow=e('<button type="button" tabIndex="-1">Previous</button>').appendTo(t.slider).addClass("slick-prev");t.nextArrow=e('<button type="button" tabIndex="-1">Next</button>').appendTo(t.slider).addClass("slick-next");t.options.infinite!==!0&&t.prevArrow.addClass("slick-disabled")}};t.prototype.buildDots=function(){var t=this,n,r;if(t.options.dots===!0&&t.slideCount>t.options.slidesToShow){r='<ul class="slick-dots">';for(n=1;n<=t.slideCount;n+=1){r+='<li><a href="javascript:void(0)" tabIndex="-1">'+n+"</a></li>";if(t.options.placeholders===!1&&n+t.options.slidesToShow-(t.options.slidesToScroll-1)>t.slideCount)break}r+="</ul>";t.dots=e(r).appendTo(t.slider);if(t.options.slidesToScroll>1){t.dots.find("li").hide();n=0;while(n<t.slideCount){e(t.dots.find("li").get(n)).show();n+=t.options.slidesToScroll}}t.dots.find("li").first().addClass("slick-active")}};t.prototype.buildOut=function(){var t=this;t.slides=t.slider.children(t.options.slide+":not(.slick-cloned)").addClass("slick-slide");t.slideCount=t.slides.length;t.slidesCache=t.slides;t.slider.addClass("slick-slider");t.slideTrack=t.slideCount===0?e('<div class="slick-track"/>').appendTo(t.slider):t.slides.wrapAll('<div class="slick-track"/>').parent();t.list=t.slideTrack.wrap('<div class="slick-list"/>').parent();t.slideTrack.css("opacity",0);t.options.accessibility===!0&&t.list.prop("tabIndex",0);if(t.options.centerMode===!0){t.options.infinite=!0;t.options.slidesToScroll=1;t.options.slidesToShow%2===0&&(t.options.slidesToShow=3)}e("img[data-lazy]",t.slider).not("[src]").addClass("slick-loading");t.setupPlaceholders();t.setupInfinite();t.buildArrows();t.buildDots();t.setSlideClasses(0);t.options.draggable===!0&&t.list.addClass("draggable")};t.prototype.checkResponsive=function(){var t=this,n,r;if(t.originalSettings.responsive&&t.originalSettings.responsive.length>-1&&t.originalSettings.responsive!==null){r=null;for(n in t.breakpoints)t.breakpoints.hasOwnProperty(n)&&e(window).width()<t.breakpoints[n]&&(r=t.breakpoints[n]);if(r!==null)if(t.activeBreakpoint!==null){if(r!==t.activeBreakpoint){t.activeBreakpoint=r;t.options=e.extend({},t.defaults,t.breakpointSettings[r]);t.refresh()}}else{t.activeBreakpoint=r;t.options=e.extend({},t.defaults,t.breakpointSettings[r]);t.refresh()}else if(t.activeBreakpoint!==null){t.activeBreakpoint=null;t.options=e.extend({},t.defaults,t.originalSettings);t.refresh()}}};t.prototype.changeSlide=function(t){var n=this;switch(t.data.message){case"previous":n.slideHandler(n.currentSlide-n.options.slidesToScroll);break;case"next":n.slideHandler(n.currentSlide+n.options.slidesToScroll);break;case"index":n.slideHandler(e(t.target).parent().index());break;default:return!1}};t.prototype.destroy=function(){var t=this;t.autoPlayClear();t.touchObject={};e(".slick-cloned",t.slider).remove();e(".slick-placeholder",t.slider).remove();t.dots&&t.dots.remove();if(t.prevArrow){t.prevArrow.remove();t.nextArrow.remove()}t.slides.unwrap().unwrap();t.slides.removeClass("slick-slide slick-active slick-visible").removeAttr("style");t.slider.removeClass("slick-slider");t.slider.removeClass("slick-initialized");t.list.off(".slick");e(window).off(".slick"+t.instanceUid)};t.prototype.disableTransition=function(t){var n=this;n.options.fade===!1?n.slideTrack.css({transition:"",transformOrigin:""}):e(n.slides.get(t)).css({transition:""})};t.prototype.fadeSlide=function(t,n){var r=this;if(r.cssTransitions===!1){e(r.slides.get(t)).css({zIndex:1e3});e(r.slides.get(t)).animate({opacity:1},r.options.speed,r.options.easing,n)}else{r.applyTransition(t);e(r.slides.get(t)).css({opacity:1,zIndex:1e3});n&&setTimeout(function(){r.disableTransition(t);n.call()},r.options.speed)}};t.prototype.filterSlides=function(e){var t=this;if(e!==null){t.unload();t.slideTrack.children(this.options.slide).remove();t.slidesCache.filter(e).appendTo(t.slideTrack);t.reinit()}};t.prototype.init=function(){var t=this;if(!e(t.slider).hasClass("slick-initialized")){e(t.slider).addClass("slick-initialized");t.buildOut();t.setProps();t.startLoad();t.loadSlider();t.initializeEvents();t.checkResponsive()}t.options.onInit!==null&&t.options.onInit.call(this,t)};t.prototype.initArrowEvents=function(){var e=this;if(e.options.arrows===!0&&e.slideCount>e.options.slidesToShow){e.prevArrow.on("click.slick",{message:"previous"},e.changeSlide);e.nextArrow.on("click.slick",{message:"next"},e.changeSlide)}};t.prototype.initDotEvents=function(){var t=this;t.options.dots===!0&&t.slideCount>t.options.slidesToShow&&e("li a",t.dots).on("click.slick",{message:"index"},t.changeSlide)};t.prototype.initializeEvents=function(){var t=this;t.initArrowEvents();t.initDotEvents();if(t.options.swipe===!0){t.list.on("touchstart.slick",{action:"start",kind:"touch"},t.swipeHandler);t.list.on("touchmove.slick",{action:"move",kind:"touch"},t.swipeHandler);t.list.on("touchend.slick",{action:"end",kind:"touch"},t.swipeHandler);t.list.on("touchcancel.slick",{action:"end",kind:"touch"},t.swipeHandler)}if(t.options.draggable===!0){t.list.on("mousedown.slick",{action:"start",kind:"drag"},t.swipeHandler);t.list.on("mousemove.slick",{action:"move",kind:"drag"},t.swipeHandler);t.list.on("mouseup.slick",{action:"end",kind:"drag"},t.swipeHandler);t.list.on("mouseleave.slick",{action:"end",kind:"drag"},t.swipeHandler)}if(t.options.pauseOnHover===!0&&t.options.autoplay===!0){t.list.on("mouseenter.slick",t.autoPlayClear);t.list.on("mouseleave.slick",t.autoPlay)}t.list.on("keydown.slick",t.keyHandler);e(window).on("orientationchange.slick.slick"+t.instanceUid,function(){t.checkResponsive();t.setPosition()});e(window).on("resize.slick.slick"+t.instanceUid,function(){if(e(window).width!==t.windowWidth){clearTimeout(t.windowDelay);t.windowDelay=window.setTimeout(function(){t.windowWidth=e(window).width();t.checkResponsive();t.setPosition()},50)}});e(window).on("load.slick.slick"+t.instanceUid,t.setPosition)};t.prototype.initUI=function(){var e=this;if(e.options.arrows===!0&&e.slideCount>e.options.slidesToShow){e.prevArrow.show();e.nextArrow.show()}e.options.dots===!0&&e.slideCount>e.options.slidesToShow&&e.dots.show();e.options.autoplay===!0&&e.autoPlay()};t.prototype.keyHandler=function(e){var t=this;e.keyCode===37?t.changeSlide({data:{message:"previous"}}):e.keyCode===39&&t.changeSlide({data:{message:"next"}})};t.prototype.lazyLoad=function(){var t=this,n,r,i,s;if(t.options.centerMode===!0){i=t.options.slidesToShow+t.currentSlide-1;s=i+t.options.slidesToShow+2}else{i=t.options.slidesToShow+t.currentSlide;s=i+t.options.slidesToShow}n=t.slider.find(".slick-slide").slice(i,s);e("img[data-lazy]",n).not("[src]").each(function(){e(this).attr("src",e(this).attr("data-lazy")).removeClass("slick-loading")});if(t.currentSlide>=t.slideCount-t.options.slidesToShow){r=t.slider.find(".slick-cloned").slice(0,t.options.slidesToShow);e("img[data-lazy]",r).not("[src]").each(function(){e(this).attr("src",e(this).attr("data-lazy")).removeClass("slick-loading")})}else if(t.currentSlide===0){r=t.slider.find(".slick-cloned").slice(t.options.slidesToShow*-1);e("img[data-lazy]",r).not("[src]").each(function(){e(this).attr("src",e(this).attr("data-lazy")).removeClass("slick-loading")})}};t.prototype.loadSlider=function(){var t=this;t.setPosition();t.slideTrack.css({opacity:1});if(document.readyState!=="complete")e(window).load(function(){t.slider.removeClass("slick-loading");t.initUI();t.options.lazyLoad==="progressive"&&t.progressiveLazyLoad()});else{t.slider.removeClass("slick-loading");t.initUI();t.options.lazyLoad==="progressive"&&t.progressiveLazyLoad()}};t.prototype.postSlide=function(e){var t=this;t.options.onAfterChange!==null&&e!==t.currentSlide&&t.options.onAfterChange.call(this,t,e);t.animating=!1;t.currentSlide=e;t.setPosition();t.swipeLeft=null;t.updateDots();t.updateArrows();t.options.autoplay===!0&&t.paused===!1&&t.autoPlay();t.setSlideClasses(t.currentSlide)};t.prototype.progressiveLazyLoad=function(){var t=this,n,r;n=e("img[data-lazy]").not("[src]").length;if(n>0){r=e(e("img[data-lazy]",t.slider).not("[src]").get(0));r.attr("src",r.attr("data-lazy")).removeClass("slick-loading").load(function(){t.progressiveLazyLoad()})}};t.prototype.refresh=function(){var t=this;t.destroy();e.extend(t,t.initials);t.init()};t.prototype.reinit=function(){var t=this;t.slides=e(t.options.slide+":not(.slick-cloned)",t.slideTrack).addClass("slick-slide");t.slideCount=t.slides.length;t.currentSlide>=t.slideCount&&t.currentSlide!==0&&(t.currentSlide=t.currentSlide-t.options.slidesToScroll);t.setProps();t.setupPlaceholders();t.setupInfinite();t.buildArrows();t.updateArrows();t.initArrowEvents();t.buildDots();t.updateDots();t.initDotEvents();t.setSlideClasses(0);t.setPosition();t.options.onReInit!==null&&t.options.onReInit.call(this,t)};t.prototype.removeSlide=function(t,n){var r=this;if(typeof t=="boolean"){n=t;t=null}r.unload();if(r.slideCount<1)return!1;typeof t=="number"?n===!0?--t:n===!1&&++t:n===!0?t=0:t=e(r.slideTrack.children(this.options.slide)).length-1;if(t<0||t>=e(r.slideTrack.children(this.options.slide)).length){r.reinit();return!1}e(r.slideTrack.children(this.options.slide).get(t)).remove();r.slides=r.slideTrack.children(this.options.slide);r.slideTrack.children(this.options.slide).remove();r.slideTrack.append(r.slides);r.reinit()};t.prototype.setCSS=function(e){var t=this,n={},r,i;r=t.positionProp=="left"?e+"px":"0px";i=t.positionProp=="top"?e+"px":"0px";n[t.positionProp]=e;if(t.transformsEnabled===!1)t.slideTrack.css(n);else{n={};if(t.cssTransitions===!1){n[t.animType]="translate("+r+", "+i+")";t.slideTrack.css(n)}else{n[t.animType]="translate3d("+r+", "+i+", 0px)";t.slideTrack.css(n)}}};t.prototype.setDimensions=function(){var e=this;e.options.centerMode===!0?e.list.find(".slick-slide").width(e.slideWidth):e.list.find(".slick-slide").width(e.slideWidth);if(e.options.vertical===!1){e.slideTrack.width(Math.ceil(e.slideWidth*e.slider.find(".slick-slide").length));e.options.centerMode===!0&&e.list.css({padding:"0px "+e.options.centerPadding+"px"})}else{e.list.height(e.slides.first().outerHeight());e.slideTrack.height(Math.ceil(e.listHeight*e.slider.find(".slick-slide").length));e.options.centerMode===!0&&e.list.css({padding:e.options.centerPadding+"px 0px"})}};t.prototype.setFade=function(){var t=this,n;t.slides.each(function(r,i){n=t.slideWidth*r*-1;e(i).css({position:"relative",left:n,top:0,zIndex:800,opacity:0})});e(t.slides.get(t.currentSlide)).css({zIndex:900,opacity:1})};t.prototype.setPosition=function(){var e=this,t,n;n=e.currentSlide;e.setValues();e.setDimensions();e.slideOffset=0;e.options.infinite===!0&&e.slideCount>e.options.slidesToShow&&(e.slideOffset=e.slideWidth*e.options.slidesToShow*-1);e.options.centerMode===!0&&(e.slideOffset+=e.slideWidth*Math.floor(e.options.slidesToShow/2)-e.slideWidth);e.options.placeholders===!1&&e.currentSlide+e.options.slidesToScroll>=e.slideCount-e.options.slidesToScroll&&(e.slideOffset=e.slideOffset-e.slideWidth*e.placeholderOffset*-1);if(e.options.fade===!1){e.options.vertical===!1?t=n*e.slideWidth*-1+e.slideOffset:t=n*e.listHeight*-1-e.listHeight;e.setCSS(t)}else e.setFade()};t.prototype.setProps=function(){var e=this;e.positionProp=e.options.vertical===!0?"top":"left";e.positionProp==="top"?e.slider.addClass("slick-vertical"):e.slider.removeClass("slick-vertical");if(document.body.style.WebkitTransition!==undefined||document.body.style.MozTransition!==undefined||document.body.style.msTransition!==undefined)e.cssTransitions=!0;document.body.style.MozTransform!==undefined&&(e.animType="MozTransform");document.body.style.webkitTransform!==undefined&&(e.animType="webkitTransform");document.body.style.msTransform!==undefined&&(e.animType="msTransform");e.transformsEnabled=e.animType!==null};t.prototype.setValues=function(){var e=this;e.listWidth=e.list.width();e.listHeight=e.list.height();e.slideWidth=Math.ceil(e.listWidth/e.options.slidesToShow)};t.prototype.setSlideClasses=function(t){var n=this,r,i,s;n.slider.find(".slick-slide").removeClass("slick-active").removeClass("slick-center");i=n.slider.find(".slick-slide");if(n.options.centerMode===!0){r=Math.floor(n.options.slidesToShow/2);if(t>=r&&t<=n.slideCount-1-r)n.slides.slice(t-r,t+r+1).addClass("slick-active");else{s=n.options.slidesToShow+t;i.slice(s-r+1,s+r+2).addClass("slick-active")}t===0?e(i.get(i.length-1-n.options.slidesToShow)).addClass("slick-center"):t===n.slideCount-1&&e(i.get(n.options.slidesToShow)).addClass("slick-center");e(n.slides.get(t)).addClass("slick-center")}else if(t>0&&t<n.slideCount-n.options.slidesToShow)n.slides.slice(t,t+n.options.slidesToShow).addClass("slick-active");else{s=n.options.slidesToShow+t;i.slice(s,s+n.options.slidesToShow).addClass("slick-active")}n.options.lazyLoad==="ondemand"&&n.lazyLoad()};t.prototype.setupInfinite=function(){var t=this,n,r,i;if(t.options.infinite===!0&&t.options.fade===!1){r=null;if(t.slideCount>t.options.slidesToShow){t.options.centerMode===!0?i=t.options.slidesToShow+1:i=t.options.slidesToShow;for(n=t.slideCount;n>t.slideCount-i;n-=1){r=n-1;e(t.slides[r]).clone().prependTo(t.slideTrack).addClass("slick-cloned")}for(n=0;n<i;n+=1){r=n;e(t.slides[r]).clone().appendTo(t.slideTrack).addClass("slick-cloned")}}}};t.prototype.setupPlaceholders=function(){var t=this,n,r;if(t.options.fade===!0||t.options.vertical===!0){t.options.slidesToShow=1;t.options.slidesToScroll=1;t.options.centerMode=!1}if(t.options.placeholders===!1){t.options.infinite=!1;t.placeholderOffset=t.slideCount%t.options.slidesToScroll;return!1}if(t.slideCount%t.options.slidesToScroll!==0&&t.slideCount>t.options.slidesToShow){r=Math.abs(t.options.slidesToScroll-t.slideCount%t.options.slidesToScroll);for(n=0;n<r;n+=1)e("<div/>").appendTo(t.slideTrack).addClass("slick-slide slick-placeholder");t.slides=e(".slick-slide:not(.slick-cloned)",t.slider);t.slideCount=t.slides.length}};t.prototype.slideHandler=function(e){var t,n,r,i=null,s,o=this;if(o.animating===!0)return!1;t=e;s=o.slideOffset;o.options.placeholders===!1&&(o.currentSlide>=o.slideCount-o.options.slidesToShow?t>=o.slideCount-o.options.slidesToShow?t=o.currentSlide:s=0:t+o.options.slidesToScroll>=o.slideCount-o.options.slidesToScroll&&(s=o.placeholderOffset*o.slideWidth));if(o.options.vertical===!1){i=t*o.slideWidth*-1+s;r=o.currentSlide*o.slideWidth*-1+s}else{i=t*o.listHeight*-1-o.listHeight;r=o.currentSlide*o.listHeight*-1-o.listHeight}if(o.options.infinite===!1&&(e<0||e>o.slideCount-1)){t=o.currentSlide;o.animateSlide(r,function(){o.postSlide(t)});return!1}o.options.autoplay===!0&&clearInterval(o.autoPlayTimer);o.currentLeft=o.swipeLeft===null?r:o.swipeLeft;t<0?n=o.slideCount-o.options.slidesToScroll:t>o.slideCount-1?n=0:n=t;o.animating=!0;o.options.onBeforeChange!==null&&e!==o.currentSlide&&o.options.onBeforeChange.call(this,o,o.currentSlide);if(o.options.fade===!0){o.fadeSlide(n,function(){o.postSlide(n)});return!1}o.animateSlide(i,function(){o.postSlide(n)})};t.prototype.startLoad=function(){var e=this;if(e.options.arrows===!0&&e.slideCount>e.options.slidesToShow){e.prevArrow.hide();e.nextArrow.hide()}e.options.dots===!0&&e.slideCount>e.options.slidesToShow&&e.dots.hide();e.slider.addClass("slick-loading")};t.prototype.swipeDirection=function(){var e,t,n,r,i=this;e=i.touchObject.startX-i.touchObject.curX;t=i.touchObject.startY-i.touchObject.curY;n=Math.atan2(t,e);r=Math.round(n*180/Math.PI);r<0&&(r=360-Math.abs(r));return r<=45&&r>=0?"left":r<=360&&r>=315?"left":r>=135&&r<=225?"right":"vertical"};t.prototype.swipeEnd=function(t){var n=this;n.list.removeClass("dragging");if(n.touchObject.curX===undefined)return!1;if(n.touchObject.fingerCount!==0&&t.data.kind!=="drag"){n.touchObject={};return!1}if(n.touchObject.swipeLength>=n.touchObject.minSwipe){e(t.target).on("click.slick",function(t){t.stopImmediatePropagation();t.stopPropagation();t.preventDefault();e(t.target).off("click.slick")});switch(n.swipeDirection()){case"left":n.slideHandler(n.currentSlide+
-n.options.slidesToScroll);n.touchObject={};break;case"right":n.slideHandler(n.currentSlide-n.options.slidesToScroll);n.touchObject={}}}else{n.slideHandler(n.currentSlide);n.touchObject={}}};t.prototype.swipeHandler=function(e){var t=this;e.originalEvent!==undefined&&(t.touchObject.fingerCount=e.originalEvent.touches!==undefined?e.originalEvent.touches.length:1);t.touchObject.minSwipe=t.listWidth/t.options.touchThreshold;switch(e.data.action){case"start":t.swipeStart(e);break;case"move":t.swipeMove(e);break;case"end":t.swipeEnd(e)}};t.prototype.swipeMove=function(e){var t=this,n,r,i,s;s=e.originalEvent!==undefined?e.originalEvent.touches:null;n=t.options.vertical===!1?t.currentSlide*t.slideWidth*-1+t.slideOffset:t.currentSlide*t.listHeight*-1-t.listHeight;t.options.placeholders===!1&&t.currentSlide+t.options.slidesToShow>=t.slideCount&&(n=t.currentSlide*t.slideWidth*-1+t.slideOffset);if(!t.list.hasClass("dragging")&&e.data.kind==="drag"||s&&s.length!==1)return!1;t.touchObject.curX=s!==undefined?s[0].pageX:e.clientX;t.touchObject.curY=s!==undefined?s[0].pageY:e.clientY;t.touchObject.swipeLength=Math.round(Math.sqrt(Math.pow(t.touchObject.curX-t.touchObject.startX,2)));r=t.swipeDirection();if(r==="vertical")return!1;e.originalEvent!==undefined&&e.preventDefault();i=t.touchObject.curX>t.touchObject.startX?1:-1;t.options.vertical===!1?t.swipeLeft=n+t.touchObject.swipeLength*i:t.swipeLeft=n+t.touchObject.swipeLength*(t.listHeight/t.listWidth)*i;if(t.options.fade===!0||t.options.touchMove===!1)return!1;if(t.animating===!0){t.swipeLeft=null;return!1}t.setCSS(t.swipeLeft)};t.prototype.swipeStart=function(e){var t=this,n;if(t.touchObject.fingerCount!==1||t.slideCount<=t.options.slidesToShow){t.touchObject={};return!1}e.originalEvent!==undefined&&e.originalEvent.touches!==undefined&&(n=e.originalEvent.touches[0]);t.touchObject.startX=t.touchObject.curX=n!==undefined?n.pageX:e.clientX;t.touchObject.startY=t.touchObject.curY=n!==undefined?n.pageY:e.clientY;t.list.addClass("dragging")};t.prototype.unfilterSlides=function(){var e=this;if(e.slidesCache!==null){e.unload();e.slideTrack.children(this.options.slide).remove();e.slidesCache.appendTo(e.slideTrack);e.reinit()}};t.prototype.unload=function(){var t=this;e(".slick-cloned",t.slider).remove();e(".slick-placeholder",t.slider).remove();t.dots&&t.dots.remove();if(t.prevArrow){t.prevArrow.remove();t.nextArrow.remove()}t.slides.removeClass("slick-slide slick-active slick-visible").removeAttr("style")};t.prototype.updateArrows=function(){var e=this;if(e.options.arrows===!0&&e.options.infinite!==!0&&e.slideCount>e.options.slidesToShow)if(e.currentSlide===0){e.prevArrow.addClass("slick-disabled");e.nextArrow.removeClass("slick-disabled")}else if(e.currentSlide>=e.slideCount/e.options.slidesToScroll*e.options.slidesToShow-e.options.slidesToScroll){e.nextArrow.addClass("slick-disabled");e.prevArrow.removeClass("slick-disabled")}else if(e.options.placeholders===!1&&e.currentSlide+e.options.slidesToShow>=e.slideCount){e.nextArrow.addClass("slick-disabled");e.prevArrow.removeClass("slick-disabled")}else{e.prevArrow.removeClass("slick-disabled");e.nextArrow.removeClass("slick-disabled")}};t.prototype.updateDots=function(){var t=this;if(t.dots!==null){t.dots.find("li").removeClass("slick-active");e(t.dots.find("li").get(t.currentSlide)).addClass("slick-active")}};e.fn.slick=function(e){var n=this;return n.each(function(n,r){r.slick=new t(r,e)})};e.fn.slickAdd=function(e,t,n){var r=this;return r.each(function(r,i){i.slick.addSlide(e,t,n)})};e.fn.slickFilter=function(e){var t=this;return t.each(function(t,n){n.slick.filterSlides(e)})};e.fn.slickGoTo=function(e){var t=this;return t.each(function(t,n){n.slick.slideHandler(e)})};e.fn.slickNext=function(){var e=this;return e.each(function(e,t){t.slick.changeSlide({data:{message:"next"}})})};e.fn.slickPause=function(){var e=this;return e.each(function(e,t){t.slick.autoPlayClear();t.slick.paused=!0})};e.fn.slickPlay=function(){var e=this;return e.each(function(e,t){t.slick.paused=!1;t.slick.autoPlay()})};e.fn.slickPrev=function(){var e=this;return e.each(function(e,t){t.slick.changeSlide({data:{message:"previous"}})})};e.fn.slickRemove=function(e,t){var n=this;return n.each(function(n,r){r.slick.removeSlide(e,t)})};e.fn.slickSetOption=function(e,t,n){var r=this;return r.each(function(r,i){i.slick.options[e]=t;if(n===!0){i.slick.unload();i.slick.reinit()}})};e.fn.slickUnfilter=function(){var e=this;return e.each(function(e,t){t.slick.unfilterSlides()})};e.fn.unslick=function(){var e=this;return e.each(function(e,t){t.slick.destroy()})}});(function(e,t){"use strict";document.addEventListener("touchstart",function(){},!0);var n={scrollPos:0,MAX_MARGIN:20,MIN_MARGIN:0,init:function(){var e=this;e.cacheItems();e.bindEvents()},cacheItems:function(){var t=this;t.$win=e(window);t.$doc=e(document);t.$header=e("#float-header");t.MAX_MARGIN=parseInt(t.$header.css("marginTop"),10)},bindEvents:function(){var e=this;e.$win.scroll(function(){e.scrollPos=e.$doc.scrollTop();e.headSticking()})},headSticking:function(){var e=this,t=Math.max(e.MAX_MARGIN-e.scrollPos,e.MIN_MARGIN);e.$header.css("marginTop",t+"px")}};n.init();e("body").on("click",'[href^="#"]',function(t){var n=e(this),r=n.attr("href").toString(),i=e(r);if(i.length){t.preventDefault();e("html, body").animate({scrollTop:i.offset().top-110},600)}});navigator.userAgent.match(/(iPad|iPhone|iPod)/g)&&e("body").addClass("ios");var r=e("#project-page");if(r.length){r.find("p img").each(function(){e(this).closest("p").addClass("image-container clearfix")});r.find("iframe").each(function(){var t=e(this);t.wrap('<div class="embed-container">').closest("p").addClass("image-container")})}e(document).ready(function(){e(".carousel").slick()})})(jQuery,jQuery(window));
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // DROPDOWN CLASS DEFINITION
+  // =========================
+
+  var backdrop = '.dropdown-backdrop'
+  var toggle   = '[data-toggle=dropdown]'
+  var Dropdown = function (element) {
+    $(element).on('click.bs.dropdown', this.toggle)
+  }
+
+  Dropdown.prototype.toggle = function (e) {
+    var $this = $(this)
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    clearMenus()
+
+    if (!isActive) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+      }
+
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $parent
+        .toggleClass('open')
+        .trigger('shown.bs.dropdown', relatedTarget)
+
+      $this.focus()
+    }
+
+    return false
+  }
+
+  Dropdown.prototype.keydown = function (e) {
+    if (!/(38|40|27)/.test(e.keyCode)) return
+
+    var $this = $(this)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    if (!isActive || (isActive && e.keyCode == 27)) {
+      if (e.which == 27) $parent.find(toggle).focus()
+      return $this.click()
+    }
+
+    var desc = ' li:not(.divider):visible a'
+    var $items = $parent.find('[role=menu]' + desc + ', [role=listbox]' + desc)
+
+    if (!$items.length) return
+
+    var index = $items.index($items.filter(':focus'))
+
+    if (e.keyCode == 38 && index > 0)                 index--                        // up
+    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+    if (!~index)                                      index = 0
+
+    $items.eq(index).focus()
+  }
+
+  function clearMenus(e) {
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $parent = getParent($(this))
+      var relatedTarget = { relatedTarget: this }
+      if (!$parent.hasClass('open')) return
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+      if (e.isDefaultPrevented()) return
+      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+    })
+  }
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+
+  // DROPDOWN PLUGIN DEFINITION
+  // ==========================
+
+  var old = $.fn.dropdown
+
+  $.fn.dropdown = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.dropdown')
+
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  $.fn.dropdown.Constructor = Dropdown
+
+
+  // DROPDOWN NO CONFLICT
+  // ====================
+
+  $.fn.dropdown.noConflict = function () {
+    $.fn.dropdown = old
+    return this
+  }
+
+
+  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', toggle + ', [role=menu], [role=listbox]', Dropdown.prototype.keydown)
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: affix.js v3.1.1
+ * http://getbootstrap.com/javascript/#affix
+ * ========================================================================
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // AFFIX CLASS DEFINITION
+  // ======================
+
+  var Affix = function (element, options) {
+    this.options = $.extend({}, Affix.DEFAULTS, options)
+    this.$window = $(window)
+      .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
+      .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
+
+    this.$element     = $(element)
+    this.affixed      =
+    this.unpin        =
+    this.pinnedOffset = null
+
+    this.checkPosition()
+  }
+
+  Affix.RESET = 'affix affix-top affix-bottom'
+
+  Affix.DEFAULTS = {
+    offset: 0
+  }
+
+  Affix.prototype.getPinnedOffset = function () {
+    if (this.pinnedOffset) return this.pinnedOffset
+    this.$element.removeClass(Affix.RESET).addClass('affix')
+    var scrollTop = this.$window.scrollTop()
+    var position  = this.$element.offset()
+    return (this.pinnedOffset = position.top - scrollTop)
+  }
+
+  Affix.prototype.checkPositionWithEventLoop = function () {
+    setTimeout($.proxy(this.checkPosition, this), 1)
+  }
+
+  Affix.prototype.checkPosition = function () {
+    if (!this.$element.is(':visible')) return
+
+    var scrollHeight = $(document).height()
+    var scrollTop    = this.$window.scrollTop()
+    var position     = this.$element.offset()
+    var offset       = this.options.offset
+    var offsetTop    = offset.top
+    var offsetBottom = offset.bottom
+
+    if (this.affixed == 'top') position.top += scrollTop
+
+    if (typeof offset != 'object')         offsetBottom = offsetTop = offset
+    if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
+    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom(this.$element)
+
+    var affix = this.unpin   != null && (scrollTop + this.unpin <= position.top) ? false :
+                offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ? 'bottom' :
+                offsetTop    != null && (scrollTop <= offsetTop) ? 'top' : false
+
+    if (this.affixed === affix) return
+    if (this.unpin) this.$element.css('top', '')
+
+    var affixType = 'affix' + (affix ? '-' + affix : '')
+    var e         = $.Event(affixType + '.bs.affix')
+
+    this.$element.trigger(e)
+
+    if (e.isDefaultPrevented()) return
+
+    this.affixed = affix
+    this.unpin = affix == 'bottom' ? this.getPinnedOffset() : null
+
+    this.$element
+      .removeClass(Affix.RESET)
+      .addClass(affixType)
+      .trigger($.Event(affixType.replace('affix', 'affixed')))
+
+    if (affix == 'bottom') {
+      this.$element.offset({ top: scrollHeight - offsetBottom - this.$element.height() })
+    }
+  }
+
+
+  // AFFIX PLUGIN DEFINITION
+  // =======================
+
+  var old = $.fn.affix
+
+  $.fn.affix = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.affix')
+      var options = typeof option == 'object' && option
+
+      if (!data) $this.data('bs.affix', (data = new Affix(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.affix.Constructor = Affix
+
+
+  // AFFIX NO CONFLICT
+  // =================
+
+  $.fn.affix.noConflict = function () {
+    $.fn.affix = old
+    return this
+  }
+
+
+  // AFFIX DATA-API
+  // ==============
+
+  $(window).on('load', function () {
+    $('[data-spy="affix"]').each(function () {
+      var $spy = $(this)
+      var data = $spy.data()
+
+      data.offset = data.offset || {}
+
+      if (data.offsetBottom) data.offset.bottom = data.offsetBottom
+      if (data.offsetTop)    data.offset.top    = data.offsetTop
+
+      $spy.affix(data)
+    })
+  })
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: collapse.js v3.1.1
+ * http://getbootstrap.com/javascript/#collapse
+ * ========================================================================
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // COLLAPSE PUBLIC CLASS DEFINITION
+  // ================================
+
+  var Collapse = function (element, options) {
+    this.$element      = $(element)
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.transitioning = null
+
+    if (this.options.parent) this.$parent = $(this.options.parent)
+    if (this.options.toggle) this.toggle()
+  }
+
+  Collapse.DEFAULTS = {
+    toggle: true
+  }
+
+  Collapse.prototype.dimension = function () {
+    var hasWidth = this.$element.hasClass('width')
+    return hasWidth ? 'width' : 'height'
+  }
+
+  Collapse.prototype.show = function () {
+    if (this.transitioning || this.$element.hasClass('in')) return
+
+    var startEvent = $.Event('show.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    var actives = this.$parent && this.$parent.find('> .panel > .in')
+
+    if (actives && actives.length) {
+      var hasData = actives.data('bs.collapse')
+      if (hasData && hasData.transitioning) return
+      actives.collapse('hide')
+      hasData || actives.data('bs.collapse', null)
+    }
+
+    var dimension = this.dimension()
+
+    this.$element
+      .removeClass('collapse')
+      .addClass('collapsing')
+      [dimension](0)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse in')
+        [dimension]('auto')
+      this.transitioning = 0
+      this.$element.trigger('shown.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
+
+    this.$element
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)
+      [dimension](this.$element[0][scrollSize])
+  }
+
+  Collapse.prototype.hide = function () {
+    if (this.transitioning || !this.$element.hasClass('in')) return
+
+    var startEvent = $.Event('hide.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    var dimension = this.dimension()
+
+    this.$element
+      [dimension](this.$element[dimension]())
+      [0].offsetHeight
+
+    this.$element
+      .addClass('collapsing')
+      .removeClass('collapse')
+      .removeClass('in')
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.transitioning = 0
+      this.$element
+        .trigger('hidden.bs.collapse')
+        .removeClass('collapsing')
+        .addClass('collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    this.$element
+      [dimension](0)
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)
+  }
+
+  Collapse.prototype.toggle = function () {
+    this[this.$element.hasClass('in') ? 'hide' : 'show']()
+  }
+
+
+  // COLLAPSE PLUGIN DEFINITION
+  // ==========================
+
+  var old = $.fn.collapse
+
+  $.fn.collapse = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.collapse')
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+
+      if (!data && options.toggle && option == 'show') option = !option
+      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.collapse.Constructor = Collapse
+
+
+  // COLLAPSE NO CONFLICT
+  // ====================
+
+  $.fn.collapse.noConflict = function () {
+    $.fn.collapse = old
+    return this
+  }
+
+
+  // COLLAPSE DATA-API
+  // =================
+
+  $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {
+    var $this   = $(this), href
+    var target  = $this.attr('data-target')
+        || e.preventDefault()
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+    var $target = $(target)
+    var data    = $target.data('bs.collapse')
+    var option  = data ? 'toggle' : $this.data()
+    var parent  = $this.attr('data-parent')
+    var $parent = parent && $(parent)
+
+    if (!data || !data.transitioning) {
+      if ($parent) $parent.find('[data-toggle=collapse][data-parent="' + parent + '"]').not($this).addClass('collapsed')
+      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+    }
+
+    $target.collapse(option)
+  })
+
+}(jQuery);
+
+/* ========================================================================
+ * Bootstrap: transition.js v3.1.1
+ * http://getbootstrap.com/javascript/#transitions
+ * ========================================================================
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      'WebkitTransition' : 'webkitTransitionEnd',
+      'MozTransition'    : 'transitionend',
+      'OTransition'      : 'oTransitionEnd otransitionend',
+      'transition'       : 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false, $el = this
+    $(this).one($.support.transition.end, function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+  })
+
+/* ========================================================================
+ * Bootstrap: carousel.js v3.1.1
+ * http://getbootstrap.com/javascript/#carousel
+ * ========================================================================
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CAROUSEL CLASS DEFINITION
+  // =========================
+
+  var Carousel = function (element, options) {
+    this.$element    = $(element)
+    this.$indicators = this.$element.find('.carousel-indicators')
+    this.options     = options
+    this.paused      =
+    this.sliding     =
+    this.interval    =
+    this.$active     =
+    this.$items      = null
+
+    this.options.pause == 'hover' && this.$element
+      .on('mouseenter', $.proxy(this.pause, this))
+      .on('mouseleave', $.proxy(this.cycle, this))
+  }
+
+  Carousel.DEFAULTS = {
+    interval: 5000,
+    pause: 'hover',
+    wrap: true
+  }
+
+  Carousel.prototype.cycle =  function (e) {
+    e || (this.paused = false)
+
+    this.interval && clearInterval(this.interval)
+
+    this.options.interval
+      && !this.paused
+      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+
+    return this
+  }
+
+  Carousel.prototype.getActiveIndex = function () {
+    this.$active = this.$element.find('.item.active')
+    this.$items  = this.$active.parent().children()
+
+    return this.$items.index(this.$active)
+  }
+
+  Carousel.prototype.to = function (pos) {
+    var that        = this
+    var activeIndex = this.getActiveIndex()
+
+    if (pos > (this.$items.length - 1) || pos < 0) return
+
+    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) })
+    if (activeIndex == pos) return this.pause().cycle()
+
+    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
+  }
+
+  Carousel.prototype.pause = function (e) {
+    e || (this.paused = true)
+
+    if (this.$element.find('.next, .prev').length && $.support.transition) {
+      this.$element.trigger($.support.transition.end)
+      this.cycle(true)
+    }
+
+    this.interval = clearInterval(this.interval)
+
+    return this
+  }
+
+  Carousel.prototype.next = function () {
+    if (this.sliding) return
+    return this.slide('next')
+  }
+
+  Carousel.prototype.prev = function () {
+    if (this.sliding) return
+    return this.slide('prev')
+  }
+
+  Carousel.prototype.slide = function (type, next) {
+    var $active   = this.$element.find('.item.active')
+    var $next     = next || $active[type]()
+    var isCycling = this.interval
+    var direction = type == 'next' ? 'left' : 'right'
+    var fallback  = type == 'next' ? 'first' : 'last'
+    var that      = this
+
+    if (!$next.length) {
+      if (!this.options.wrap) return
+      $next = this.$element.find('.item')[fallback]()
+    }
+
+    if ($next.hasClass('active')) return this.sliding = false
+
+    var e = $.Event('slide.bs.carousel', { relatedTarget: $next[0], direction: direction })
+    this.$element.trigger(e)
+    if (e.isDefaultPrevented()) return
+
+    this.sliding = true
+
+    isCycling && this.pause()
+
+    if (this.$indicators.length) {
+      this.$indicators.find('.active').removeClass('active')
+      this.$element.one('slid.bs.carousel', function () {
+        var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
+        $nextIndicator && $nextIndicator.addClass('active')
+      })
+    }
+
+    if ($.support.transition && this.$element.hasClass('slide')) {
+      $next.addClass(type)
+      $next[0].offsetWidth // force reflow
+      $active.addClass(direction)
+      $next.addClass(direction)
+      $active
+        .one($.support.transition.end, function () {
+          $next.removeClass([type, direction].join(' ')).addClass('active')
+          $active.removeClass(['active', direction].join(' '))
+          that.sliding = false
+          setTimeout(function () { that.$element.trigger('slid.bs.carousel') }, 0)
+        })
+        .emulateTransitionEnd($active.css('transition-duration').slice(0, -1) * 1000)
+    } else {
+      $active.removeClass('active')
+      $next.addClass('active')
+      this.sliding = false
+      this.$element.trigger('slid.bs.carousel')
+    }
+
+    isCycling && this.cycle()
+
+    return this
+  }
+
+
+  // CAROUSEL PLUGIN DEFINITION
+  // ==========================
+
+  var old = $.fn.carousel
+
+  $.fn.carousel = function (option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.carousel')
+      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
+      var action  = typeof option == 'string' ? option : options.slide
+
+      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
+      if (typeof option == 'number') data.to(option)
+      else if (action) data[action]()
+      else if (options.interval) data.pause().cycle()
+    })
+  }
+
+  $.fn.carousel.Constructor = Carousel
+
+
+  // CAROUSEL NO CONFLICT
+  // ====================
+
+  $.fn.carousel.noConflict = function () {
+    $.fn.carousel = old
+    return this
+  }
+
+
+  // CAROUSEL DATA-API
+  // =================
+
+  $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+    var $this   = $(this), href
+    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+    var options = $.extend({}, $target.data(), $this.data())
+    var slideIndex = $this.attr('data-slide-to')
+    if (slideIndex) options.interval = false
+
+    $target.carousel(options)
+
+    if (slideIndex = $this.attr('data-slide-to')) {
+      $target.data('bs.carousel').to(slideIndex)
+    }
+
+    e.preventDefault()
+  })
+
+  $(window).on('load', function () {
+    $('[data-ride="carousel"]').each(function () {
+      var $carousel = $(this)
+      $carousel.carousel($carousel.data())
+    })
+  })
+
+}(jQuery);
+
+
+}(jQuery);
+
+
+/* **********************************************
+     Begin dias_videoFill.js
+********************************************** */
+
+// Generated by CoffeeScript 1.6.3
+(function(){(function(e,t){"use strict";var n;n={maxHeight:1440,maxWidth:2560,minHeight:240,minWidth:280,padding:0,init:function(){var e;e=this.cacheItems();return e?this.bindEvents():!1},cacheItems:function(){this.$videos=e(".dias-video-filler video, .dias-video-filler iframe");if(this.$videos.length<1)return!1;this.$videos.each(function(){var t;t=e(this);return t.data("parent",t.parent())});return this.$videos.css({left:"50%",top:"50%"})},bindEvents:function(){var n;n=this;this.$videos.bind("load loadedmetadata",function(){return n.cacheAspect(e(this))});t.bind("resize",function(){return n.videosResize()});return t.resize()},cacheAspect:function(e){var t,n;e.css({width:"100%",height:"auto"});n=e.width();t=e.height();e.data("ratio",n/t);return this.videoResize(e)},videoResize:function(e){var t,n,r,i,s,o,u;n=e.data("ratio");t=e.data("parent");r=t.height();i=t.width();n==null&&(n=e.width()/e.height());s=i/r;if(s<n){o=Math.min(Math.max(r,this.minHeight),this.maxHeight)-this.padding;u=o*n}else{o=Math.min(Math.max(i/n,this.minHeight),this.maxHeight)-this.padding;u=o*n}e.css({height:o,width:u,marginTop:-o/2,marginLeft:-u/2});return e},videosResize:function(){var t;t=this;return t.$videos.each(function(){return t.videoResize(e(this))})}};return n.init()})(jQuery,jQuery(window))}).call(this);
+
+/* **********************************************
+     Begin slick.js
+********************************************** */
+
+/*
+     _ _      _       _
+ ___| (_) ___| | __  (_)___
+/ __| | |/ __| |/ /  | / __|
+\__ \ | | (__|   < _ | \__ \
+|___/_|_|\___|_|\_(_)/ |___/
+                   |__/
+
+  Author: Ken Wheeler
+ Website: http://kenwheeler.github.io
+    Docs: http://kenwheeler.github.io/slick
+    Repo: http://github.com/kenwheeler/slick
+  Issues: http://github.com/kenwheeler/slick/issues
+
+ */
+
+/* global window, document, define, jQuery, setInterval, clearInterval */
+
+(function (factory) {
+    'use strict';
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], factory);
+    } else {
+        factory(jQuery);
+    }
+
+}(function ($) {
+    'use strict';
+    var Slick = window.Slick || {};
+
+    Slick = (function () {
+        var instanceUid = 0;
+
+        function Slick(element, settings) {
+
+            var _ = this, responsiveSettings, breakpoint;
+
+            _.defaults = {
+                accessibility: true,
+                arrows: true,
+                autoplay: false,
+                autoplaySpeed: 3000,
+                centerMode: false,
+                centerPadding: 50,
+                cssEase: 'ease',
+                dots: false,
+                draggable: true,
+                easing: 'linear',
+                fade: false,
+                infinite: true,
+                lazyLoad: 'ondemand',
+                onBeforeChange: null,
+                onAfterChange: null,
+                onInit : null,
+                onReInit : null,
+                pauseOnHover: true,
+                placeholders: true,
+                responsive: null,
+                slide: 'div',
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                speed: 300,
+                swipe: true,
+                touchMove: true,
+                touchThreshold: 5,
+                vertical: false
+            };
+
+            _.initials = {
+                animating : false,
+                autoPlayTimer : null,
+                currentSlide : 0,
+                currentLeft : null,
+                direction : 1,
+                dots : null,
+                listWidth : null,
+                listHeight : null,
+                loadIndex : 0,
+                nextArrow : null,
+                prevArrow : null,
+                slideCount : null,
+                slideWidth : null,
+                slideTrack : null,
+                slides : null,
+                sliding : false,
+                slideOffset : 0,
+                placeholderOffset : 0,
+                swipeLeft : null,
+                list : null,
+                touchObject : {},
+                transformsEnabled : false
+            };
+
+            $.extend(_, _.initials);
+
+            _.activeBreakpoint = null;
+            _.animType = null;
+            _.animProp = null;
+            _.breakpoints = [];
+            _.breakpointSettings = [];
+            _.paused = false;
+            _.positionProp = null;
+            _.slider = $(element);
+            _.slidesCache = null;
+            _.cssTransitions = false;
+            _.windowWidth = 0;
+            _.windowTimer = null;
+
+            _.options = $.extend({}, _.defaults, settings);
+
+            _.originalSettings = _.options;
+            responsiveSettings = _.options.responsive ||
+                null;
+
+            if (responsiveSettings && responsiveSettings.length > -1) {
+                for (breakpoint in responsiveSettings) {
+                    if (responsiveSettings.hasOwnProperty(breakpoint)) {
+                        _.breakpoints.push(responsiveSettings[
+                            breakpoint].breakpoint);
+                        _.breakpointSettings[responsiveSettings[
+                            breakpoint].breakpoint] =
+                            responsiveSettings[breakpoint].settings;
+                    }
+                }
+                _.breakpoints.sort(function (a, b) {
+                    return b - a;
+                });
+            }
+
+            _.autoPlay = $.proxy(_.autoPlay,
+                _);
+            _.autoPlayClear = $.proxy(_.autoPlayClear,
+                _);
+            _.changeSlide = $.proxy(_.changeSlide,
+                _);
+            _.setPosition = $.proxy(_.setPosition,
+                _);
+            _.swipeHandler = $.proxy(_.swipeHandler,
+                _);
+            _.dragHandler = $.proxy(_.dragHandler,
+                _);
+            _.keyHandler = $.proxy(_.keyHandler,
+                _);
+            _.autoPlayIterator = $.proxy(_.autoPlayIterator,
+                _);
+
+            _.instanceUid = instanceUid++;
+            _.init();
+
+        }
+
+        return Slick;
+
+    }());
+
+    Slick.prototype.addSlide = function (markup, index, addBefore) {
+
+        var _ = this,
+            slideTrackChildren;
+
+        if (typeof(index) === "boolean") {
+            addBefore = index;
+            index = null;
+        }
+
+        _.unload();
+
+        slideTrackChildren = _.slideTrack.children(this.options.slide);
+
+        if (typeof(index) === "number") {
+            if (index === 0 && $(slideTrackChildren).length === 0) {
+                $(markup).appendTo(_.slideTrack);
+            } else if (index < 0 || (index >= $(slideTrackChildren).length && $(slideTrackChildren).length !== 0) ) {
+                _.reinit();
+                return false;
+            } else if (addBefore) {
+                $(markup).insertBefore($(slideTrackChildren.get(index)));
+            } else {
+                $(markup).insertAfter($(slideTrackChildren.get(index)));
+            }
+        } else {
+            if (addBefore === true) {
+                $(markup).prependTo(_.slideTrack);
+            } else {
+                $(markup).appendTo(_.slideTrack);
+            }
+        }
+
+        _.slides = _.slideTrack.children(this.options.slide);
+
+        _.slideTrack.children(this.options.slide).remove();
+
+        _.slideTrack.append(_.slides);
+
+        _.reinit();
+
+    };
+
+    Slick.prototype.animateSlide = function (targetLeft,
+        callback) {
+
+        var animProps = {}, _ = this;
+
+        if (_.transformsEnabled === false) {
+            if (_.options.vertical === false) {
+                _.slideTrack.animate({
+                    left: targetLeft
+                }, _.options.speed,_.options.easing, callback);
+            } else {
+                _.slideTrack.animate({
+                    top: targetLeft
+                }, _.options.speed,_.options.easing, callback);
+            }
+
+        } else {
+
+            if(_.cssTransitions === false) {
+
+                $({
+                    animStart: _.currentLeft
+                }).animate({
+                    animStart: targetLeft
+                }, {
+                    duration: _.options.speed,
+                    easing: _.options.easing,
+                    step: function (now) {
+                        if (_.options.vertical === false) {
+                            animProps[_.animType] = "translate(" +
+                                now + "px, 0px)";
+                            _.slideTrack.css(animProps);
+                        } else {
+                            animProps[_.animType] = "translate(0px," +
+                                now + "px,0px)";
+                            _.slideTrack.css(animProps);
+                        }
+                    },
+                    complete: function () {
+                        if (callback) {
+                            callback.call();
+                        }
+                    }
+                });
+
+            } else {
+
+                _.applyTransition();
+
+                if (_.options.vertical === false) {
+                    animProps[_.animType] = "translate3d(" + targetLeft + "px, 0px, 0px)";
+                } else {
+                    animProps[_.animType] = "translate3d(0px," + targetLeft + "px, 0px)";
+                }
+                _.slideTrack.css(animProps);
+
+                if(callback) {
+                    setTimeout(function(){
+
+                    _.disableTransition();
+
+                    callback.call();
+                    }, _.options.speed);
+                }
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.applyTransition = function (slide) {
+
+        var _ = this, transition,origin;
+
+        transition = 'all ' + _.options.speed + 'ms ' + _.options.cssEase;
+        if (_.options.vertical === false) {
+            origin = (_.listWidth / 2) + ' 50%';
+        } else {
+            origin = '';
+        }
+
+        if (_.options.fade === false) {
+            _.slideTrack.css({
+                transition: transition,
+                transformOrigin: origin
+            });
+        } else {
+            $(_.slides.get(slide)).css({
+                transition: transition
+            });
+        }
+
+    };
+
+    Slick.prototype.autoPlay = function () {
+
+        var _ = this;
+
+        if (_.autoPlayTimer) {
+            clearInterval(_.autoPlayTimer);
+        }
+
+        if(_.slideCount > _.options.slidesToShow && _.paused !== true) {
+            _.autoPlayTimer = setInterval(_.autoPlayIterator,
+                _.options.autoplaySpeed);
+        }
+
+    };
+
+    Slick.prototype.autoPlayClear = function () {
+
+        var _ = this;
+
+        if (_.autoPlayTimer) {
+            clearInterval(_.autoPlayTimer);
+        }
+
+    };
+
+    Slick.prototype.autoPlayIterator = function () {
+
+        var _ = this;
+
+        if (_.options.infinite === false) {
+
+            if (_.direction === 1) {
+
+                if ((_.currentSlide + 1) === _.slideCount -
+                    1) {
+                    _.direction = 0;
+                }
+
+                _.slideHandler(_.currentSlide + _.options
+                    .slidesToScroll);
+
+            } else {
+
+                if ((_.currentSlide - 1 === 0)) {
+
+                    _.direction = 1;
+
+                }
+
+                _.slideHandler(_.currentSlide - _.options
+                    .slidesToScroll);
+
+            }
+
+        } else {
+
+            _.slideHandler(_.currentSlide + _.options.slidesToScroll);
+
+        }
+
+    };
+
+    Slick.prototype.buildArrows = function () {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+            _.prevArrow = $(
+                '<button type="button" tabIndex="-1">Previous</button>').appendTo(
+                _.slider).addClass('slick-prev');
+            _.nextArrow = $(
+                '<button type="button" tabIndex="-1">Next</button>').appendTo(
+                _.slider).addClass('slick-next');
+
+            if (_.options.infinite !== true) {
+                _.prevArrow.addClass('slick-disabled');
+            }
+
+        }
+
+    };
+
+    Slick.prototype.buildDots = function () {
+
+        var _ = this, i, dotString;
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            dotString = '<ul class="slick-dots">';
+
+            for (i = 1; i <= _.slideCount; i += 1) {
+
+                dotString += '<li><a href="javascript:void(0)" tabIndex="-1">' + i +
+                    '</a></li>';
+                if (_.options.placeholders === false && i +
+                _.options.slidesToShow - (_.options.slidesToScroll - 1) > _.slideCount) {
+                    break;
+                }
+            }
+
+            dotString += "</ul>";
+
+            _.dots = $(dotString).appendTo(
+                _.slider);
+
+            if (_.options.slidesToScroll > 1) {
+                _.dots.find('li').hide();
+                i = 0;
+                while (i < _.slideCount) {
+                    $(_.dots.find('li').get(i)).show();
+                    i = i + _.options.slidesToScroll;
+                }
+            }
+
+            _.dots.find('li').first().addClass(
+                'slick-active');
+
+        }
+
+    };
+
+    Slick.prototype.buildOut = function () {
+
+        var _ = this;
+
+        _.slides = _.slider.children(_.options.slide +
+            ':not(.slick-cloned)').addClass(
+            'slick-slide');
+        _.slideCount = _.slides.length;
+        _.slidesCache = _.slides;
+
+        _.slider.addClass("slick-slider");
+
+        _.slideTrack = (_.slideCount === 0) ?
+            $('<div class="slick-track"/>').appendTo(_.slider) :
+            _.slides.wrapAll('<div class="slick-track"/>').parent();
+
+        _.list = _.slideTrack.wrap(
+            '<div class="slick-list"/>').parent();
+        _.slideTrack.css('opacity', 0);
+
+        if(_.options.accessibility === true) {
+            _.list.prop('tabIndex',0);
+        }
+
+        if(_.options.centerMode === true) {
+            _.options.infinite = true;
+            _.options.slidesToScroll = 1;
+            if(_.options.slidesToShow % 2 === 0) {
+                _.options.slidesToShow = 3;
+            }
+        }
+
+        $('img[data-lazy]',_.slider).not('[src]').addClass('slick-loading');
+
+        _.setupPlaceholders();
+
+        _.setupInfinite();
+
+        _.buildArrows();
+
+        _.buildDots();
+
+        _.setSlideClasses(0);
+
+        if (_.options.draggable === true) {
+            _.list.addClass('draggable');
+        }
+
+    };
+
+    Slick.prototype.checkResponsive = function () {
+
+        var _ = this, breakpoint, targetBreakpoint;
+
+        if (_.originalSettings.responsive && _.originalSettings
+            .responsive.length > -1 && _.originalSettings.responsive !== null) {
+
+            targetBreakpoint = null;
+
+            for (breakpoint in _.breakpoints) {
+                if (_.breakpoints.hasOwnProperty(breakpoint)) {
+                    if ($(window).width() < _.breakpoints[
+                        breakpoint]) {
+                        targetBreakpoint = _.breakpoints[
+                            breakpoint];
+                    }
+                }
+            }
+
+            if (targetBreakpoint !== null) {
+                if (_.activeBreakpoint !== null) {
+                    if (targetBreakpoint !== _.activeBreakpoint) {
+                        _.activeBreakpoint =
+                            targetBreakpoint;
+                        _.options = $.extend({}, _.defaults,
+                            _.breakpointSettings[
+                                targetBreakpoint]);
+                            _.refresh();
+                    }
+                } else {
+                    _.activeBreakpoint = targetBreakpoint;
+                    _.options = $.extend({}, _.defaults,
+                        _.breakpointSettings[
+                            targetBreakpoint]);
+                        _.refresh();
+                }
+            } else {
+                if (_.activeBreakpoint !== null) {
+                    _.activeBreakpoint = null;
+                    _.options = $.extend({}, _.defaults,
+                        _.originalSettings);
+                        _.refresh();
+                }
+            }
+
+        }
+
+    };
+
+    Slick.prototype.changeSlide = function (event) {
+
+        var _ = this;
+
+        switch (event.data.message) {
+
+        case 'previous':
+            _.slideHandler(_.currentSlide - _.options
+                .slidesToScroll);
+            break;
+
+        case 'next':
+            _.slideHandler(_.currentSlide + _.options
+            .slidesToScroll);
+            break;
+
+        case 'index':
+            _.slideHandler($(event.target).parent().index());
+            break;
+
+        default:
+            return false;
+        }
+
+    };
+
+    Slick.prototype.destroy = function () {
+
+        var _ = this;
+
+        _.autoPlayClear();
+
+        _.touchObject = {};
+
+        $('.slick-cloned', _.slider).remove();
+        $('.slick-placeholder', _.slider).remove();
+        if (_.dots) {
+            _.dots.remove();
+        }
+        if (_.prevArrow) {
+            _.prevArrow.remove();
+            _.nextArrow.remove();
+        }
+        _.slides.unwrap().unwrap();
+        _.slides.removeClass(
+            'slick-slide slick-active slick-visible').removeAttr('style');
+        _.slider.removeClass('slick-slider');
+        _.slider.removeClass('slick-initialized');
+
+        _.list.off('.slick');
+        $(window).off('.slick'+_.instanceUid);
+    };
+
+    Slick.prototype.disableTransition = function (slide) {
+
+        var _ = this;
+
+        if (_.options.fade === false) {
+            _.slideTrack.css({
+                transition: '',
+                transformOrigin: ''
+            });
+        } else {
+            $(_.slides.get(slide)).css({
+                transition: ''
+            });
+        }
+
+    };
+
+    Slick.prototype.fadeSlide = function (slideIndex, callback) {
+
+        var _ = this;
+
+        if(_.cssTransitions === false) {
+
+            $(_.slides.get(slideIndex)).css({zIndex: 1000});
+
+            $(_.slides.get(slideIndex)).animate({
+                opacity: 1
+            }, _.options.speed,_.options.easing, callback);
+
+        } else {
+
+            _.applyTransition(slideIndex);
+
+            $(_.slides.get(slideIndex)).css({
+                opacity: 1,
+                zIndex: 1000
+            });
+
+            if(callback) {
+                setTimeout(function(){
+
+                _.disableTransition(slideIndex);
+
+                callback.call();
+                }, _.options.speed);
+            }
+
+        }
+
+    };
+
+    Slick.prototype.filterSlides = function (filter) {
+
+        var _ = this;
+
+        if(filter !== null) {
+
+            _.unload();
+
+            _.slideTrack.children(this.options.slide).remove();
+
+            _.slidesCache.filter(filter).appendTo(_.slideTrack);
+
+            _.reinit();
+
+        }
+
+    };
+
+    Slick.prototype.init = function () {
+
+        var _ = this;
+
+        if (!$(_.slider).hasClass('slick-initialized')) {
+
+            $(_.slider).addClass('slick-initialized');
+            _.buildOut();
+            _.setProps();
+            _.startLoad();
+            _.loadSlider();
+            _.initializeEvents();
+            _.checkResponsive();
+        }
+
+        if (_.options.onInit !== null) {
+            _.options.onInit.call(this, _);
+        }
+
+    };
+
+    Slick.prototype.initArrowEvents = function () {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+            _.prevArrow.on('click.slick', {
+                message: 'previous'
+            }, _.changeSlide);
+            _.nextArrow.on('click.slick', {
+                message: 'next'
+            }, _.changeSlide);
+        }
+
+    };
+
+    Slick.prototype.initDotEvents = function () {
+
+        var _ = this;
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+            $('li a', _.dots).on('click.slick', {
+                message: 'index'
+            }, _.changeSlide);
+        }
+
+    };
+
+    Slick.prototype.initializeEvents = function () {
+
+        var _ = this;
+
+        _.initArrowEvents();
+
+        _.initDotEvents();
+
+        if (_.options.swipe === true) {
+            _.list.on('touchstart.slick', {
+                action: 'start',
+                kind: 'touch'
+            }, _.swipeHandler);
+            _.list.on('touchmove.slick', {
+                action: 'move',
+                kind: 'touch'
+            }, _.swipeHandler);
+            _.list.on('touchend.slick', {
+                action: 'end',
+                kind: 'touch'
+            }, _.swipeHandler);
+            _.list.on('touchcancel.slick', {
+                action: 'end',
+                kind: 'touch'
+            }, _.swipeHandler);
+        }
+
+        if (_.options.draggable === true) {
+            _.list.on('mousedown.slick', {
+                action: 'start',
+                kind: 'drag'
+            }, _.swipeHandler);
+            _.list.on('mousemove.slick', {
+                action: 'move',
+                kind: 'drag'
+            }, _.swipeHandler);
+            _.list.on('mouseup.slick', {
+                action: 'end',
+                kind: 'drag'
+            }, _.swipeHandler);
+            _.list.on('mouseleave.slick', {
+                action: 'end',
+                kind: 'drag'
+            }, _.swipeHandler);
+        }
+
+        if (_.options.pauseOnHover === true && _.options.autoplay === true) {
+            _.list.on('mouseenter.slick', _.autoPlayClear);
+            _.list.on('mouseleave.slick', _.autoPlay);
+        }
+
+        _.list.on('keydown.slick', _.keyHandler);
+
+        $(window).on('orientationchange.slick.slick'+_.instanceUid, function(){
+            _.checkResponsive();
+            _.setPosition();
+        });
+
+        $(window).on('resize.slick.slick'+_.instanceUid, function () {
+            if ($(window).width !== _.windowWidth) {
+                clearTimeout(_.windowDelay);
+                _.windowDelay = window.setTimeout(function () {
+                    _.windowWidth = $(window).width();
+                    _.checkResponsive();
+                    _.setPosition();
+                }, 50);
+            }
+        });
+
+		$(window).on('load.slick.slick'+_.instanceUid, _.setPosition);
+    };
+
+    Slick.prototype.initUI = function () {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+            _.prevArrow.show();
+            _.nextArrow.show();
+
+        }
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            _.dots.show();
+
+        }
+
+        if (_.options.autoplay === true) {
+
+            _.autoPlay();
+
+        }
+
+    };
+
+    Slick.prototype.keyHandler = function (event) {
+
+        var _ = this;
+
+        if (event.keyCode === 37) {
+            _.changeSlide({data: {message: 'previous'}});
+        } else if (event.keyCode === 39) {
+            _.changeSlide({data: {message: 'next'}});
+        }
+
+    };
+
+    Slick.prototype.lazyLoad = function (){
+
+        var _ = this, loadRange, cloneRange, rangeStart, rangeEnd;
+
+        if (_.options.centerMode === true) {
+            rangeStart = _.options.slidesToShow + _.currentSlide - 1;
+            rangeEnd = rangeStart + _.options.slidesToShow + 2;
+        } else {
+            rangeStart = _.options.slidesToShow + _.currentSlide;
+            rangeEnd = rangeStart + _.options.slidesToShow;
+        }
+
+        loadRange = _.slider.find('.slick-slide').slice(rangeStart,rangeEnd);
+
+        $('img[data-lazy]',loadRange).not('[src]').each(function(){
+            $(this).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading');
+        });
+
+        if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
+            cloneRange = _.slider.find('.slick-cloned').slice(0,_.options.slidesToShow);
+            $('img[data-lazy]',cloneRange).not('[src]').each(function(){
+                $(this).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading');
+            });
+        } else if (_.currentSlide === 0) {
+            cloneRange = _.slider.find('.slick-cloned').slice(_.options.slidesToShow * -1);
+            $('img[data-lazy]',cloneRange).not('[src]').each(function(){
+                $(this).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading');
+            });
+        }
+
+    };
+
+    Slick.prototype.loadSlider = function () {
+
+        var _ = this;
+
+        _.setPosition();
+
+        _.slideTrack.css({
+            opacity: 1
+        });
+
+        if (document.readyState !== "complete") {
+
+            $(window).load(function () {
+
+                _.slider.removeClass('slick-loading');
+
+                _.initUI();
+
+                if (_.options.lazyLoad === 'progressive') {
+                    _.progressiveLazyLoad();
+                }
+
+            });
+
+        } else {
+
+            _.slider.removeClass('slick-loading');
+
+            _.initUI();
+
+            if (_.options.lazyLoad === 'progressive') {
+                _.progressiveLazyLoad();
+            }
+
+        }
+
+    };
+
+    Slick.prototype.postSlide = function (index) {
+
+        var _ = this;
+
+        if (_.options.onAfterChange !== null && index !== _.currentSlide) {
+            _.options.onAfterChange.call(this, _, index);
+        }
+
+        _.animating = false;
+
+        _.currentSlide = index;
+
+        _.setPosition();
+
+        _.swipeLeft = null;
+
+        _.updateDots();
+
+        _.updateArrows();
+
+        if (_.options.autoplay === true && _.paused === false) {
+            _.autoPlay();
+        }
+
+        _.setSlideClasses(_.currentSlide);
+
+    };
+
+    Slick.prototype.progressiveLazyLoad = function () {
+
+        var _ = this, imgCount, targetImage;
+
+        imgCount = $('img[data-lazy]').not('[src]').length;
+
+        if(imgCount > 0) {
+            targetImage = $($('img[data-lazy]', _.slider).not('[src]').get(0));
+            targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function(){
+                _.progressiveLazyLoad();
+            });
+        }
+
+    };
+
+    Slick.prototype.refresh = function () {
+
+        var _ = this;
+
+        _.destroy();
+
+        $.extend(_, _.initials);
+
+        _.init();
+
+    };
+
+    Slick.prototype.reinit = function () {
+
+        var _ = this;
+
+        _.slides = $(_.options.slide +
+            ':not(.slick-cloned)', _.slideTrack).addClass(
+            'slick-slide');
+
+        _.slideCount = _.slides.length;
+
+        if(_.currentSlide >= _.slideCount && _.currentSlide !== 0) {
+            _.currentSlide = _.currentSlide - _.options.slidesToScroll;
+        }
+
+        _.setProps();
+
+        _.setupPlaceholders();
+
+        _.setupInfinite();
+
+        _.buildArrows();
+
+        _.updateArrows();
+
+        _.initArrowEvents();
+
+        _.buildDots();
+
+        _.updateDots();
+
+        _.initDotEvents();
+
+        _.setSlideClasses(0);
+
+        _.setPosition();
+
+        if (_.options.onReInit !== null) {
+            _.options.onReInit.call(this, _);
+        }
+
+    };
+
+    Slick.prototype.removeSlide = function (index, removeBefore) {
+
+        var _ = this;
+
+        if (typeof(index) === "boolean") {
+            removeBefore = index;
+            index = null;
+        }
+
+        _.unload();
+
+        if (_.slideCount < 1) {
+            return false;
+        }
+
+        if (typeof(index) === "number") {
+            if (removeBefore === true) {
+                --index;
+            } else if (removeBefore === false) {
+               ++index;
+            }
+        } else {
+            if (removeBefore === true) {
+                index = 0;
+            } else {
+                index = $(_.slideTrack.children(this.options.slide)).length - 1;
+            }
+        }
+
+        if (index < 0 || index >= $(_.slideTrack.children(this.options.slide)).length) {
+            _.reinit();
+            return false;
+        }
+
+        $(_.slideTrack.children(this.options.slide).get(index)).remove();
+
+        _.slides = _.slideTrack.children(this.options.slide);
+
+        _.slideTrack.children(this.options.slide).remove();
+
+        _.slideTrack.append(_.slides);
+
+        _.reinit();
+
+    };
+
+    Slick.prototype.setCSS = function (position) {
+
+        var _ = this, positionProps = {}, x, y;
+
+        x = _.positionProp == 'left' ? position + 'px' : '0px';
+        y = _.positionProp == 'top' ? position + 'px' : '0px';
+
+        positionProps[_.positionProp] = position;
+
+        if (_.transformsEnabled === false) {
+            _.slideTrack.css(positionProps);
+        } else {
+            positionProps = {};
+            if(_.cssTransitions === false) {
+                positionProps[_.animType] = "translate(" + x + ", " + y + ")";
+                _.slideTrack.css(positionProps);
+            } else {
+                positionProps[_.animType] = "translate3d(" + x + ", " + y + ", 0px)";
+                _.slideTrack.css(positionProps);
+            }
+        }
+
+    };
+
+    Slick.prototype.setDimensions = function () {
+
+        var _ = this;
+
+        if(_.options.centerMode === true) {
+            _.list.find('.slick-slide').width(_.slideWidth);
+        } else {
+            _.list.find('.slick-slide').width(_.slideWidth);
+        }
+
+
+        if (_.options.vertical === false) {
+            _.slideTrack.width(Math.ceil((_.slideWidth * _
+                .slider.find('.slick-slide').length)));
+            if(_.options.centerMode ===  true) {
+                _.list.css({padding: ('0px ' + _.options.centerPadding + 'px')});
+            }
+        } else {
+            _.list.height(_.slides.first().outerHeight());
+            _.slideTrack.height(Math.ceil((_.listHeight * _
+                .slider.find('.slick-slide').length)));
+                if(_.options.centerMode ===  true) {
+                _.list.css({padding: (_.options.centerPadding + 'px 0px')});
+            }
+        }
+
+    };
+
+    Slick.prototype.setFade = function () {
+
+        var _ = this, targetLeft;
+
+        _.slides.each(function (index,element) {
+            targetLeft = (_.slideWidth * index) * -1;
+            $(element).css({
+                position: 'relative',
+                left: targetLeft,
+                top: 0,
+                zIndex: 800,
+                opacity: 0
+            });
+        });
+
+        $(_.slides.get(_.currentSlide)).css({
+            zIndex: 900,
+            opacity: 1
+        });
+
+    };
+
+    Slick.prototype.setPosition = function () {
+
+        var _ = this, targetPosition, targetSlide;
+
+        targetSlide = _.currentSlide;
+
+        _.setValues();
+        _.setDimensions();
+
+        _.slideOffset = 0;
+
+        if (_.options.infinite === true) {
+            if(_.slideCount > _.options.slidesToShow) {
+                _.slideOffset = (_.slideWidth * _.options.slidesToShow) * -1;
+            }
+        }
+
+        if (_.options.centerMode === true) {
+            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2) - _.slideWidth;
+        }
+
+        if (_.options.placeholders === false) {
+            if(_.currentSlide + _.options.slidesToScroll >= _.slideCount - _.options.slidesToScroll) {
+                _.slideOffset = _.slideOffset - ((_.slideWidth * _.placeholderOffset) * -1);
+            }
+        }
+
+        if (_.options.fade === false) {
+            if (_.options.vertical === false) {
+                targetPosition = ((targetSlide *
+                        _.slideWidth) * -1) + _.slideOffset;
+            } else {
+                targetPosition = ((targetSlide *
+                        _.listHeight) * -1) - _.listHeight;
+            }
+            _.setCSS(targetPosition);
+        } else {
+            _.setFade();
+        }
+
+    };
+
+    Slick.prototype.setProps = function () {
+
+        var _ = this;
+
+        _.positionProp = _.options.vertical === true ? 'top' : 'left';
+
+        if (_.positionProp === 'top') {
+            _.slider.addClass('slick-vertical');
+        } else {
+            _.slider.removeClass('slick-vertical');
+        }
+
+        if ( document.body.style.WebkitTransition !== undefined ||
+             document.body.style.MozTransition !== undefined ||
+             document.body.style.msTransition !== undefined ) {
+                _.cssTransitions = true;
+        }
+
+        if (document.body.style.MozTransform !== undefined) _.animType = 'MozTransform';
+        if (document.body.style.webkitTransform !== undefined) _.animType = 'webkitTransform';
+        if (document.body.style.msTransform !== undefined) _.animType = 'msTransform';
+
+        _.transformsEnabled = (_.animType !== null);
+
+    };
+
+    Slick.prototype.setValues = function () {
+
+        var _ = this;
+
+        _.listWidth = _.list.width();
+        _.listHeight = _.list.height();
+        _.slideWidth = Math.ceil(_.listWidth / _.options
+            .slidesToShow);
+
+    };
+
+    Slick.prototype.setSlideClasses = function (index) {
+
+        var _ = this, centerOffset, allSlides, indexOffset;
+
+        _.slider.find('.slick-slide').removeClass('slick-active').removeClass('slick-center');
+        allSlides = _.slider.find('.slick-slide');
+
+        if (_.options.centerMode === true) {
+
+            centerOffset = Math.floor(_.options.slidesToShow / 2);
+
+            if(index >= centerOffset && index <= (_.slideCount - 1) -  centerOffset) {
+                _.slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active');
+            } else {
+                indexOffset = _.options.slidesToShow + index;
+                allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active');
+            }
+
+            if(index === 0) {
+                $(allSlides.get(allSlides.length - 1 - _.options.slidesToShow)).addClass('slick-center');
+            } else if (index === _.slideCount - 1) {
+                $(allSlides.get(_.options.slidesToShow)).addClass('slick-center');
+            }
+
+            $(_.slides.get(index)).addClass('slick-center');
+
+        } else {
+
+            if(index > 0 && index < (_.slideCount - _.options.slidesToShow)) {
+                _.slides.slice(index, index + _.options.slidesToShow).addClass('slick-active');
+            } else {
+                indexOffset = _.options.slidesToShow + index;
+                allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active');
+            }
+
+        }
+
+        if (_.options.lazyLoad === 'ondemand') {
+            _.lazyLoad();
+        }
+
+    };
+
+    Slick.prototype.setupInfinite = function () {
+
+        var _ = this, i, slideIndex, infiniteCount;
+
+        if (_.options.infinite === true && _.options.fade === false) {
+
+            slideIndex = null;
+
+            if (_.slideCount > _.options.slidesToShow) {
+
+                if(_.options.centerMode === true) {
+                    infiniteCount = _.options.slidesToShow + 1;
+                } else {
+                    infiniteCount = _.options.slidesToShow;
+                }
+
+                for (i = _.slideCount; i > (_.slideCount -
+                    infiniteCount); i -= 1) {
+                    slideIndex = i - 1;
+                    $(_.slides[slideIndex]).clone().prependTo(
+                        _.slideTrack).addClass('slick-cloned');
+                }
+                for (i = 0; i < infiniteCount; i += 1) {
+                    slideIndex = i;
+                    $(_.slides[slideIndex]).clone().appendTo(
+                        _.slideTrack).addClass('slick-cloned');
+                }
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.setupPlaceholders = function () {
+
+        var _ = this, i, placeholders;
+
+        if(_.options.fade === true || _.options.vertical === true) {
+            _.options.slidesToShow = 1;
+            _.options.slidesToScroll = 1;
+            _.options.centerMode = false;
+        }
+
+        if(_.options.placeholders === false) {
+            _.options.infinite = false;
+            _.placeholderOffset = _.slideCount % _.options.slidesToScroll;
+            return false;
+        }
+
+        if ((_.slideCount % _.options.slidesToScroll) !==
+            0 && _.slideCount > _.options.slidesToShow) {
+
+            placeholders = Math.abs(_.options.slidesToScroll -
+                (_.slideCount % _.options.slidesToScroll)
+            );
+            for (i = 0; i < placeholders; i += 1) {
+                $('<div/>').appendTo(_.slideTrack).addClass(
+                    'slick-slide slick-placeholder');
+            }
+            _.slides = $('.slick-slide:not(.slick-cloned)',
+                _.slider);
+            _.slideCount = _.slides.length;
+        }
+
+    };
+
+    Slick.prototype.slideHandler = function (index) {
+
+        var targetSlide, animSlide, slideLeft, targetLeft = null,
+            targetOffset, _ = this;
+
+        if(_.animating === true) {
+            return false;
+        }
+
+        targetSlide = index;
+        targetOffset = _.slideOffset;
+
+        if(_.options.placeholders === false) {
+            if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
+                if (targetSlide >= _.slideCount - _.options.slidesToShow) {
+                    targetSlide = _.currentSlide;
+                } else {
+                    targetOffset = 0;
+                }
+            } else if (targetSlide + _.options.slidesToScroll >= _.slideCount -
+                _.options.slidesToScroll) {
+                targetOffset = ((_.placeholderOffset * _.slideWidth));
+            }
+        }
+
+        if(_.options.vertical === false) {
+            targetLeft = ((targetSlide * _.slideWidth) * -1) + targetOffset;
+            slideLeft = ((_.currentSlide * _.slideWidth) * -1) + targetOffset;
+        } else {
+            targetLeft = ((targetSlide * _.listHeight) * -1) - _.listHeight;
+            slideLeft = ((_.currentSlide * _.listHeight) * -1) - _.listHeight;
+        }
+
+        if (_.options.infinite === false && (index < 0 || index > (_.slideCount -1))) {
+            targetSlide = _.currentSlide;
+            _.animateSlide(slideLeft, function () {
+                _.postSlide(targetSlide);
+            });
+            return false;
+        }
+
+        if (_.options.autoplay === true) {
+            clearInterval(_.autoPlayTimer);
+        }
+
+        _.currentLeft = _.swipeLeft === null ? slideLeft : _.swipeLeft;
+
+        if (targetSlide < 0) {
+            animSlide = _.slideCount - _.options.slidesToScroll;
+        } else if (targetSlide > (_.slideCount - 1)) {
+            animSlide = 0;
+        } else {
+            animSlide = targetSlide;
+        }
+
+        _.animating = true;
+
+        if (_.options.onBeforeChange !== null && index !== _.currentSlide) {
+            _.options.onBeforeChange.call(this, _, _.currentSlide);
+        }
+
+        if (_.options.fade === true) {
+            _.fadeSlide(animSlide, function(){
+                _.postSlide(animSlide);
+            });
+            return false;
+        }
+        _.animateSlide(targetLeft, function () {
+            _.postSlide(animSlide);
+        });
+
+    };
+
+    Slick.prototype.startLoad = function () {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+            _.prevArrow.hide();
+            _.nextArrow.hide();
+
+        }
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            _.dots.hide();
+
+        }
+
+        _.slider.addClass('slick-loading');
+
+    };
+
+    Slick.prototype.swipeDirection = function () {
+
+        var xDist, yDist, r, swipeAngle, _ = this;
+
+        xDist = _.touchObject.startX - _.touchObject.curX;
+        yDist = _.touchObject.startY - _.touchObject.curY;
+        r = Math.atan2(yDist, xDist);
+
+        swipeAngle = Math.round(r * 180 / Math.PI);
+        if (swipeAngle < 0) {
+            swipeAngle = 360 - Math.abs(swipeAngle);
+        }
+
+        if ((swipeAngle <= 45) && (swipeAngle >= 0)) {
+            return 'left';
+        }
+        if ((swipeAngle <= 360) && (swipeAngle >= 315)) {
+            return 'left';
+        }
+        if ((swipeAngle >= 135) && (swipeAngle <= 225)) {
+            return 'right';
+        }
+
+        return 'vertical';
+
+    };
+
+    Slick.prototype.swipeEnd = function (event) {
+
+        var _ = this;
+
+        _.list.removeClass('dragging');
+
+        if(_.touchObject.curX === undefined) {
+            return false;
+        }
+
+        if ((_.touchObject.fingerCount !== 0) && event.data.kind !== 'drag') {
+            _.touchObject = {};
+            return false;
+        }
+
+        if (_.touchObject.swipeLength >= _.touchObject.minSwipe) {
+
+            $(event.target).on("click.slick", function (event) {
+                event.stopImmediatePropagation();
+                event.stopPropagation();
+                event.preventDefault();
+                $(event.target).off("click.slick");
+            });
+
+            switch (_.swipeDirection()) {
+                case 'left':
+                    _.slideHandler(_.currentSlide + _.options.slidesToScroll);
+                    _.touchObject = {};
+                break;
+
+                case 'right':
+                    _.slideHandler(_.currentSlide - _.options.slidesToScroll);
+                    _.touchObject = {};
+                break;
+            }
+
+        } else {
+            _.slideHandler(_.currentSlide);
+            _.touchObject = {};
+        }
+
+    };
+
+    Slick.prototype.swipeHandler = function (event) {
+
+        var _ = this;
+
+        if(event.originalEvent !== undefined) {
+            _.touchObject.fingerCount = event.originalEvent.touches !== undefined ?
+                event.originalEvent.touches.length : 1;
+        }
+
+        _.touchObject.minSwipe = _.listWidth / _.options
+            .touchThreshold;
+
+        switch (event.data.action) {
+
+        case 'start':
+            _.swipeStart(event);
+            break;
+
+        case 'move':
+            _.swipeMove(event);
+            break;
+
+        case 'end':
+            _.swipeEnd(event);
+            break;
+
+        }
+
+    };
+
+    Slick.prototype.swipeMove = function (event) {
+
+        var _ = this, curLeft, swipeDirection, positionOffset, touches;
+
+        touches = event.originalEvent !== undefined ? event.originalEvent.touches : null;
+
+        curLeft = _.options.vertical === false ? ((_.currentSlide * _.slideWidth) * -1) +
+                _.slideOffset : ((_.currentSlide * _.listHeight) * -1) -
+                _.listHeight;
+
+        if (_.options.placeholders === false && _.currentSlide +
+            _.options.slidesToShow >= _.slideCount) {
+            curLeft = ((_.currentSlide * _.slideWidth) * -1) + _.slideOffset;
+        }
+
+        if((!_.list.hasClass('dragging') && event.data.kind === 'drag') ||
+            touches && touches.length !== 1){
+            return false;
+        }
+
+        _.touchObject.curX = touches !== undefined ? touches[0].pageX : event.clientX;
+        _.touchObject.curY = touches !== undefined ? touches[0].pageY : event.clientY;
+
+        _.touchObject.swipeLength = Math.round(Math.sqrt(
+            Math.pow(_.touchObject.curX - _.touchObject.startX, 2)));
+
+        swipeDirection = _.swipeDirection();
+
+        if (swipeDirection === 'vertical') {
+            return false;
+        }
+
+        if(event.originalEvent !== undefined) {
+            event.preventDefault();
+        }
+
+        positionOffset = _.touchObject.curX > _.touchObject.startX ? 1 : -1;
+
+        if(_.options.vertical === false) {
+            _.swipeLeft = curLeft + _.touchObject.swipeLength * positionOffset;
+        } else {
+            _.swipeLeft = curLeft + (_.touchObject
+                    .swipeLength * (_.listHeight / _.listWidth)) * positionOffset;
+        }
+
+        if(_.options.fade === true || _.options.touchMove === false) {
+            return false;
+        }
+
+        if (_.animating === true) {
+            _.swipeLeft = null;
+            return false;
+        }
+
+        _.setCSS(_.swipeLeft);
+
+    };
+
+    Slick.prototype.swipeStart = function (event) {
+
+        var _ = this, touches;
+
+        if (_.touchObject.fingerCount !== 1 || _.slideCount <= _.options.slidesToShow) {
+            _.touchObject = {};
+            return false;
+        }
+
+        if(event.originalEvent !== undefined && event.originalEvent.touches !== undefined) {
+            touches = event.originalEvent.touches[0];
+        }
+
+        _.touchObject.startX = _.touchObject.curX = touches !== undefined ? touches.pageX : event.clientX;
+        _.touchObject.startY = _.touchObject.curY = touches !== undefined ? touches.pageY : event.clientY;
+
+        _.list.addClass('dragging');
+
+    };
+
+    Slick.prototype.unfilterSlides = function () {
+
+        var _ = this;
+
+        if(_.slidesCache !== null) {
+
+            _.unload();
+
+            _.slideTrack.children(this.options.slide).remove();
+
+            _.slidesCache.appendTo(_.slideTrack);
+
+            _.reinit();
+
+        }
+
+    };
+
+    Slick.prototype.unload = function () {
+
+        var _ = this;
+
+        $('.slick-cloned', _.slider).remove();
+        $('.slick-placeholder', _.slider).remove();
+        if (_.dots) {
+            _.dots.remove();
+        }
+        if (_.prevArrow) {
+            _.prevArrow.remove();
+            _.nextArrow.remove();
+        }
+        _.slides.removeClass(
+            'slick-slide slick-active slick-visible').removeAttr('style');
+
+    };
+
+    Slick.prototype.updateArrows = function () {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.options.infinite !==
+            true && _.slideCount > _.options.slidesToShow) {
+            if (_.currentSlide === 0) {
+                _.prevArrow.addClass('slick-disabled');
+                _.nextArrow.removeClass('slick-disabled');
+            } else if (_.currentSlide >= (_.slideCount /
+                _.options.slidesToScroll * _.options.slidesToShow
+            ) - _.options.slidesToScroll) {
+                _.nextArrow.addClass('slick-disabled');
+                _.prevArrow.removeClass('slick-disabled');
+            } else if (_.options.placeholders === false && _.currentSlide +
+                _.options.slidesToShow >= _.slideCount) {
+                _.nextArrow.addClass('slick-disabled');
+                _.prevArrow.removeClass('slick-disabled');
+            } else {
+                _.prevArrow.removeClass('slick-disabled');
+                _.nextArrow.removeClass('slick-disabled');
+            }
+        }
+
+    };
+
+    Slick.prototype.updateDots = function () {
+
+        var _ = this;
+
+        if(_.dots !== null) {
+
+            _.dots.find('li').removeClass('slick-active');
+            $(_.dots.find('li').get(_.currentSlide)).addClass(
+                'slick-active');
+
+        }
+
+    };
+
+    $.fn.slick = function (options) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+            element.slick = new Slick(element, options);
+
+        });
+    };
+
+    $.fn.slickAdd = function (slide, slideIndex, addBefore) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.addSlide(slide, slideIndex, addBefore);
+
+        });
+    };
+
+    $.fn.slickFilter = function (filter) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.filterSlides(filter);
+
+        });
+    };
+
+    $.fn.slickGoTo = function (slide) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.slideHandler(slide);
+
+        });
+    };
+
+    $.fn.slickNext = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.changeSlide({data: {message: 'next'}});
+
+        });
+    };
+
+    $.fn.slickPause = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.autoPlayClear();
+           element.slick.paused = true;
+
+        });
+    };
+
+    $.fn.slickPlay = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.paused = false;
+           element.slick.autoPlay();
+
+        });
+    };
+
+    $.fn.slickPrev = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.changeSlide({data: {message: 'previous'}});
+
+        });
+    };
+
+    $.fn.slickRemove = function (slideIndex, removeBefore) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.removeSlide(slideIndex, removeBefore);
+
+        });
+    };
+
+    $.fn.slickSetOption = function (option, value, refresh) {
+        var _ = this;
+        return _.each(function (index, element) {
+
+        element.slick.options[option] = value;
+
+        if(refresh === true) {
+            element.slick.unload();
+            element.slick.reinit();
+        }
+
+        });
+    };
+
+    $.fn.slickUnfilter = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+           element.slick.unfilterSlides();
+
+        });
+    };
+
+    $.fn.unslick = function () {
+        var _ = this;
+        return _.each(function (index, element) {
+
+            element.slick.destroy();
+
+        });
+    };
+
+}));
+
+/* **********************************************
+     Begin dias.js
+********************************************** */
+
+(function ($, $win) {
+  'use strict';
+
+  // var $map = $('#map'),
+  //     $chart = $("#myChart"),
+  //     $contact = $('#contact-form>div'),
+  //     touchDevice = 'ontouchstart' in window || 'onmsgesturechange' in window,
+  //     MAXWIDTH = 1160;
+
+  // if( touchDevice ) {
+  //   $('html').addClass('touch-device');
+  // }
+
+  // if( $map.length ) {
+  //   var map = L.map('map').setView([51.522755, -0.086504], 17);
+  //   var t, i, n, o, s, a = document.getElementsByTagName("script"),
+  //     r = /[\/^]dias-ck[\-\._]?([\w\-\._]*)\.js\??/;
+  //   for (t = 0, i = a.length; i > t; t++)
+  //     if (n = a[t].src, o = n.match(r)) s = n.split(r)[0], (s ? s + "/" : "");
+
+  //   L.Icon.Default.imagePath = s + "/libs/leaflet/images";
+
+  //   map.scrollWheelZoom.disable();
+
+  //   L.tileLayer('http://otile4.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
+  //       maxZoom: 18
+  //   }).addTo(map);
+
+  //   var marker = L.marker([51.522555, -0.085304]).addTo(map);
+  // }
+
+  // if( $contact.length ) {
+  //   // "complex" layout in contact page requires some JS
+  //   // to make sure the contact form is aligned left with content
+  //   // when the browser is wider than our max width
+  //   $win.resize(function() {
+  //     var left = 0,
+  //         sideMargin = $win.width() - MAXWIDTH;
+
+  //     if( sideMargin > 0 ) {
+  //       left = sideMargin / 2;
+  //     }
+
+  //     $contact.css('paddingLeft', left + 'px');
+  //   }).resize();
+  // }
+
+  document.addEventListener("touchstart", function(){}, true);
+
+    // Scroll funcitons ////////////////////////////////////////////////////////////////////////////
+    //
+    var dias_scroll = {
+        scrollPos: 0,
+        MAX_MARGIN: 20,
+        MIN_MARGIN: 0,
+        init: function() {
+            var ds = this;
+
+            ds.cacheItems();
+            ds.bindEvents();
+        },
+        cacheItems: function() {
+            var ds = this;
+
+            ds.$win = $(window);
+            ds.$doc = $(document);
+            ds.$header = $('#float-header');
+
+            ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
+        },
+        bindEvents: function() {
+            var ds = this;
+
+            ds.$win.scroll(function() {
+                ds.scrollPos = ds.$doc.scrollTop();
+                ds.headSticking();
+            });
+        },
+        headSticking: function() {
+            var ds = this,
+              newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
+
+            ds.$header.css('marginTop', newMargin + 'px');
+        }
+    };
+
+    dias_scroll.init();
+
+    $('body').on('click', '[href^="#"]', function(e) {
+        var $this = $(this),
+            id = $this.attr('href').toString(),
+            $item = $(id);
+
+        if( $item.length ) {
+          e.preventDefault();
+
+          $('html, body').animate({
+              scrollTop: ($item.offset().top - 110)
+          }, 600);
+        }
+
+    });
+
+    if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
+      $('body').addClass('ios');
+    }
+
+    //
+    // Scroll funcitons end ////////////////////////////////////////////////////////////////////////
+
+    var $imageInProjectPage = $('#project-page');
+
+    if( $imageInProjectPage.length ) {
+
+      $imageInProjectPage.find('p img').each(function() {
+        $(this).closest('p').addClass('image-container clearfix');
+      });
+
+      $imageInProjectPage.find('iframe').each(function() {
+        var $this = $(this);
+        $this.wrap('<div class="embed-container">').closest('p').addClass('image-container');
+      });
+    }
+
+
+    var $contact = $('#contact');
+
+    var $menuItem = $('#menu-primary a[href$="#contact"]').parent();
+
+    if( $contact.length ) {
+    $contact.scroll(function() {
+      if ($contact.offset().top < $(window).scrollTop() + $(document).height() && $contact.offset().top + $contact.height() > $(window).scrollTop()) {
+        $menuItem.addClass('current-menu-item');
+      });
+    }
+  }
+
+
+$(document).ready(function(){
+  $('.carousel').slick();
+});
+
+
+
+
+}(jQuery, jQuery(window)));
