@@ -64,7 +64,7 @@
   <div class="container">
     <div class="row">
       <div id="testimonial">
-        <h2><?php the_field('testimonial'); ?></h2><br>
+        <blockquote><?php the_field('testimonial'); ?></blockquote>
         <p><?php the_field('testimonial_giver'); ?></p>
       </div>
     </div>
