@@ -11,8 +11,18 @@
         center: firstLatlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
-        draggable: false
-    };
+        draggable: false,
+        styles: [
+                {
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                    { "color": "#29abe2" },
+                    { "weight": 1.6 },
+                    { "lightness": 59 }
+                  ]
+                }
+              ]
+        };
 
     var map = new google.maps.Map(document.getElementById("map_dias"), firstOptions);
 
