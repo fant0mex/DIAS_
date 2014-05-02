@@ -24,7 +24,7 @@
         position: dias
     });
 
-    var contentString1 = '<p>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
+    var contentString1 = '<p>DIAS_<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
 
 
     var infowindow1 = new google.maps.InfoWindow({
@@ -59,7 +59,7 @@
             <h4>Dias Creative<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br />United Kingdom<br /></h4>
             <p><a href="tel:+442079935746">+44(0)2079935746</a></p>
             <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
-            <p><a href="https://twitter.com/DIASCreative">#dias_creative</a></p>
+            <p><a href="https://twitter.com/DIASCreative" target="_blank">@dias_creative</a></p>
           </div>
         </div>
       </div>
