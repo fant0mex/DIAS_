@@ -71,7 +71,7 @@
       <blockquote>I THINK THE SUSTAINABLE ARENA NEEDS MORE COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX SOLUTIONS SEEM EASY.</blockquote>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
-         Fsc (Forest Stewardship Council) US
+         FSC (Forest Stewardship Council) US
       </p>
 
     </div>
