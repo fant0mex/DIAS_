@@ -6,17 +6,16 @@
   $currentID = get_the_ID();
   $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2, 'exclude' => $currentID);
   $random_posts = get_posts($args);
-
 ?>
 
 <div class="box-secondary">
   <div class="container">
     <div class="row">
-    <?php
-    if ( have_posts() ) :
-      while ( have_posts() ):
-        the_post();
-    ?>
+      <?php
+      if ( have_posts() ) :
+        while ( have_posts() ):
+          the_post();
+      ?>
 
       <div class="col-md-4">
         <div class="sidebar">
@@ -90,9 +89,9 @@
                 <div>
                   <h3><span><?php the_field( 'client' ); ?></span></h3>
                   <p><span><?php the_field('project_blurb');?></span></p>
-                      <?php foreach($project_type as $item): ?>
-                        <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
-                      <?php endforeach; ?>
+                    <?php foreach($project_type as $item): ?>
+                      <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
+                    <?php endforeach; ?>
                 </div>
           </a>
       <?php }

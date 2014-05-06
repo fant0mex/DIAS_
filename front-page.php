@@ -68,8 +68,10 @@
     </div>
     <div class="row" id="testimonial">
       <h1>...............................</h1>
-      <blockquote>DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
-STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.</blockquote>
+      <blockquote>
+        DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
+        STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.
+      </blockquote>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
          FSC (Forest Stewardship Council) US
@@ -102,8 +104,8 @@ STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.</blockquote
 
 
 <div class= "box-secondary find">
-   <div class="container">
-      <h3 class="join">FIND US</h3>
+  <div class="container">
+    <h3 class="join">FIND US</h3>
   </div>
 </div>
 

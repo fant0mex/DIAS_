@@ -1,6 +1,5 @@
 <?php
   get_header();
-  // get_template_part('content', 'hero-image');
 
   $project_type = get_field( 'project_type' );
 
@@ -14,7 +13,7 @@
       <div class="box-secondary">
         SEE WHAT HAPPENS WHEN WE PUT ON OUR THINKING CAPS AND START PEDALING…
       </div>
-     </div>
+    </div>
   </div>
 </div>
 
@@ -27,7 +26,7 @@
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
-               <div>
+                <div>
                   <h3><span><?php the_field( 'client' ); ?></span></h3>
                     <p><span><?php the_field('project_blurb');?></span></p>
                      <?php foreach($project_type as $item): ?>
