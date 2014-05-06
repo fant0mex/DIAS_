@@ -1,8 +1,8 @@
 <?php
 
-$image = get_field('hero_image');
+  $image = get_field('hero_image');
 
-if( $image ): ?>
+  if( $image ): ?>
 <div id="hero" style="background-image: url(<?= $image['url']; ?>)">
 
   <?php if( get_field('video_loop') ): ?>
@@ -25,6 +25,6 @@ if( $image ): ?>
   <?php endif; ?>
 
 </div>
-<?php else: ?>
+  <?php else: ?>
 <div class="heroless-padding"></div>
 <?php endif; ?>

@@ -12,9 +12,9 @@
   <div class="container">
     <div class="row">
       <?php
-      if ( have_posts() ) :
-        while ( have_posts() ):
-          the_post();
+        if ( have_posts() ) :
+          while ( have_posts() ):
+            the_post();
       ?>
 
       <div class="col-md-4">
@@ -44,8 +44,6 @@
   <?php the_content(); ?>
 </div>
 
-
-
 <div id="carousel" class="carousel">
   <?php $images = get_post_meta($post->ID, 'slider', false);
     $n=0;
@@ -67,11 +65,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 <div class="container">
   <h3 class="join other">OTHER PROJECTS</h3>

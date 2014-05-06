@@ -1,7 +1,7 @@
 <?php
 
   if (!current_user_can(‘edit_posts’)) {
-  show_admin_bar(false);
+    show_admin_bar(false);
   }
 
   add_theme_support( 'menus');
@@ -94,4 +94,3 @@
     wp_enqueue_script('google-jsapi','https://www.google.com/jsapi');
   }
   add_action('wp_enqueue_scripts', 'add_scripts');
-

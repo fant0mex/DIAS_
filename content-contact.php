@@ -76,7 +76,6 @@
 
     var contentString1 = '<p>DIAS_<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br /></p>';
 
-
     var infowindow1 = new google.maps.InfoWindow({
         content: contentString1
     });
@@ -118,7 +117,7 @@
         <div id="contact-form">
           <?php query_posts('pagename=contact'); ?>
           <?php if (have_posts()) :
-          while (have_posts()) : the_post(); ?>
+            while (have_posts()) : the_post(); ?>
             <?php the_content(); ?>
           <?php endwhile; endif; ?>
         </div>
@@ -126,6 +125,3 @@
     </div>
   </div>
 </div>
-
-
-

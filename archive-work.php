@@ -1,8 +1,6 @@
 <?php
   get_header();
-
   $project_type = get_field( 'project_type' );
-
   $args = array('post_type' => 'work', 'orderby' => 'date');
   $random_posts = get_posts($args);
 ?>
@@ -22,7 +20,7 @@
     <div id="our-projects">
       <?php
         foreach($random_posts as $post) { setup_postdata($post) ?>
-         <?php $project_type = get_field( 'project_type' ); ?>
+        <?php $project_type = get_field( 'project_type' ); ?>
           <a href="<?php the_permalink(); ?>">
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">

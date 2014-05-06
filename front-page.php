@@ -38,16 +38,16 @@
           $image = get_field('project_image_home');
           $project_type = get_field( 'project_type' );
       ?>
-          <a href="<?php the_permalink(); ?>">
-            <img src="<?= $image['sizes']['large'] ?>">
-              <div>
-                <h3><span><?php the_field( 'client' ); ?></span></h3>
-                <p><span><?php the_field('project_blurb');?></span></p>
-                <?php foreach($project_type as $item): ?>
-                  <button disabled class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
-                <?php endforeach; ?>
-              </div>
-          </a>
+      <a href="<?php the_permalink(); ?>">
+        <img src="<?= $image['sizes']['large'] ?>">
+          <div>
+            <h3><span><?php the_field( 'client' ); ?></span></h3>
+            <p><span><?php the_field('project_blurb');?></span></p>
+            <?php foreach($project_type as $item): ?>
+              <button disabled class="btn <?php echo strtolower($item); ?> single"><?php echo $item; ?></button>
+            <?php endforeach; ?>
+          </div>
+      </a>
       <?php endwhile; wp_reset_postdata(); ?>
     </div>
   </div>
@@ -64,7 +64,6 @@
     <h3 class="join client">CLIENTS</h3>
     <div class="row" id="company-logos">
       <?php the_field("company_logos");?>
-
     </div>
     <div class="row" id="testimonial">
       <h1>...............................</h1>
@@ -76,7 +75,6 @@
          Chief Marketing Officer,<br>
          FSC (Forest Stewardship Council) US
       </p>
-
     </div>
   </div>
 </div>
@@ -112,6 +110,5 @@
 <?php
   get_template_part( 'content','contact' );
 ?>
-
 
 <?php get_footer(); ?>

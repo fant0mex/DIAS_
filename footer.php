@@ -14,7 +14,6 @@
     </footer>
 
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/dias-ck.js" defer></script>
-    <?php wp_footer(); ?>
-
+      <?php wp_footer(); ?>
   </body>
 </html>
