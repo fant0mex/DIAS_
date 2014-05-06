@@ -13,55 +13,55 @@
         scrollwheel: false,
         draggable: false,
         styles: [
-  {
-    "featureType": "poi",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "administrative",
-    "stylers": [
-      { "visibility": "on" }
-    ]
-  },{
-    "featureType": "landscape.man_made",
-    "stylers": [
-      { "visibility": "simplified" },
-      { "color": "#c6c6c6" }
-    ]
-  },{
-    "featureType": "road",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      { "color": "#ffffff" },
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "road.highway",
-    "stylers": [
-      { "color": "#dad9d9" }
-    ]
-  },{
-    "featureType": "water",
-    "elementType": "geometry",
-    "stylers": [
-      { "color": "#3dadf4" }
-    ]
-  },{
-    "featureType": "water",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      { "color": "#3dadf4" }
-    ]
-  },{
-  },{
-    "featureType": "poi",
-    "elementType": "labels.text.fill",
-    "stylers": [
-      { "visibility": "on" }
-    ]
-  }
-]
+                  {
+                    "featureType": "poi",
+                    "stylers": [
+                      { "visibility": "off" }
+                    ]
+                  },{
+                    "featureType": "administrative",
+                    "stylers": [
+                      { "visibility": "on" }
+                    ]
+                  },{
+                    "featureType": "landscape.man_made",
+                    "stylers": [
+                      { "visibility": "simplified" },
+                      { "color": "#c6c6c6" }
+                    ]
+                  },{
+                    "featureType": "road",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                      { "color": "#ffffff" },
+                      { "visibility": "off" }
+                    ]
+                  },{
+                    "featureType": "road.highway",
+                    "stylers": [
+                      { "color": "#dad9d9" }
+                    ]
+                  },{
+                    "featureType": "water",
+                    "elementType": "geometry",
+                    "stylers": [
+                      { "color": "#3dadf4" }
+                    ]
+                  },{
+                    "featureType": "water",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                      { "color": "#3dadf4" }
+                    ]
+                  },{
+                  },{
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                      { "visibility": "on" }
+                    ]
+                  }
+                ]
         };
 
     var map = new google.maps.Map(document.getElementById("map_dias"), firstOptions);
