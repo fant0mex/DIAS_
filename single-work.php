@@ -23,8 +23,6 @@
           <img src="<?php the_field('client_logo'); ?>">
           <h5>Client</h5>
           <p><?php the_field('client'); ?></p>
-          <h5>Product</h5>
-          <p><?php the_field('product_title'); ?></p>
           <h5>Project</h5>
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
