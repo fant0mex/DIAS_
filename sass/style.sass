@@ -142,7 +142,7 @@ p:last-of-type
 
 #float-header
   background: #fff
-  background: rgba(#fff, 0.8)
+
   +respond-to(screen-xs)
     margin-top: 0 !important
   +respond-to(not-xs)
@@ -222,7 +222,7 @@ h3
 
   .box-secondary
     color: #000
-    background-color: rgba(#e6e6e6, 0.8)
+    background-color: #FFF
     display: inline
     font-size: 17px
     line-height: 19px
@@ -251,14 +251,15 @@ h3
 
 // Homepage //////////
 
-.method
-  background-color: #F2F2F2
-  display: inline
+
 
 
 
 #case
-  padding: 100px 0 60px 0
+  padding: 70px 0 40px 0
+
+  div
+    max-width: 1000px
   p
     font-size: 24px
     text-align: left
@@ -357,7 +358,7 @@ h3
     display: inline
     max-width: 350px
     +respond-to(not-xs)
-      left: 19.5%
+      left: 10.5%
       max-width: 400px
 
     h3, p
@@ -370,7 +371,7 @@ h3
         font-size: 18px
         line-height: 21px
       span
-        background-color: rgba(#FFF, 0.8)
+        background-color: #FFF
 
 
 #our-work
@@ -415,8 +416,8 @@ h3
   margin-left: 10%
   margin-right: 10%
   +respond-to(not-xs)
-    margin-left: 20%
-    margin-right: 20%
+    margin-left: 15%
+    margin-right: 15%
 
   h1
     margin-bottom: 50px
@@ -426,9 +427,11 @@ h3
     font-weight: 300
     text-transform: uppercase
     text-align: left
-    font-size: 24px
+    font-size: 18px
     margin-bottom: 20px
     border: none
+    +respond-to(not-xs)
+      font-size: 24px
 
 
   blockquote
@@ -453,6 +456,9 @@ h3.join
   font-size: 16px
   color: #4D4D4D
   margin: 30px 0
+
+h2
+  text-transform: uppercase
 
 h3.other
   margin: 10px 0

@@ -5,7 +5,7 @@
 
   $recentWork = new WP_Query(array(
     'post_type' => 'work',
-    'posts_per_page' => 2,
+    'posts_per_page' => 4,
   ));
 
   wp_reset_postdata();
@@ -25,7 +25,7 @@
 
 
 <div class="container">
-  <h3 class="join">CASE STUDIES</h3>
+  <h3 class="join">PROJECTS</h3>
 </div>
 
 <div class="container-fluid">
@@ -68,7 +68,8 @@
     </div>
     <div class="row" id="testimonial">
       <h1>...............................</h1>
-      <blockquote>I THINK THE SUSTAINABLE ARENA NEEDS MORE COMPANIES LIKE YOURS; WIRED TO MAKE COMPLEX SOLUTIONS SEEM EASY.</blockquote>
+      <blockquote>DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
+STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.</blockquote>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
          FSC (Forest Stewardship Council) US
@@ -81,8 +82,8 @@
 <div class= "box-secondary jobs">
   <div class="container">
     <h3 class="join">WORK WITH US</h3>
-      <h2>WE ARE ALWAYS ON THE LOOK OUT FOR TALENT, INSPIRED PEOPLE AND
-        COLLABORATORS.<br> SEND US YOUR CV. WE DO NOT DEAL WITH RECRUITERS.</h2>
+      <h2>Be you a designer, a developer, a producer or a storyteller, we're always looking for talented,
+        inspired people and potential collaborators. Drop us a line and let's chat. (Though no recruiters, thanks.)</h2>
   </div>
 
   <div class="container">
