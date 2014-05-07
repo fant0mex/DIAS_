@@ -67,10 +67,8 @@
     </div>
     <div class="row" id="testimonial">
       <h1>...............................</h1>
-      <blockquote>
-        DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
-        STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.
-      </blockquote>
+      <blockquote>DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
+        STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.</blockquote>
       <p>Etienne Mcmanus White,<br>
          Chief Marketing Officer,<br>
          FSC (Forest Stewardship Council) US
