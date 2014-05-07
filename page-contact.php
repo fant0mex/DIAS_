@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<div id="jobs">
+<div>
   <div class="container">
     <div class="row jobs">
       <div class="col-sm-6">
