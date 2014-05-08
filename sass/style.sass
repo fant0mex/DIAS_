@@ -256,22 +256,26 @@ h3
 #case
   padding: 70px 0 40px 0
 
-  div
-    margin: 0 6%
-    +respond-to(not-xs)
-      margin: 0 20% 0 8%
+
   p
-    font-size: 24px
+    font-size: 16px
     text-align: left
     color: #333333
     padding: 10px
     max-width: 900px
-    line-height: 31px
-
+    line-height: 24px
+    +respond-to(not-xs)
+      font-size: 24px
+      line-height: 31px
   a
     display: block
     margin-bottom: 40px
     background: #29ABE2
+
+.method
+  margin: 0 6%
+  +respond-to(not-xs)
+    margin: 0 20% 0 8%
 
 .box-full-width
   padding: 40px 0 0 0
