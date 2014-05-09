@@ -120,13 +120,14 @@ p:last-of-type
     +respond-to(not-xs)
       display: inline-block
     a
-      padding: 40px 0 0 5px
+      padding: 40px 0 9px 19px
       color: #999
       display: block
-      margin: 0 0 9px 14px
       text-transform: uppercase
+      border-bottom: 1px solid #000
       +respond-to(not-xs)
-        padding: 40px 0 0
+        padding: 40px 0 10px 14px
+        border-bottom: none
       +transition(background 0.25s ease-out, color 0.25s ease-out)
       &:hover,
       &:focus
@@ -160,9 +161,6 @@ p:last-of-type
   margin: inherit
   li
     text-align: left
-    border-bottom: 1px solid #000
-    +respond-to(not-xs)
-      border-bottom: none
 
 a .fa
   +transition(opacity 0.25s ease-out)
