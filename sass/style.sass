@@ -120,16 +120,17 @@ p:last-of-type
     +respond-to(not-xs)
       display: inline-block
     a
-      border-bottom: transparent 3px solid
+      padding: 40px 0 0 5px
       color: #999
       display: block
       margin: 0 0 9px 14px
-      padding: 40px 0 0
       text-transform: uppercase
+      +respond-to(not-xs)
+        padding: 40px 0 0
       +transition(background 0.25s ease-out, color 0.25s ease-out)
       &:hover,
       &:focus
-        border-bottom-color: #000
+
         color: #000
     .not-home &.current_page_parent a,
     .not-home &.current_page_item a,
@@ -153,6 +154,17 @@ p:last-of-type
 
 .navbar-collapse
   max-height: none
+
+.navbar-nav
+  margin: -1px -10px
+  +respond-to(not-xs)
+    margin: inherit
+  li
+    text-align: left
+
+    border-bottom: 1px solid #000
+    +respond-to(not-xs)
+      border-bottom: none
 
 a .fa
   +transition(opacity 0.25s ease-out)
