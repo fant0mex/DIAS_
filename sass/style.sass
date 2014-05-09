@@ -422,18 +422,24 @@ h3
     margin-left: 15%
     margin-right: 15%
 
+  hr
+    border-top: 3px dotted #FFF
+    max-width: 280px
+    +respond-to(not-xs)
+      border-top: 4px dotted #FFF
+      background-color: gray
+      max-width: 400px
+
   blockquote
     font-weight: 300
     text-transform: uppercase
     text-align: left
     font-size: 18px
     margin-bottom: 20px
-    border-top: 3px dotted #FFF
     border-left: none
     padding-top: 30px
     +respond-to(not-xs)
       font-size: 24px
-      border-top: 4px dotted #FFF
       margin-top: 20px
 
 
