@@ -64,22 +64,27 @@
     <h3 class="join client">CLIENTS</h3>
     <div class="row" id="company-logos">
       <?php the_field("company_logos");?>
+       <hr>
     </div>
+
     <div class="row" id="testimonial">
-      <hr>
+
         <?php
-          $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>1);
+          $args = array('post_type' => 'work', 'orderby' => 'rand');
           $random_posts = get_posts($args); ?>
 
         <?php
         foreach($random_posts as $post) { setup_postdata($post) ?>
+        <div class="rotate">
           <blockquote><?php the_field('testimonial'); ?></blockquote>
           <p><?php the_field('testimonial_giver'); ?></p>
+        </div>
 
-    </div>
+
       <?php }
         wp_reset_postdata();
       ?>
+    </div>
   </div>
 </div>
 
