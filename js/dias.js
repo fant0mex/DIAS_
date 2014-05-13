@@ -101,12 +101,12 @@
     setInterval(function(){
       if (counter >= $testimonialLength) {
           counter = 0;
-    }
+      }
 
       $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
       counter ++;
     }, 7000);
-}
+  }
 
 (function($) {
 
@@ -144,7 +144,7 @@
             });
         });
     };
-  }(jQuery));
+}(jQuery));
 
 
     $('#hero').parallax({
