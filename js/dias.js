@@ -94,17 +94,18 @@
 
 
   var $testimonial = $('#testimonial .rotate');
-  if( $testimonial.length ) {
+  var $testimonialLength = $testimonial.length;
+
+  if( $testimonialLength ) {
     var counter = 0;
     setInterval(function(){
-      if (counter >= $testimonial.length) {
+      if (counter >= $testimonialLength) {
           counter = 0;
     }
-      console.log(counter);
-    $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
-    counter ++;
-    }, 7000);
 
+      $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
+      counter ++;
+    }, 7000);
 }
 
 
