@@ -80,7 +80,7 @@
             <?php $image = get_field('project_image_home'); ?>
               <img src="<?= $image['sizes']['large'] ?>">
                 <div>
-                  <h3><span>&nbsp;<?php the_field( 'client' ); ?>&nbsp;</span></h3>
+                  <h3><span><?php the_field( 'client' ); ?></span></h3>
                   <p><span><?php the_field('project_blurb');?></span></p>
                     <?php foreach($project_type as $item): ?>
                       <button class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>

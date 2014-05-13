@@ -232,11 +232,15 @@ h3
     display: inline
     font-size: 17px
     line-height: 19px
+    box-shadow: 10px 0 0 white, -10px 0 0 white
+    position: relative
+    left: 10px
     +respond-to(not-xs)
       font-size: 23px
       font-weight: normal
       text-align: left
       line-height: 25px
+
       +respond-to(not-sm)
         line-height: 23.5px
 
@@ -298,24 +302,6 @@ h3
     font-size: 24px
     line-height: 28px
 
-
-
-  a.show-me
-    background: #29ABE2
-    max-width: 320px
-    padding: 12px 15px
-    text-decoration: none
-    color: #fff
-    text-transform: uppercase
-    font-size: 12px
-    display: inline-block
-    white-space: nowrap
-    +respond-to(not-xs)
-      font-size: 14px
-      padding: 12px 15px
-      max-width: 300px
-      margin-bottom: 60px
-
   a.middle
     display: block
     margin: 0 auto 10%
@@ -326,14 +312,35 @@ h3
     text-align: center
 
 
+
+a.show-me
+  background: #29ABE2
+  max-width: 320px
+  padding: 12px 15px
+  text-decoration: none
+  color: #fff
+  text-transform: uppercase
+  font-size: 12px
+  display: inline-block
+  white-space: nowrap
+  +respond-to(not-xs)
+    font-size: 14px
+    padding: 12px 15px
+    max-width: 300px
+    margin-bottom: 60px
+
+
+
+
 .btn
   display: inline-block
-  // margin-left: -8px
   color: #FFF
   font-size: 14px
   border: none
   padding: 6px 10px
   float: left
+  position: relative
+  left: -10px
 .website
   background-color: #93278F
 .mobile
@@ -387,8 +394,8 @@ h3
         font-size: 18px
         line-height: 21px
       span
+        box-shadow: 10px 0 0 white, -10px 0 0 white
         background-color: #FFF
-
 
 #our-work
   background: #E6E6E6
