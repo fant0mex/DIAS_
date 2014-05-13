@@ -64,7 +64,7 @@
     <h3 class="join client">CLIENTS</h3>
     <div class="row" id="company-logos">
       <?php the_field("company_logos");?>
-       <hr>
+      <hr>
     </div>
 
     <div class="row" id="testimonial">
