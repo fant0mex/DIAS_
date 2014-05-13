@@ -355,13 +355,17 @@ h3
       width: 50%
       float: left
       position: relative
-  img
-    width: 100%
-    +filter(grayscale(100%))
-    +transition(0.25s ease-in-out)
     &:hover,
     &:focus
-      +filter(grayscale(0))
+      img
+        filter: none
+        -webkit-filter: grayscale(0)
+  img
+    width: 100%
+    filter: url(filters.svg#grayscale) // Firefox 3.5+
+    filter: gray // IE6-9
+    -webkit-filter: grayscale(1)
+
   div
     position: absolute
     top: auto
