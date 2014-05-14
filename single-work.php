@@ -25,7 +25,7 @@
           <h5>Project</h5>
           <p><?php the_title(); ?></p>
           <h5>Links</h5>
-          <a href="<?php the_permalink(); ?>"><?php the_field('url'); ?></a>
+          <?php the_field('url'); ?>
           <?php foreach($project_type as $item): ?>
             <button disabled class="btn <?php echo strtolower($item); ?>"><?php echo $item; ?></button>
           <?php endforeach; ?>
