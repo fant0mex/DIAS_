@@ -62,7 +62,7 @@
 <div class="box-tertiary box-full-width">
   <div class="container">
     <h3 class="join client">CLIENTS</h3>
-    <div class="row" id="company-logos">
+    <div id="company-logos">
       <?php the_field("company_logos");?>
       <hr>
     </div>
