@@ -33,7 +33,7 @@
       </div>
       <div class="col-md-8">
         <div class="brief">
-          <?php the_field('brief'); ?>
+          <?php the_content(); ?>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
 </div>
 
 <div id="project-page">
-  <?php the_content(); ?>
+  <?php the_field('in_depth'); ?>
 </div>
 
 <div id="carousel" class="carousel">
@@ -59,8 +59,14 @@
   <div class="container">
     <div class="row">
       <div id="testimonial">
-        <blockquote><?php the_field('testimonial'); ?></blockquote>
-        <p><?php the_field('testimonial_giver'); ?></p>
+          <?php
+            $tests = get_post_meta( $post->ID, 'testimonial', true );
+            $givers = get_post_meta( $post->ID, 'testimonial_giver', true );
+
+            if (!empty( $tests) && !empty( $givers)) {
+              echo '<blockquote>' . $tests . '</blockquote>';
+              echo '<p>' . $givers . '</p>';
+            } else {} ?>
       </div>
     </div>
   </div>

@@ -80,7 +80,6 @@
           <p><?php the_field('testimonial_giver'); ?></p>
         </div>
 
-
       <?php }
         wp_reset_postdata();
       ?>
