@@ -101,14 +101,52 @@
     setInterval(function(){
       if (counter >= $testimonialLength) {
           counter = 0;
-    }
+      }
 
       $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
       counter ++;
     }, 7000);
-}
+  }
+
+  $.fn.parallax = function(options) {
+
+    var windowHeight = $(window).height();
+
+    // Establish default settings
+    var settings = $.extend({
+        speed: -0.5
+    }, options);
+
+    // Iterate over each object in collection
+    return this.each( function() {
+
+      // Save a reference to the element
+      var $this = $(this);
+
+      // Set up Scroll Handler
+      $(document).scroll(function(){
+
+        var scrollTop = $(window).scrollTop(),
+          offset = $this.offset().top,
+          height = $this.outerHeight();
+
+        // Check if above or below viewport
+        if (offset + height <= scrollTop || offset >= scrollTop + windowHeight) {
+          return;
+        }
+
+        var yBgPosition = Math.round((offset - scrollTop) * settings.speed);
+          // Apply the Y Background Position to Set the Parallax Effect
+          $this.css('background-position', 'center ' + yBgPosition + 'px');
+      });
+    });
+  };
 
 
+  var $hero = $('#hero');
+  if( $hero.length ) {
+    $hero.parallax();
+  }
 
 
   $('.carousel').slick();
