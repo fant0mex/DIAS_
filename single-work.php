@@ -4,7 +4,7 @@
 
   $project_type = get_field( 'project_type' );
   $currentID = get_the_ID();
-  $args = array('post_type' => 'work', 'orderby' => 'rand', 'posts_per_page'=>2, 'exclude' => $currentID);
+  $args = array('post_type' => 'work', 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page'=>2, 'exclude' => $currentID);
   $random_posts = get_posts($args);
 ?>
 
