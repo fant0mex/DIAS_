@@ -9,7 +9,7 @@
   <div class="container">
     <div id="hero-caption">
       <div class="box-secondary">
-        SEE WHAT HAPPENS WHEN WE PUT ON OUR THINKING CAPS AND START PEDALING…
+        See what happens when we put our thinking<br>caps on and start pedalling…
       </div>
     </div>
   </div>
