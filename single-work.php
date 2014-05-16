@@ -19,7 +19,10 @@
 
       <div class="col-md-4">
         <div class="sidebar">
-          <img src="<?php the_field('client_logo'); ?>">
+          <?php $client_logo = get_field('client_logo');
+            if(!empty($client_logo)) { ?>
+              <img src = "<?php echo $client_logo; ?>" />
+           <?php } else {} ?>
           <h5>Client</h5>
           <p><?php the_field('client'); ?></p>
           <h5>Project</h5>
@@ -60,13 +63,12 @@
     <div class="row">
       <div id="testimonial">
           <?php
-            $tests = get_post_meta( $post->ID, 'testimonial', true );
-            $givers = get_post_meta( $post->ID, 'testimonial_giver', true );
-
-            if (!empty( $tests) && !empty( $givers)) {
-              echo '<blockquote>' . $tests . '</blockquote>';
-              echo '<p>' . $givers . '</p>';
-            } else {} ?>
+            $tests = get_field('testimonial');
+            $givers = get_field('testimonial_giver');
+              if (!empty( $tests) && !empty( $givers)) {
+                echo '<blockquote>' . $tests . '</blockquote>';
+                echo '<p>' . $givers . '</p>';
+              } else {} ?>
       </div>
     </div>
   </div>
