@@ -68,7 +68,8 @@
               if (!empty( $tests) && !empty( $givers)) {
                 echo '<blockquote>' . $tests . '</blockquote>';
                 echo '<p>' . $givers . '</p>';
-              } else {} ?>
+              } else {}
+          ?>
       </div>
     </div>
   </div>
