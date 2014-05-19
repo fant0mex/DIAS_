@@ -628,6 +628,7 @@ hr
   h2
     margin: $vertical-padding 0 10px
     font-size: 40px
+
   .info
     margin-bottom: $vertical-padding
 
@@ -679,7 +680,13 @@ hr
       padding: 0 0 10px
   h3
     margin: 40px 0 10px
+  a
+    color: #999
+    +transition(color 0.25s ease-out)
+    &:hover,
+    &:focus
 
+      color: #000
 // single page
 
 .sidebar
