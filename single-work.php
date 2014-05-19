@@ -17,7 +17,7 @@
             the_post();
       ?>
 
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="sidebar">
           <?php $client_logo = get_field('client_logo');
             if(!empty($client_logo)) { ?>
@@ -34,7 +34,7 @@
           <?php endforeach; ?>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="brief">
           <?php the_content(); ?>
         </div>
