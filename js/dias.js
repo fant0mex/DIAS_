@@ -21,6 +21,7 @@
           ds.$win = $(window);
           ds.$doc = $(document);
           ds.$header = $('#float-header');
+          ds.$hero = $('#hero');
 
           ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
       },
@@ -31,12 +32,42 @@
               ds.scrollPos = ds.$doc.scrollTop();
               ds.headSticking();
           });
+
+          if( ds.$hero.length ) {
+
+            ds.$win.resize(function() {
+              ds.cacheParallaxVars();
+            });
+
+            ds.$win.resize();
+
+            ds.$win.scroll(function() {
+              ds.heroParallax();
+            });
+          }
       },
       headSticking: function() {
           var ds = this,
             newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
 
           ds.$header.css('marginTop', newMargin + 'px');
+      },
+      cacheParallaxVars: function() {
+        var ds = this;
+
+        ds.hero_offset = ds.$hero.offset().top;
+        ds.hero_height = ds.$hero.outerHeight();
+        ds.hero_windowHeight = $(window).height();
+        ds.hero_speed = -0.5;
+      },
+      heroParallax: function() {
+        var ds = this;
+
+        // Check if above or below viewport
+
+        var yBgPosition = Math.round((ds.hero_offset - ds.scrollPos) * ds.hero_speed);
+          // Apply the Y Background Position to Set the Parallax Effect
+          ds.$hero.css('background-position', 'center ' + yBgPosition + 'px');
       }
   };
 
@@ -90,6 +121,22 @@
         $menuItem.removeClass('forced-current-menu-item');
       }
     });
+  }
+
+
+  var $testimonial = $('#testimonial .rotate');
+  var $testimonialLength = $testimonial.length;
+
+  if( $testimonialLength ) {
+    var counter = 0;
+    setInterval(function(){
+      if (counter >= $testimonialLength) {
+          counter = 0;
+      }
+
+      $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
+      counter ++;
+    }, 7000);
   }
 
   $('.carousel').slick();

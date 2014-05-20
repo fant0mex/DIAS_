@@ -62,17 +62,27 @@
 <div class="box-tertiary box-full-width">
   <div class="container">
     <h3 class="join client">CLIENTS</h3>
-    <div class="row" id="company-logos">
+    <div id="company-logos">
       <?php the_field("company_logos");?>
-    </div>
-    <div class="row" id="testimonial">
       <hr>
-      <blockquote>DIAS SPECIALISES IN SIMPLIFYING THE COMPLEX AND CREATING COMPELLING STORIES FOR THE GREATER GOOD.<br>
-        STRAIGHT-FORWARD, HARDWORKING, UNUSUALLY LOVELY PEOPLE TO WORK WITH.</blockquote>
-      <p>Etienne Mcmanus White,<br>
-         Chief Marketing Officer,<br>
-         FSC (Forest Stewardship Council) US
-      </p>
+    </div>
+
+    <div class="row" id="testimonial">
+
+        <?php
+          $args = array('post_type' => 'work', 'orderby' => 'rand');
+          $random_posts = get_posts($args); ?>
+
+        <?php
+        foreach($random_posts as $post) { setup_postdata($post) ?>
+        <div class="rotate">
+          <blockquote><?php the_field('testimonial'); ?></blockquote>
+          <p><?php the_field('testimonial_giver'); ?></p>
+        </div>
+
+      <?php }
+        wp_reset_postdata();
+      ?>
     </div>
   </div>
 </div>

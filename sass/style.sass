@@ -183,16 +183,21 @@ h3
 @import "dias_videoFill"
 
 #hero
-  background: 50% 50% no-repeat
+  background: 50% 0 no-repeat
   background-size: cover
   height: 100%
   max-width: 100%
   overflow: hidden
   position: relative
   min-height: 300px
+  background-color: #FFF
+  +respond-to(screen-xs)
+    background-position: 50% 0px !important
   +respond-to(not-xs)
     margin: -70px 0 0
     min-height: 550px
+
+
   img
     height: auto
     position: relative
@@ -212,10 +217,9 @@ h3
 
 #hero-caption
   padding-top: 150px
-  text-transform: uppercase
   +respond-to(not-xs)
     top: 160px
-    line-height: 22px
+    line-height: 24px
     max-width: 600px
     position: absolute
     padding-top: 0
@@ -232,13 +236,17 @@ h3
     display: inline
     font-size: 17px
     line-height: 19px
+    box-shadow: 5px 0 0 white, -5px 0 0 white
+    position: relative
+    left: 10px
     +respond-to(not-xs)
-      font-size: 23px
+      font-size: 24px
       font-weight: normal
       text-align: left
       line-height: 25px
+      box-shadow: 10px 0 0 white, -10px 0 0 white
       +respond-to(not-sm)
-        line-height: 23.5px
+        line-height: 24px
 
 
 .button
@@ -277,11 +285,15 @@ h3
     background: #29ABE2
     margin-left: 0
     +respond-to(not-xs)
-      margin-left: 8.75%
+      margin-left: 8%
 
 .method
   margin: 0 6%
+  font-size: 16px
+  line-height: 24px
   +respond-to(not-xs)
+    font-size: 18px
+    line-height: 27px
     margin: 0 20% 0 8%
 
 .box-full-width
@@ -298,24 +310,6 @@ h3
     font-size: 24px
     line-height: 28px
 
-
-
-  a.show-me
-    background: #29ABE2
-    max-width: 320px
-    padding: 12px 15px
-    text-decoration: none
-    color: #fff
-    text-transform: uppercase
-    font-size: 12px
-    display: inline-block
-    white-space: nowrap
-    +respond-to(not-xs)
-      font-size: 14px
-      padding: 12px 15px
-      max-width: 300px
-      margin-bottom: 60px
-
   a.middle
     display: block
     margin: 0 auto 10%
@@ -326,14 +320,38 @@ h3
     text-align: center
 
 
+
+a.show-me
+  background: #29ABE2
+  max-width: 320px
+  padding: 12px 15px
+  text-decoration: none
+  color: #fff
+  text-transform: uppercase
+  font-size: 12px
+  display: inline-block
+  white-space: nowrap
+  margin-left: 1%
+  +respond-to(not-xs)
+    font-size: 14px
+    padding: 12px 15px
+    max-width: 300px
+    margin-bottom: 60px
+    margin-left: 0
+
+
+
+
 .btn
   display: inline-block
-  // margin-left: -8px
   color: #FFF
   font-size: 14px
   border: none
   padding: 6px 10px
+  margin: 0
   float: left
+  position: relative
+  left: -10px
 .website
   background-color: #93278F
 .mobile
@@ -355,13 +373,17 @@ h3
       width: 50%
       float: left
       position: relative
-  img
-    width: 100%
-    +filter(grayscale(100%))
-    +transition(0.25s ease-in-out)
     &:hover,
     &:focus
-      +filter(grayscale(0))
+      img
+        filter: none
+        -webkit-filter: grayscale(0)
+  img
+    width: 100%
+    filter: url(filters.svg#grayscale) // Firefox 3.5+
+    filter: gray // IE6-9
+    -webkit-filter: grayscale(1)
+
   div
     position: absolute
     top: auto
@@ -384,6 +406,9 @@ h3
         line-height: 21px
       span
         background-color: #FFF
+        box-shadow: 5px 0 0 white, -5px 0 0 white
+        +respond-to(not-xs)
+          box-shadow: 10px 0 0 white, -10px 0 0 white
 
 
 #our-work
@@ -416,21 +441,8 @@ h3
       display: block
       height: auto
       max-width: 100%
-      margin: 0 auto 20px
+      margin: 0 auto 60px
       +respond-to(not-sm)
-
-
-#testimonial
-  margin-top: 30px
-  max-width: 900px
-  text-align: left
-  margin-bottom: 30px
-  margin-left: 10%
-  margin-right: 10%
-  +respond-to(not-xs)
-    margin-left: 15%
-    margin-right: 15%
-
   hr
     border-top: 3px dotted #FFF
     max-width: 280px
@@ -439,12 +451,30 @@ h3
       border-top: 4px dotted #FFF
       max-width: 400px
 
+
+#testimonial
+  margin-top: 30px
+  max-width: 900px
+  text-align: left
+  margin-left: 10%
+  margin-right: 10%
+  min-height: 420px
+  .not-home &
+    min-height: 250px
+  +respond-to(not-xs)
+    margin-left: 15%
+    margin-right: 15%
+    min-height: 400px
+
+  .rotate
+    display: none
+
+
+
   blockquote
     font-weight: 300
-    text-transform: uppercase
     text-align: left
     font-size: 18px
-    margin-bottom: 20px
     border-left: none
     padding-top: 30px
     +respond-to(not-xs)
@@ -452,12 +482,14 @@ h3
       margin-top: 20px
 
 
+
+
   blockquote
     text-indent: -0.2em
   blockquote:before
-    content: '\0022'
+    content: '\201C'
   blockquote:after
-    content: '\0022'
+    content: '\201D'
   p
     font-size: 13px
     line-height: 17px
@@ -494,7 +526,7 @@ h3.client
     display: block
   h2
     padding: 20px 0 50px 0
-
+    text-transform: inherit
   > h3
     max-width: 130px
     background: #EAE5DC
@@ -508,6 +540,7 @@ h3.client
   p
     font-size: 14px
     padding-bottom: 30px
+    padding-right: 40px
 
 .find
   background-color: gray
@@ -586,11 +619,18 @@ hr
 
 
 // Blog //////////
+
+#blogs
+  background-color: #FFF
+  font-size: 16px
 .blog-post
-  padding-bottom: $vertical-padding
+  padding: 0 10px
+  +respond-to(not-xs)
+    padding: 0 140px $vertical-padding 0
   h2
     margin: $vertical-padding 0 10px
     font-size: 40px
+
   .info
     margin-bottom: $vertical-padding
 
@@ -635,6 +675,9 @@ hr
 
 // Sidebar //////////
 #sidebar
+  display: none
+  +respond-to(not-xs)
+    display: inline
   ul
     list-style: none
     padding-left: 0
@@ -642,7 +685,13 @@ hr
       padding: 0 0 10px
   h3
     margin: 40px 0 10px
+  a
+    color: #999
+    +transition(color 0.25s ease-out)
+    &:hover,
+    &:focus
 
+      color: #000
 // single page
 
 .sidebar
