@@ -86,7 +86,7 @@
               <p><?= $givers ?></p>
             </div>
           <?php
-          } else {}
+          }
         }
         wp_reset_postdata();
       ?>
