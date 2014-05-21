@@ -69,20 +69,27 @@
 
     <div class="row" id="testimonial">
 
-        <?php
-          $args = array('post_type' => 'work', 'orderby' => 'rand');
-          $random_posts = get_posts($args); ?>
+      <?php
+        $args = array('post_type' => 'work', 'orderby' => 'rand');
+        $random_posts = get_posts($args); ?>
 
         <?php
         foreach($random_posts as $post) { setup_postdata($post) ?>
-        <div class="rotate">
-          <blockquote><?php the_field('testimonial'); ?></blockquote>
-          <p><?php the_field('testimonial_giver'); ?></p>
-        </div>
 
-      <?php }
-        wp_reset_postdata();
-      ?>
+          <?php
+            $tests = get_field('testimonial');
+            $givers = get_field('testimonial_giver');
+            if (!empty( $tests) && !empty( $givers)) {
+          ?>
+            <div class="rotate">
+              <?php echo '<blockquote>' . $tests . '</blockquote>';
+              echo '<p>' . $givers . '</p>';?>
+            </div>
+            <?php } else {}
+            ?>
+          <?php }
+            wp_reset_postdata();
+          ?>
     </div>
   </div>
 </div>
