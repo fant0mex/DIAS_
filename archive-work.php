@@ -1,7 +1,7 @@
 <?php
   get_header();
   $project_type = get_field( 'project_type' );
-  $args = array('post_type' => 'work', 'orderby' => 'date');
+  $args = array('post_type' => 'work', 'posts_per_page' => -1, 'orderby' => 'date');
   $random_posts = get_posts($args);
 ?>
 
