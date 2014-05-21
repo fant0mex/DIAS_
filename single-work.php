@@ -61,16 +61,20 @@
 <div class="box-secondary">
   <div class="container">
     <div class="row">
-      <div id="testimonial">
-          <?php
-            $tests = get_field('testimonial');
-            $givers = get_field('testimonial_giver');
-              if (!empty( $tests) && !empty( $givers)) {
-                echo '<blockquote>' . $tests . '</blockquote>';
-                echo '<p>' . $givers . '</p>';
-              } else {}
-          ?>
-      </div>
+
+      <?php
+        $tests = get_field('testimonial');
+        $givers = get_field('testimonial_giver');
+
+        if (!empty( $tests) && !empty( $givers)) :
+      ?>
+        <div id="testimonial">
+          <blockquote><?= $tests ?></blockquote>
+          <p><?= $givers ?></p>
+        </div>
+      <?php
+        endif;
+      ?>
     </div>
   </div>
 </div>
