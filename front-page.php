@@ -74,22 +74,22 @@
         $random_posts = get_posts($args); ?>
 
         <?php
-        foreach($random_posts as $post) { setup_postdata($post) ?>
+        foreach($random_posts as $post) {
+          setup_postdata($post);
+          $tests = get_field('testimonial');
+          $givers = get_field('testimonial_giver');
 
-          <?php
-            $tests = get_field('testimonial');
-            $givers = get_field('testimonial_giver');
-            if (!empty( $tests) && !empty( $givers)) {
+          if (!empty( $tests) && !empty( $givers)) {
           ?>
             <div class="rotate">
               <blockquote><?= $tests ?></blockquote>
               <p><?= $givers ?></p>
             </div>
-            <?php } else {}
-            ?>
-          <?php }
-            wp_reset_postdata();
-          ?>
+          <?php
+          } else {}
+        }
+        wp_reset_postdata();
+      ?>
     </div>
   </div>
 </div>
