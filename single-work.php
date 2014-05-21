@@ -73,7 +73,7 @@
           <p><?= $givers ?></p>
         </div>
       <?php
-     endif;
+        endif;
       ?>
     </div>
   </div>
