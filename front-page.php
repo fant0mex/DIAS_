@@ -82,8 +82,8 @@
             if (!empty( $tests) && !empty( $givers)) {
           ?>
             <div class="rotate">
-              <blockquote><?php echo $tests ?></blockquote>
-              <p><?php echo $givers ?></p>
+              <blockquote><?= $tests ?></blockquote>
+              <p><?= $givers ?></p>
             </div>
             <?php } else {}
             ?>
