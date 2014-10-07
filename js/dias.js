@@ -124,19 +124,54 @@
   }
 
 
-  var $testimonial = $('#testimonial .rotate');
-  var $testimonialLength = $testimonial.length;
+  var $testimonial = $('#testimonial'),
+    $testimonials = $testimonial.find('.rotate'),
+    testimonialLength = $testimonials.length,
+    testimonialCounter = 0,
+    setTestimonialHeight = function($items) {
+      var maxHeight = 0;
 
-  if( $testimonialLength ) {
-    var counter = 0;
-    setInterval(function(){
-      if (counter >= $testimonialLength) {
-          counter = 0;
+      $items.each(function() {
+        var $item = $(this),
+          visible = $item.is(':visible');
+
+        $items.addClass('hidden');
+        $item.removeClass('hidden').show();
+
+        var itemHeight = $testimonial.outerHeight(true);
+
+        maxHeight = Math.max(itemHeight, maxHeight);
+
+        $items.removeClass('hidden');
+
+        if( !visible ) {
+          $item.hide();
+        }
+      });
+
+      $testimonial.css('minHeight', maxHeight + 'px');
+    }, switchTestimonial = function() {
+      if (testimonialCounter >= testimonialLength) {
+          testimonialCounter = 0;
       }
 
-      $testimonial.eq(counter).fadeIn(1000).delay(5000).fadeOut(1000);
-      counter ++;
-    }, 7000);
+      $testimonials.eq(testimonialCounter).fadeIn(1000).delay(5000).fadeOut(1000);
+      testimonialCounter ++;
+
+      setTimeout(switchTestimonial, 7100);
+    };
+
+
+  if( testimonialLength ) {
+    var counter = 0;
+
+    $win.resize(function() {
+      setTestimonialHeight($testimonials);
+    });
+
+    $win.resize();
+
+    switchTestimonial();
   }
 
   $('.carousel').slick();

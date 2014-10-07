@@ -67,7 +67,7 @@
       <hr>
     </div>
 
-    <div class="row" id="testimonial">
+    <div id="testimonial">
 
       <?php
         $args = array('post_type' => 'work', 'orderby' => 'rand');
