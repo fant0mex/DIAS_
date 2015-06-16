@@ -8,7 +8,7 @@
     <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/style.css?v=2.3" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/css/style.css?v=2.3.1" media="all" />
     <link rel="icon" type="image/png" href="<?php bloginfo('template_directory'); ?>/images/avatar_50fb2d27989a_128.png">
 
     <?php wp_enqueue_script("jquery"); ?>
@@ -23,7 +23,7 @@
     </script>
   </head>
 
-  <body <?php if (is_page('home')) { echo 'onload="initialize()" onunload="GUnload()"'; } ?> class="<?= (is_home() || is_front_page()) ? 'home' : 'not-home' ?>">
+  <body class="<?= (is_home() || is_front_page()) ? 'home' : 'not-home' ?>">
     <header id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container" id="float-header">
         <div class="navbar-header">

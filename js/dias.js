@@ -1,94 +1,85 @@
-(function ($, $win) {
+(function($, $win) {
   'use strict';
 
-  document.addEventListener("touchstart", function(){}, true);
+  document.addEventListener('touchstart', function() {}, true);
 
   // Scroll funcitons ////////////////////////////////////////////////////////////////////////////
   //
-  var dias_scroll = {
-      scrollPos: 0,
-      MAX_MARGIN: 20,
-      MIN_MARGIN: 0,
-      init: function() {
-          var ds = this;
+  var diasScroll = {
+    scrollPos: 0,
+    MAX_MARGIN: 20,
+    MIN_MARGIN: 0,
+    init: function() {
+      this.cacheItems();
+      this.bindEvents();
+    },
 
-          ds.cacheItems();
-          ds.bindEvents();
-      },
-      cacheItems: function() {
-          var ds = this;
+    cacheItems: function() {
+      this.$win = $(window);
+      this.$doc = $(document);
+      this.$header = $('#float-header');
+      this.$hero = $('#hero');
 
-          ds.$win = $(window);
-          ds.$doc = $(document);
-          ds.$header = $('#float-header');
-          ds.$hero = $('#hero');
+      this.MAX_MARGIN = parseInt(this.$header.css('marginTop'), 10);
+    },
 
-          ds.MAX_MARGIN = parseInt(ds.$header.css('marginTop'), 10);
-      },
-      bindEvents: function() {
-          var ds = this;
+    bindEvents: function() {
+      this.$win.scroll(function() {
+        this.scrollPos = this.$doc.scrollTop();
+        this.headSticking();
+      }.bind(this));
 
-          ds.$win.scroll(function() {
-              ds.scrollPos = ds.$doc.scrollTop();
-              ds.headSticking();
-          });
+      if (!this.$hero.length) {
+        return;
+      }
 
-          if( ds.$hero.length ) {
+      this.$win.resize(this.cacheParallaxVars.bind(this));
 
-            ds.$win.resize(function() {
-              ds.cacheParallaxVars();
-            });
+      this.$win.resize();
 
-            ds.$win.resize();
+      this.$win.scroll(this.heroParallax.bind(this));
+    },
 
-            ds.$win.scroll(function() {
-              ds.heroParallax();
-            });
-          }
-      },
-      headSticking: function() {
-          var ds = this,
-            newMargin = Math.max(ds.MAX_MARGIN - ds.scrollPos, ds.MIN_MARGIN);
+    headSticking: function() {
+      var newMargin = Math.max(this.MAX_MARGIN - this.scrollPos, this.MIN_MARGIN);
 
-          ds.$header.css('marginTop', newMargin + 'px');
-      },
-      cacheParallaxVars: function() {
-        var ds = this;
+      this.$header.css('marginTop', newMargin + 'px');
+    },
 
-        ds.hero_offset = ds.$hero.offset().top;
-        ds.hero_height = ds.$hero.outerHeight();
-        ds.hero_windowHeight = $(window).height();
-        ds.hero_speed = -0.5;
-      },
-      heroParallax: function() {
-        var ds = this;
+    cacheParallaxVars: function() {
+      this.heroOffset = this.$hero.offset().top;
+      this.heroHeight = this.$hero.outerHeight();
+      this.heroWindowHeight = $(window).height();
+      this.heroSpeed = 0.5;
+    },
 
+    heroParallax: function() {
         // Check if above or below viewport
+        var yBgPosition = Math.round((this.heroOffset - this.scrollPos) * this.heroSpeed);
 
-        var yBgPosition = Math.round((ds.hero_offset - ds.scrollPos) * ds.hero_speed);
-          // Apply the Y Background Position to Set the Parallax Effect
-          ds.$hero.css('background-position', 'center ' + yBgPosition + 'px');
+        // Apply the Y Background Position to Set the Parallax Effect
+        this.$hero.css('background-position', 'center ' + yBgPosition + 'px');
       }
   };
 
-  dias_scroll.init();
+  diasScroll.init();
 
   $('body').on('click', '[href^="#"]', function(e) {
-      var $this = $(this),
-          id = $this.attr('href').toString(),
-          $item = $(id);
+    var $this = $(this);
+    var id = $this.attr('href').toString();
+    var $item = $(id);
 
-      if( $item.length ) {
-        e.preventDefault();
+    if ($item.length) {
+      e.preventDefault();
 
-        $('html, body').animate({
-            scrollTop: ($item.offset().top - 110)
-        }, 600);
-      }
+      $('html, body').animate({
+        scrollTop: ($item.offset().top - 110)
+      }, 600);
+    }
 
   });
 
-  if( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ) {
+  if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
     $('body').addClass('ios');
   }
 
@@ -97,7 +88,7 @@
 
   var $imageInProjectPage = $('#project-page');
 
-  if( $imageInProjectPage.length ) {
+  if ($imageInProjectPage.length) {
 
     $imageInProjectPage.find('p img').each(function() {
       $(this).closest('p').addClass('image-container clearfix');
@@ -109,11 +100,10 @@
     });
   }
 
+  var $contact = $('#contact');
+  var $menuItem = $('#menu-primary a[href$="#contact"]').parent();
 
-  var $contact = $('#contact'),
-      $menuItem = $('#menu-primary a[href$="#contact"]').parent();
-
-  if( $contact.length ) {
+  if ($contact.length) {
     $win.scroll(function() {
       if ($contact.offset().top < $win.scrollTop() + $win.height() && $contact.offset().top + $contact.height() > $win.scrollTop()) {
         $menuItem.addClass('forced-current-menu-item');
@@ -123,17 +113,16 @@
     });
   }
 
-
-  var $testimonial = $('#testimonial'),
-    $testimonials = $testimonial.find('.rotate'),
-    testimonialLength = $testimonials.length,
-    testimonialCounter = 0,
-    setTestimonialHeight = function($items) {
+  var $testimonial = $('#testimonial');
+  var $testimonials = $testimonial.find('.rotate');
+  var testimonialLength = $testimonials.length;
+  var testimonialCounter = 0;
+  var setTestimonialHeight = function($items) {
       var maxHeight = 0;
 
       $items.each(function() {
-        var $item = $(this),
-          visible = $item.is(':visible');
+        var $item = $(this);
+        var visible = $item.is(':visible');
 
         $items.addClass('hidden');
         $item.removeClass('hidden').show();
@@ -144,27 +133,27 @@
 
         $items.removeClass('hidden');
 
-        if( !visible ) {
+        if (!visible) {
           $item.hide();
         }
       });
 
       $testimonial.css('minHeight', maxHeight + 'px');
-    }, switchTestimonial = function() {
-      if (testimonialCounter >= testimonialLength) {
-          testimonialCounter = 0;
-      }
+    }
 
-      $testimonials.eq(testimonialCounter).fadeIn(1000).delay(5000).fadeOut(1000);
-      testimonialCounter ++;
+  var switchTestimonial = function() {
+    if (testimonialCounter >= testimonialLength) {
+        testimonialCounter = 0;
+    }
 
-      setTimeout(switchTestimonial, 7100);
-    };
+    $testimonials.eq(testimonialCounter).fadeIn(1000).delay(5000).fadeOut(1000);
+    testimonialCounter ++;
+
+    setTimeout(switchTestimonial, 7100);
+  };
 
 
-  if( testimonialLength ) {
-    var counter = 0;
-
+  if (testimonialLength) {
     $win.resize(function() {
       setTestimonialHeight($testimonials);
     });
