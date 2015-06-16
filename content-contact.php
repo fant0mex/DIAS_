@@ -1,4 +1,5 @@
-
+<?php
+/*
 <script type="text/javascript">
   function initialize() {
 
@@ -97,7 +98,8 @@
     </div>
   </div>
 </div>
-
+*/
+?>
 <div class="box-tertiary box-full-width dial">
   <div class="container">
     <div id="contact">
@@ -105,7 +107,7 @@
         <div class="address">
           <div>
             <h3>CHAT TO US</h3>
-            <h4>DIAS_<br />6-8 Bonhill Street<br />London<br />EC2A 4BX<br />United Kingdom<br /></h4>
+            <h4>DIAS_</h4>
             <p><a href="tel:+442079935746">+44(0)2079935746</a></p>
             <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
             <p><a href="https://twitter.com/DIASCreative" target="_blank">@DIASCreative</a></p>

@@ -89,8 +89,8 @@
   add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
-  function add_scripts() {
-    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDgEEGJBk9TLjtb-VAvAk4Y0riBWm9mvjY&sensor=false');
-    wp_enqueue_script('google-jsapi','https://www.google.com/jsapi');
-  }
-  add_action('wp_enqueue_scripts', 'add_scripts');
+  // function add_scripts() {
+  //   wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDgEEGJBk9TLjtb-VAvAk4Y0riBWm9mvjY&sensor=false');
+  //   wp_enqueue_script('google-jsapi','https://www.google.com/jsapi');
+  // }
+  // add_action('wp_enqueue_scripts', 'add_scripts');
