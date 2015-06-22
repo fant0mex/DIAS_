@@ -51,8 +51,6 @@
 
     cacheParallaxVars: function() {
       this.heroOffset = this.$hero.offset().top;
-      this.heroHeight = this.$hero.outerHeight();
-      this.heroWindowHeight = $(window).height();
       this.heroSpeed = -0.5;
     },
 
