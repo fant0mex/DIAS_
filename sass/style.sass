@@ -107,6 +107,16 @@ p:last-of-type
   font: bold 14px/18px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   min-height: 70px
   position: fixed
+  will-change: top
+
+  +respond-to(screen-xs)
+    top: 0 !important
+
+  +respond-to(not-xs)
+    top: 22px
+
+  .ios &
+    transition: top 1s
 
 #header .navbar-nav
   background: #fff
@@ -143,13 +153,6 @@ p:last-of-type
 #float-header
   background: #fff
 
-  +respond-to(screen-xs)
-    margin-top: 0 !important
-  +respond-to(not-xs)
-    margin-top: 22px
-  .ios &
-    +transition(margin 1s)
-
 #menu-primary
   padding: 0
 
@@ -183,20 +186,23 @@ h3
 @import "dias_videoFill"
 
 #hero
-  background: 50% 0 no-repeat fixed
-  background-size: cover
   height: 100%
   max-width: 100%
   overflow: hidden
   position: relative
   min-height: 300px
-  background-color: #FFF
-  +respond-to(screen-xs)
-    background-position: 50% 0px !important
+
   +respond-to(not-xs)
     margin: -70px 0 0
     min-height: 550px
 
+  #hero-img
+    background: 50% 0 no-repeat
+    background-size: cover
+    height: 100%
+    position: absolute
+    width: 100%
+    will-change: transform
 
   img
     height: auto
@@ -205,6 +211,7 @@ h3
     +respond-to(screen-xs)
       &.no-text
         display: none
+
   .video-container
     display: none
     +respond-to(not-xs)

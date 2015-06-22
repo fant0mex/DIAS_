@@ -17,10 +17,11 @@
     cacheItems: function() {
       this.$win = $(window);
       this.$doc = $(document);
-      this.$header = $('#float-header');
+      this.$header = $('#header');
       this.$hero = $('#hero');
+      this.$heroImage = $('#hero-img');
 
-      this.MAX_MARGIN = parseInt(this.$header.css('marginTop'), 10);
+      this.MAX_MARGIN = parseInt(this.$header.css('top'), 10);
     },
 
     bindEvents: function() {
@@ -41,16 +42,16 @@
     },
 
     headSticking: function() {
-      var newMargin = Math.max(this.MAX_MARGIN - this.scrollPos, this.MIN_MARGIN);
+      var newTop = Math.max(this.MAX_MARGIN - this.scrollPos, this.MIN_MARGIN);
 
-      this.$header.css('marginTop', newMargin + 'px');
+      this.$header.css('top', newTop + 'px');
     },
 
     cacheParallaxVars: function() {
       this.heroOffset = this.$hero.offset().top;
       this.heroHeight = this.$hero.outerHeight();
       this.heroWindowHeight = $(window).height();
-      this.heroSpeed = 0.5;
+      this.heroSpeed = -0.5;
     },
 
     heroParallax: function() {
@@ -58,7 +59,7 @@
         var yBgPosition = Math.round((this.heroOffset - this.scrollPos) * this.heroSpeed);
 
         // Apply the Y Background Position to Set the Parallax Effect
-        this.$hero.css('background-position', 'center ' + yBgPosition + 'px');
+        this.$heroImage.css('transform', 'translateY(' + yBgPosition + 'px)');
       }
   };
 
@@ -118,40 +119,39 @@
   var testimonialLength = $testimonials.length;
   var testimonialCounter = 0;
   var setTestimonialHeight = function($items) {
-      var maxHeight = 0;
+    var maxHeight = 0;
 
-      $items.each(function() {
-        var $item = $(this);
-        var visible = $item.is(':visible');
+    $items.each(function() {
+      var $item = $(this);
+      var visible = $item.is(':visible');
 
-        $items.addClass('hidden');
-        $item.removeClass('hidden').show();
+      $items.addClass('hidden');
+      $item.removeClass('hidden').show();
 
-        var itemHeight = $testimonial.outerHeight(true);
+      var itemHeight = $testimonial.outerHeight(true);
 
-        maxHeight = Math.max(itemHeight, maxHeight);
+      maxHeight = Math.max(itemHeight, maxHeight);
 
-        $items.removeClass('hidden');
+      $items.removeClass('hidden');
 
-        if (!visible) {
-          $item.hide();
-        }
-      });
+      if (!visible) {
+        $item.hide();
+      }
+    });
 
-      $testimonial.css('minHeight', maxHeight + 'px');
-    }
+    $testimonial.css('minHeight', maxHeight + 'px');
+  };
 
   var switchTestimonial = function() {
     if (testimonialCounter >= testimonialLength) {
-        testimonialCounter = 0;
+      testimonialCounter = 0;
     }
 
     $testimonials.eq(testimonialCounter).fadeIn(1000).delay(5000).fadeOut(1000);
-    testimonialCounter ++;
+    testimonialCounter++;
 
     setTimeout(switchTestimonial, 7100);
   };
-
 
   if (testimonialLength) {
     $win.resize(function() {

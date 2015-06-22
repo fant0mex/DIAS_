@@ -3,7 +3,8 @@
   $image = get_field('hero_image');
 
   if( $image ): ?>
-<div id="hero" style="background-image: url(<?= $image['url']; ?>)">
+<div id="hero">
+  <div id="hero-img" style="background-image: url(<?= $image['url']; ?>")></div>
 
   <?php if( get_field('video_loop') ): ?>
     <div class="video-container dias-video-filler">
