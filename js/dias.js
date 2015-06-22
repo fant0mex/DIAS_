@@ -18,10 +18,12 @@
       this.$win = $(window);
       this.$doc = $(document);
       this.$header = $('#header');
-      this.$hero = $('#hero');
-      this.$heroImage = $('#hero-img');
+      this.$hero = $('#hero-img');
 
-      this.MAX_MARGIN = parseInt(this.$header.css('top'), 10);
+      var matrix = this.$header.css('transform').replace(/[^0-9\-.,]/g, '').split(',');
+      var y = matrix[13] || matrix[5];
+
+      this.MAX_MARGIN = y;
     },
 
     bindEvents: function() {
@@ -44,7 +46,7 @@
     headSticking: function() {
       var newTop = Math.max(this.MAX_MARGIN - this.scrollPos, this.MIN_MARGIN);
 
-      this.$header.css('top', newTop + 'px');
+      this.$header.css('transform', 'translateY(' + newTop + 'px)');
     },
 
     cacheParallaxVars: function() {
@@ -59,7 +61,7 @@
         var yBgPosition = Math.round((this.heroOffset - this.scrollPos) * this.heroSpeed);
 
         // Apply the Y Background Position to Set the Parallax Effect
-        this.$heroImage.css('transform', 'translateY(' + yBgPosition + 'px)');
+        this.$hero.css('transform', 'translateY(' + yBgPosition + 'px)');
       }
   };
 

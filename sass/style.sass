@@ -107,16 +107,16 @@ p:last-of-type
   font: bold 14px/18px "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   min-height: 70px
   position: fixed
-  will-change: top
+  will-change: transform
 
   +respond-to(screen-xs)
-    top: 0 !important
+    transform: translateY(0) !important
 
   +respond-to(not-xs)
-    top: 22px
+    transform: translateY(22px)
 
   .ios &
-    transition: top 1s
+    transition: transform 1s
 
 #header .navbar-nav
   background: #fff
