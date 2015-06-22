@@ -51,12 +51,13 @@
 
     cacheParallaxVars: function() {
       this.heroOffset = this.$hero.offset().top;
+      this.MAXSCROLL = this.$hero.height();
       this.heroSpeed = -0.5;
     },
 
     heroParallax: function() {
         // Check if above or below viewport
-        var yBgPosition = Math.round((this.heroOffset - this.scrollPos) * this.heroSpeed);
+        var yBgPosition = Math.min(Math.max(Math.round((this.heroOffset - this.scrollPos) * this.heroSpeed), 0), this.MAXSCROLL);
 
         // Apply the Y Background Position to Set the Parallax Effect
         this.$hero.css('transform', 'translateY(' + yBgPosition + 'px)');
