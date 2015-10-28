@@ -5,11 +5,13 @@
   $random_posts = get_posts($args);
 ?>
 
-<div id="hero" style="background-image: url(<?php bloginfo('template_directory'); ?>/images/helmuts.jpg)">
-  <div class="container">
-    <div id="hero-caption">
-      <div class="box-secondary">
-        See what happens when we put our thinking caps on and start pedalling…
+<div id="hero">
+  <div id="hero-img" style="background-image: url(<?php bloginfo('template_directory'); ?>/images/helmuts.jpg)">
+    <div class="container">
+      <div id="hero-caption">
+        <div class="box-secondary">
+          See what happens when we put our thinking caps on and start pedalling…
+        </div>
       </div>
     </div>
   </div>
