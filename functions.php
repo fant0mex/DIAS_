@@ -82,6 +82,16 @@
       return $items;
   }
 
+  /**
+   * Lets add the main CSS to the wysiwyg editor :)
+   */
+  function add_editor_styles() {
+      $siteCSS = 'css/style.css';
+      add_editor_style( $siteCSS );
+  }
+
+  add_action( 'admin_init', 'add_editor_styles' );
+
   function cc_mime_types( $mimes ){
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
