@@ -15,7 +15,7 @@
 <div class="box-secondary box-full-width" id="case">
   <div class="container">
     <div class="method">
-      <?php echo get_the_content(); ?>
+      <?php the_content(); ?>
     </div>
     <div>
       <a class="show-me top" href="how-we-work">Find Out More About How We Work</a>
