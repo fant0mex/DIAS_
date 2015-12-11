@@ -108,7 +108,7 @@
           <div>
             <h3>CHAT TO US</h3>
             <h4>DIAS_</h4>
-            <p><a href="tel:+442079935746">+44(0)2079935746</a></p>
+            <p><a href="tel:+442032875828">+44(0)20 3287 5828</a></p>
             <p><a href="mailto:info@diascreative.com">info@diascreative.com</a></p>
             <p><a href="https://twitter.com/DIASCreative" target="_blank">@DIASCreative</a></p>
           </div>
